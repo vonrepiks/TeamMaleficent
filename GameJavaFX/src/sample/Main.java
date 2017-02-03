@@ -10,6 +10,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
+import java.util.LinkedList;
+import java.util.List;
+
 public class Main extends Application {
 
     @Override
@@ -132,38 +135,6 @@ public class Main extends Application {
 
         Scene scene = new Scene(root, 640, 480, Color.WHITESMOKE);
 
-        scene.setOnKeyPressed(event -> {
-            if (event.getCode() == KeyCode.RIGHT) {
-                if(root.getChildren().get(38).getLayoutX() < 585) {
-                    double x = root.getChildren().get(38).getLayoutX();
-                    double y = root.getChildren().get(38).getLayoutY();
-                    root.getChildren().set(38,imageViewPlayerRight);
-                    root.getChildren().get(38).setLayoutX(x + 3);
-                    root.getChildren().get(38).setLayoutY(y);
-                }
-            } else if (event.getCode() == KeyCode.LEFT) {
-                if(root.getChildren().get(38).getLayoutX() > 20) {
-                    double x = root.getChildren().get(38).getLayoutX();
-                    double y = root.getChildren().get(38).getLayoutY();
-                    root.getChildren().set(38,imageViewPlayerLeft);
-                    root.getChildren().get(38).setLayoutX(x - 3);
-                    root.getChildren().get(38).setLayoutY(y);
-                }
-            } else if (event.getCode() == KeyCode.DOWN) {
-                //root.getChildren().remove(imageViewPlayerRight);
-                //root.getChildren().add(imageViewPlayerRight);
-                if(root.getChildren().get(38).getLayoutY() < 400) {
-                    root.getChildren().get(38).setLayoutY(root.getChildren().get(38).getLayoutY() + 3);
-                }
-            } else if (event.getCode() == KeyCode.UP) {
-                //root.getChildren().remove(imageViewPlayerRight);
-                //root.getChildren().add(imageViewPlayerRight);
-                if(root.getChildren().get(38).getLayoutY() > 10) {
-                    root.getChildren().get(38).setLayoutY(root.getChildren().get(38).getLayoutY() - 3);
-                }
-            }
-        });
-
         Rectangle rUp = new Rectangle(2, 2, 100, 20);
         Rectangle rUp1 = new Rectangle(162, 2, 476, 20);
         Rectangle rDown = new Rectangle(2, 458, 636, 20);
@@ -190,6 +161,11 @@ public class Main extends Application {
         Rectangle threshold2 = new Rectangle(102, 272, 60, 20);
         Rectangle threshold3 = new Rectangle(502, 272, 60, 20);
         Rectangle threshold4 = new Rectangle(302, 180, 20, 20);
+
+        Rectangle[] obstacles = {
+                rUp , rUp1 ,rDown, rLeft, rRight, wall, wall2, wall3, wall4, wall5, wall6, wall7, wallHeight1,
+                wallHeight2, wallHeight3, wallHeight4, wallHeight5, wallHeight6, wallHeight7, wallHeight8
+        };
 
         rUp.setFill(Color.ROSYBROWN);
         root.getChildren().add(rUp);
@@ -281,8 +257,96 @@ public class Main extends Application {
         primaryStage.setTitle("Game of Maleficent");
         primaryStage.setScene(scene);
         primaryStage.show();
+
+        final boolean[] right = {true};
+        final boolean[] left = {true};
+        final boolean[] down = {true};
+        final boolean[] up = {true};
+        final boolean[] intersection = {false};
+
+        scene.setOnKeyPressed(event -> {
+            if (event.getCode() == KeyCode.RIGHT) {
+                intersection[0] = intersect(obstacles, root, KeyCode.RIGHT);
+                if(root.getChildren().get(38).getLayoutX() < 585 && right[0] && !intersection[0]) {
+                    left[0] = true;
+                    up[0] = true;
+                    down[0] = true;
+                    double x = root.getChildren().get(38).getLayoutX();
+                    double y = root.getChildren().get(38).getLayoutY();
+                    root.getChildren().set(38,imageViewPlayerRight);
+                    root.getChildren().get(38).setLayoutX(x + 3);
+                    root.getChildren().get(38).setLayoutY(y);
+                } else {
+                    root.getChildren().get(38).setLayoutX(root.getChildren().get(38).getLayoutX() - 0.5);
+                    intersection[0] = false;
+                    right[0] = false;
+                }
+            } else if (event.getCode() == KeyCode.LEFT) {
+                intersection[0] = intersect(obstacles, root, KeyCode.LEFT);
+                if(root.getChildren().get(38).getLayoutX() > 20 && left[0] && !intersection[0]) {
+                    right[0] = true;
+                    up[0] = true;
+                    down[0] = true;
+                    double x = root.getChildren().get(38).getLayoutX();
+                    double y = root.getChildren().get(38).getLayoutY();
+                    root.getChildren().set(38,imageViewPlayerLeft);
+                    root.getChildren().get(38).setLayoutX(x - 3);
+                    root.getChildren().get(38).setLayoutY(y);
+                } else {
+                    root.getChildren().get(38).setLayoutX(root.getChildren().get(38).getLayoutX() + 0.5);
+                    intersection[0] = false;
+                    left[0] = false;
+                }
+            } else if (event.getCode() == KeyCode.DOWN) {
+                intersection[0] = intersect(obstacles, root, KeyCode.DOWN);
+                if(root.getChildren().get(38).getLayoutY() < 400 && down[0] && !intersection[0]) {
+                    left[0] = true;
+                    up[0] = true;
+                    right[0] = true;
+                    root.getChildren().get(38).setLayoutY(root.getChildren().get(38).getLayoutY() + 3);
+                } else {
+                    root.getChildren().get(38).setLayoutY(root.getChildren().get(38).getLayoutY() - 0.5);
+                    intersection[0] = false;
+                    down[0] = false;
+                }
+            } else if (event.getCode() == KeyCode.UP) {
+                intersection[0] = intersect(obstacles, root, KeyCode.UP);
+                if(root.getChildren().get(38).getLayoutY() > 10  && up[0] && !intersection[0]) {
+                    left[0] = true;
+                    right[0] = true;
+                    down[0] = true;
+                    root.getChildren().get(38).setLayoutY(root.getChildren().get(38).getLayoutY() - 3);
+                } else {
+                    root.getChildren().get(38).setLayoutY(root.getChildren().get(38).getLayoutY() + 0.5);
+                    intersection[0] = false;
+                    up[0] = false;
+                }
+            }
+        });
     }
 
+    private boolean intersect(Rectangle[] obstacles, Group root, KeyCode key) {
+        for (Rectangle obstacle : obstacles) {
+            if((obstacle.getX() == 302 || obstacle.getX() == 22 || obstacle.getX() == 2) && (obstacle.getY() == 22 || obstacle.getY() == 122 ||
+                    obstacle.getY() == 252 || obstacle.getY() == 200 || obstacle.getY() == 232) && key.equals(KeyCode.LEFT)) {
+                if(obstacle.intersects(root.getChildren().get(38).getLayoutX(),
+                        root.getChildren().get(38).getLayoutY() + 50,2,8)) {
+                    return true;
+                }
+            }
+            if(obstacle.getX() == 402 && obstacle.getY() == 232 && key.equals(KeyCode.LEFT)) {
+                if(obstacle.intersects(root.getChildren().get(38).getLayoutX(),
+                        root.getChildren().get(38).getLayoutY() + 50,2,8)) {
+                    return true;
+                }
+            }
+            if(obstacle.intersects(root.getChildren().get(38).getLayoutX() + 25,
+                    root.getChildren().get(38).getLayoutY() + 50,2,8)) {
+                return true;
+            }
+        }
+        return false;
+    }
 
     public static void main(String[] args) {
         launch(args);
