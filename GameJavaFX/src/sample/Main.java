@@ -3,14 +3,11 @@ package sample;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
-
-import java.awt.*;
 
 public class Main extends Application {
 
@@ -18,17 +15,17 @@ public class Main extends Application {
     public void start(Stage primaryStage) {
 
         // Create Image and ImageView objects
-        Image parket = new Image("./img/parket.jpg");
-        ImageView imageViewParket = new ImageView();
-        imageViewParket.setImage(parket);
-        imageViewParket.setFitHeight(210);
-        imageViewParket.setFitWidth(280);
+        Image parquet = new Image("./img/parket.jpg");
+        ImageView imageViewParquet = new ImageView();
+        imageViewParquet.setImage(parquet);
+        imageViewParquet.setFitHeight(210);
+        imageViewParquet.setFitWidth(280);
 
-        Image plochki = new Image("./img/plochki.jpg");
-        ImageView imageViewPlochki = new ImageView();
-        imageViewPlochki.setImage(plochki);
-        imageViewPlochki.setFitHeight(170);
-        imageViewPlochki.setFitWidth(198);
+        Image tiles = new Image("./img/plochki.jpg");
+        ImageView imageViewTiles = new ImageView();
+        imageViewTiles.setImage(tiles);
+        imageViewTiles.setFitHeight(170);
+        imageViewTiles.setFitWidth(198);
 
         Image carpet = new Image("./img/carpet.jpg");
         ImageView imageViewCarpet = new ImageView();
@@ -36,11 +33,11 @@ public class Main extends Application {
         imageViewCarpet.setFitHeight(170);
         imageViewCarpet.setFitWidth(380);
 
-        Image moket = new Image("./img/moket1.jpg");
-        ImageView imageViewMoket = new ImageView();
-        imageViewMoket.setImage(moket);
-        imageViewMoket.setFitHeight(210);
-        imageViewMoket.setFitWidth(296);
+        Image carpet2 = new Image("./img/moket1.jpg");
+        ImageView imageViewCarpet2 = new ImageView();
+        imageViewCarpet2.setImage(carpet2);
+        imageViewCarpet2.setFitHeight(210);
+        imageViewCarpet2.setFitWidth(296);
 
         Image sofa = new Image("./img/sofa.png");
         ImageView imageViewSofa = new ImageView();
@@ -102,13 +99,19 @@ public class Main extends Application {
         imageViewSiphon.setFitHeight(25);
         imageViewSiphon.setFitWidth(25);
 
+        Image player = new Image("img/player01.png");
+        ImageView imageViewPlayer = new ImageView();
+        imageViewPlayer.setImage(player);
+        imageViewSiphon.setFitHeight(15);
+        imageViewSiphon.setFitWidth(20);
+
         // Display image on screen
         Group root = new Group();
-        root.getChildren().add(imageViewParket);
-        root.getChildren().add(imageViewMoket);
+        root.getChildren().add(imageViewParquet);
+        root.getChildren().add(imageViewCarpet2);
         root.getChildren().add(imageViewChair);
         root.getChildren().add(imageViewStudentTable);
-        root.getChildren().add(imageViewPlochki);
+        root.getChildren().add(imageViewTiles);
         root.getChildren().add(imageViewCarpet);
         root.getChildren().get(0).setLayoutX(22);
         root.getChildren().get(0).setLayoutY(62);
@@ -122,7 +125,6 @@ public class Main extends Application {
         root.getChildren().get(4).setLayoutY(292);
         root.getChildren().get(5).setLayoutX(22);
         root.getChildren().get(5).setLayoutY(292);
-
 
         Scene scene = new Scene(root, 640, 480, Color.WHITESMOKE);
 
@@ -235,6 +237,10 @@ public class Main extends Application {
         root.getChildren().add(imageViewSiphon);
         root.getChildren().get(37).setLayoutX(510);
         root.getChildren().get(37).setLayoutY(345);
+
+        root.getChildren().add(imageViewPlayer);
+        root.getChildren().get(38).setLayoutX(115);
+        root.getChildren().get(38).setLayoutY(5);
 
         primaryStage.setTitle("Game of Maleficent");
         primaryStage.setScene(scene);
