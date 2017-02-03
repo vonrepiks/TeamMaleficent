@@ -3,6 +3,7 @@ package sample;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -15,13 +16,13 @@ public class Main extends Application {
     public void start(Stage primaryStage) {
 
         // Create Image and ImageView objects
-        Image parquet = new Image("./img/parket.jpg");
+        Image parquet = new Image("img/parquete.jpg");
         ImageView imageViewParquet = new ImageView();
         imageViewParquet.setImage(parquet);
         imageViewParquet.setFitHeight(210);
         imageViewParquet.setFitWidth(280);
 
-        Image tiles = new Image("./img/plochki.jpg");
+        Image tiles = new Image("img/tiles.jpg");
         ImageView imageViewTiles = new ImageView();
         imageViewTiles.setImage(tiles);
         imageViewTiles.setFitHeight(170);
@@ -33,7 +34,7 @@ public class Main extends Application {
         imageViewCarpet.setFitHeight(170);
         imageViewCarpet.setFitWidth(380);
 
-        Image carpet2 = new Image("./img/moket1.jpg");
+        Image carpet2 = new Image("img/carpet03.jpg");
         ImageView imageViewCarpet2 = new ImageView();
         imageViewCarpet2.setImage(carpet2);
         imageViewCarpet2.setFitHeight(210);
@@ -99,11 +100,14 @@ public class Main extends Application {
         imageViewSiphon.setFitHeight(25);
         imageViewSiphon.setFitWidth(25);
 
-        Image player = new Image("img/player01.png");
-        ImageView imageViewPlayer = new ImageView();
-        imageViewPlayer.setImage(player);
-        imageViewSiphon.setFitHeight(15);
-        imageViewSiphon.setFitWidth(20);
+        Image playerRight = new Image("img/rightPlayer01.png");
+        ImageView imageViewPlayerRight = new ImageView();
+        imageViewPlayerRight.setImage(playerRight);
+
+        Image playerLeft = new Image("img/leftPlayer01.png");
+        ImageView imageViewPlayerLeft = new ImageView();
+        imageViewPlayerLeft.setImage(playerLeft);
+
 
         // Display image on screen
         Group root = new Group();
@@ -127,6 +131,38 @@ public class Main extends Application {
         root.getChildren().get(5).setLayoutY(292);
 
         Scene scene = new Scene(root, 640, 480, Color.WHITESMOKE);
+
+        scene.setOnKeyPressed(event -> {
+            if (event.getCode() == KeyCode.RIGHT) {
+                if(root.getChildren().get(38).getLayoutX() < 585) {
+                    double x = root.getChildren().get(38).getLayoutX();
+                    double y = root.getChildren().get(38).getLayoutY();
+                    root.getChildren().set(38,imageViewPlayerRight);
+                    root.getChildren().get(38).setLayoutX(x + 3);
+                    root.getChildren().get(38).setLayoutY(y);
+                }
+            } else if (event.getCode() == KeyCode.LEFT) {
+                if(root.getChildren().get(38).getLayoutX() > 20) {
+                    double x = root.getChildren().get(38).getLayoutX();
+                    double y = root.getChildren().get(38).getLayoutY();
+                    root.getChildren().set(38,imageViewPlayerLeft);
+                    root.getChildren().get(38).setLayoutX(x - 3);
+                    root.getChildren().get(38).setLayoutY(y);
+                }
+            } else if (event.getCode() == KeyCode.DOWN) {
+                //root.getChildren().remove(imageViewPlayerRight);
+                //root.getChildren().add(imageViewPlayerRight);
+                if(root.getChildren().get(38).getLayoutY() < 400) {
+                    root.getChildren().get(38).setLayoutY(root.getChildren().get(38).getLayoutY() + 3);
+                }
+            } else if (event.getCode() == KeyCode.UP) {
+                //root.getChildren().remove(imageViewPlayerRight);
+                //root.getChildren().add(imageViewPlayerRight);
+                if(root.getChildren().get(38).getLayoutY() > 10) {
+                    root.getChildren().get(38).setLayoutY(root.getChildren().get(38).getLayoutY() - 3);
+                }
+            }
+        });
 
         Rectangle rUp = new Rectangle(2, 2, 100, 20);
         Rectangle rUp1 = new Rectangle(162, 2, 476, 20);
@@ -238,7 +274,7 @@ public class Main extends Application {
         root.getChildren().get(37).setLayoutX(510);
         root.getChildren().get(37).setLayoutY(345);
 
-        root.getChildren().add(imageViewPlayer);
+        root.getChildren().add(imageViewPlayerRight);
         root.getChildren().get(38).setLayoutX(115);
         root.getChildren().get(38).setLayoutY(5);
 
