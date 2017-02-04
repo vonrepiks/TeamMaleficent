@@ -10,8 +10,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
-import java.util.LinkedList;
-import java.util.List;
+import java.util.ArrayDeque;
 
 public class Main extends Application {
 
@@ -103,24 +102,49 @@ public class Main extends Application {
         imageViewSiphon.setFitHeight(25);
         imageViewSiphon.setFitWidth(25);
 
-        Image playerRight = new Image("img/rightPlayer01.png");
+        Image playerRight0 = new Image("img/playerRight0.png");
+        Image playerRight1 = new Image("img/playerRight1.png");
+        Image playerRight2 = new Image("img/playerRight2.png");
+        ArrayDeque<Image> playerRightImages = new ArrayDeque<>();
+        playerRightImages.addLast(playerRight0);
+        playerRightImages.addLast(playerRight1);
+        playerRightImages.addLast(playerRight2);
         ImageView imageViewPlayerRight = new ImageView();
-        imageViewPlayerRight.setImage(playerRight);
+        imageViewPlayerRight.setImage(playerRight0);
+        imageViewPlayerRight.setFitHeight(80);
 
-        Image playerLeft = new Image("img/leftPlayer01.png");
+        Image playerLeft0 = new Image("img/playerLeft0.png");
+        Image playerLeft1 = new Image("img/playerLeft1.png");
+        Image playerLeft2 = new Image("img/playerLeft2.png");
+        ArrayDeque<Image> playerLeftImages = new ArrayDeque<>();
+        playerLeftImages.addLast(playerLeft0);
+        playerLeftImages.addLast(playerLeft1);
+        playerLeftImages.addLast(playerLeft2);
         ImageView imageViewPlayerLeft = new ImageView();
-        imageViewPlayerLeft.setImage(playerLeft);
+        imageViewPlayerLeft.setImage(playerLeft0);
+        imageViewPlayerLeft.setFitHeight(80);
 
-        Image playerDown = new Image("img/downPlayer01.png");
+        Image playerDown0 = new Image("img/playerFront0.png");
+        Image playerDown1 = new Image("img/playerFront1.png");
+        Image playerDown2 = new Image("img/playerFront2.png");
+        ArrayDeque<Image> playerDownImages = new ArrayDeque<>();
+        playerDownImages.addLast(playerDown0);
+        playerDownImages.addLast(playerDown1);
+        playerDownImages.addLast(playerDown2);
         ImageView imageViewPlayerDown = new ImageView();
-        imageViewPlayerDown.setImage(playerDown);
+        imageViewPlayerDown.setImage(playerDown0);
+        imageViewPlayerDown.setFitHeight(80);
 
-
-        Image playerUp = new Image("img/upPlayer01.png");
+        Image playerUp0 = new Image("img/playerBack0.png");
+        Image playerUp1 = new Image("img/playerBack1.png");
+        Image playerUp2 = new Image("img/playerBack2.png");
+        ArrayDeque<Image> playerUpImages = new ArrayDeque<>();
+        playerUpImages.addLast(playerUp0);
+        playerUpImages.addLast(playerUp1);
+        playerUpImages.addLast(playerUp2);
         ImageView imageViewPlayerUp = new ImageView();
-        imageViewPlayerUp.setImage(playerUp);
-
-
+        imageViewPlayerUp.setImage(playerUp0);
+        imageViewPlayerUp.setFitHeight(80);
 
         // Display image on screen
         Group root = new Group();
@@ -273,10 +297,17 @@ public class Main extends Application {
         final boolean[] down = {true};
         final boolean[] up = {true};
         final boolean[] intersection = {false};
+        final int[] counter = {0};
 
         scene.setOnKeyPressed(event -> {
             if (event.getCode() == KeyCode.RIGHT) {
+                if(counter[0] % 6 == 0) {
+                    Image tempImage = playerRightImages.pop();
+                    playerRightImages.addLast(tempImage);
+                    imageViewPlayerRight.setImage(tempImage);
+                }
                 intersection[0] = intersect(obstacles, root, KeyCode.RIGHT);
+                counter[0]++;
                 if(root.getChildren().get(38).getLayoutX() < 585 && right[0] && !intersection[0]) {
                     left[0] = true;
                     up[0] = true;
@@ -284,7 +315,7 @@ public class Main extends Application {
                     double x = root.getChildren().get(38).getLayoutX();
                     double y = root.getChildren().get(38).getLayoutY();
                     root.getChildren().set(38,imageViewPlayerRight);
-                    root.getChildren().get(38).setLayoutX(x + 3);
+                    root.getChildren().get(38).setLayoutX(x + 2);
                     root.getChildren().get(38).setLayoutY(y);
                 } else {
                     root.getChildren().get(38).setLayoutX(root.getChildren().get(38).getLayoutX() - 0.5);
@@ -292,7 +323,13 @@ public class Main extends Application {
                     right[0] = false;
                 }
             } else if (event.getCode() == KeyCode.LEFT) {
+                if(counter[0] % 6 == 0) {
+                    Image tempImage = playerLeftImages.pop();
+                    playerLeftImages.addLast(tempImage);
+                    imageViewPlayerLeft.setImage(tempImage);
+                }
                 intersection[0] = intersect(obstacles, root, KeyCode.LEFT);
+                counter[0]++;
                 if(root.getChildren().get(38).getLayoutX() > 20 && left[0] && !intersection[0]) {
                     right[0] = true;
                     up[0] = true;
@@ -300,7 +337,7 @@ public class Main extends Application {
                     double x = root.getChildren().get(38).getLayoutX();
                     double y = root.getChildren().get(38).getLayoutY();
                     root.getChildren().set(38,imageViewPlayerLeft);
-                    root.getChildren().get(38).setLayoutX(x - 3);
+                    root.getChildren().get(38).setLayoutX(x - 2);
                     root.getChildren().get(38).setLayoutY(y);
                 } else {
                     root.getChildren().get(38).setLayoutX(root.getChildren().get(38).getLayoutX() + 0.5);
@@ -308,7 +345,13 @@ public class Main extends Application {
                     left[0] = false;
                 }
             } else if (event.getCode() == KeyCode.DOWN) {
+                if(counter[0] % 6 == 0) {
+                    Image tempImage = playerDownImages.pop();
+                    playerDownImages.addLast(tempImage);
+                    imageViewPlayerDown.setImage(tempImage);
+                }
                 intersection[0] = intersect(obstacles, root, KeyCode.DOWN);
+                counter[0]++;
                 if(root.getChildren().get(38).getLayoutY() < 400 && down[0] && !intersection[0]) {
                     left[0] = true;
                     up[0] = true;
@@ -316,16 +359,21 @@ public class Main extends Application {
                     double x = root.getChildren().get(38).getLayoutX();
                     double y = root.getChildren().get(38).getLayoutY();
                     root.getChildren().set(38,imageViewPlayerDown);
-                    root.getChildren().get(38).setLayoutY(y + 3);
+                    root.getChildren().get(38).setLayoutY(y + 2);
                     root.getChildren().get(38).setLayoutX(x);
-
                 } else {
                     root.getChildren().get(38).setLayoutY(root.getChildren().get(38).getLayoutY() - 0.5);
                     intersection[0] = false;
                     down[0] = false;
                 }
             } else if (event.getCode() == KeyCode.UP) {
+                if(counter[0] % 6 == 0) {
+                    Image tempImage = playerUpImages.pop();
+                    playerUpImages.addLast(tempImage);
+                    imageViewPlayerUp.setImage(tempImage);
+                }
                 intersection[0] = intersect(obstacles, root, KeyCode.UP);
+                counter[0]++;
                 if(root.getChildren().get(38).getLayoutY() > 10  && up[0] && !intersection[0]) {
                     left[0] = true;
                     right[0] = true;
@@ -333,7 +381,7 @@ public class Main extends Application {
                     double x = root.getChildren().get(38).getLayoutX();
                     double y = root.getChildren().get(38).getLayoutY();
                     root.getChildren().set(38,imageViewPlayerUp);
-                    root.getChildren().get(38).setLayoutY(y - 3);
+                    root.getChildren().get(38).setLayoutY(y - 2);
                     root.getChildren().get(38).setLayoutX(x);
                 } else {
                     root.getChildren().get(38).setLayoutY(root.getChildren().get(38).getLayoutY() + 0.5);
