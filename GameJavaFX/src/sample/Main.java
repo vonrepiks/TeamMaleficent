@@ -111,6 +111,16 @@ public class Main extends Application {
         ImageView imageViewPlayerLeft = new ImageView();
         imageViewPlayerLeft.setImage(playerLeft);
 
+        Image playerDown = new Image("img/downPlayer01.png");
+        ImageView imageViewPlayerDown = new ImageView();
+        imageViewPlayerDown.setImage(playerDown);
+
+
+        Image playerUp = new Image("img/upPlayer01.png");
+        ImageView imageViewPlayerUp = new ImageView();
+        imageViewPlayerUp.setImage(playerUp);
+
+
 
         // Display image on screen
         Group root = new Group();
@@ -250,7 +260,7 @@ public class Main extends Application {
         root.getChildren().get(37).setLayoutX(510);
         root.getChildren().get(37).setLayoutY(345);
 
-        root.getChildren().add(imageViewPlayerRight);
+        root.getChildren().add(imageViewPlayerDown);
         root.getChildren().get(38).setLayoutX(115);
         root.getChildren().get(38).setLayoutY(5);
 
@@ -303,7 +313,12 @@ public class Main extends Application {
                     left[0] = true;
                     up[0] = true;
                     right[0] = true;
-                    root.getChildren().get(38).setLayoutY(root.getChildren().get(38).getLayoutY() + 3);
+                    double x = root.getChildren().get(38).getLayoutX();
+                    double y = root.getChildren().get(38).getLayoutY();
+                    root.getChildren().set(38,imageViewPlayerDown);
+                    root.getChildren().get(38).setLayoutY(y + 3);
+                    root.getChildren().get(38).setLayoutX(x);
+
                 } else {
                     root.getChildren().get(38).setLayoutY(root.getChildren().get(38).getLayoutY() - 0.5);
                     intersection[0] = false;
@@ -315,7 +330,11 @@ public class Main extends Application {
                     left[0] = true;
                     right[0] = true;
                     down[0] = true;
-                    root.getChildren().get(38).setLayoutY(root.getChildren().get(38).getLayoutY() - 3);
+                    double x = root.getChildren().get(38).getLayoutX();
+                    double y = root.getChildren().get(38).getLayoutY();
+                    root.getChildren().set(38,imageViewPlayerUp);
+                    root.getChildren().get(38).setLayoutY(y - 3);
+                    root.getChildren().get(38).setLayoutX(x);
                 } else {
                     root.getChildren().get(38).setLayoutY(root.getChildren().get(38).getLayoutY() + 0.5);
                     intersection[0] = false;
