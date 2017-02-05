@@ -112,6 +112,7 @@ public class Main extends Application {
         ImageView imageViewPlayerRight = new ImageView();
         imageViewPlayerRight.setImage(playerRight0);
         imageViewPlayerRight.setFitHeight(80);
+        imageViewPlayerRight.setFitWidth(30);
 
         Image playerLeft0 = new Image("img/playerLeft0.png");
         Image playerLeft1 = new Image("img/playerLeft1.png");
@@ -123,6 +124,7 @@ public class Main extends Application {
         ImageView imageViewPlayerLeft = new ImageView();
         imageViewPlayerLeft.setImage(playerLeft0);
         imageViewPlayerLeft.setFitHeight(80);
+        imageViewPlayerLeft.setFitWidth(30);
 
         Image playerDown0 = new Image("img/playerFront0.png");
         Image playerDown1 = new Image("img/playerFront1.png");
@@ -134,6 +136,7 @@ public class Main extends Application {
         ImageView imageViewPlayerDown = new ImageView();
         imageViewPlayerDown.setImage(playerDown0);
         imageViewPlayerDown.setFitHeight(80);
+        imageViewPlayerDown.setFitWidth(30);
 
         Image playerUp0 = new Image("img/playerBack0.png");
         Image playerUp1 = new Image("img/playerBack1.png");
@@ -145,25 +148,31 @@ public class Main extends Application {
         ImageView imageViewPlayerUp = new ImageView();
         imageViewPlayerUp.setImage(playerUp0);
         imageViewPlayerUp.setFitHeight(80);
+        imageViewPlayerUp.setFitWidth(30);
 
         // Display image on screen
         Group root = new Group();
         root.getChildren().add(imageViewParquet);
-        root.getChildren().add(imageViewCarpet2);
-        root.getChildren().add(imageViewChair);
-        root.getChildren().add(imageViewStudentTable);
-        root.getChildren().add(imageViewTiles);
-        root.getChildren().add(imageViewCarpet);
         root.getChildren().get(0).setLayoutX(22);
         root.getChildren().get(0).setLayoutY(62);
+
+        root.getChildren().add(imageViewCarpet2);
         root.getChildren().get(1).setLayoutX(322);
         root.getChildren().get(1).setLayoutY(62);
+
+        root.getChildren().add(imageViewChair);
         root.getChildren().get(2).setLayoutX(382);
         root.getChildren().get(2).setLayoutY(172);
+
+        root.getChildren().add(imageViewStudentTable);
         root.getChildren().get(3).setLayoutX(330);
         root.getChildren().get(3).setLayoutY(160);
+
+        root.getChildren().add(imageViewTiles);
         root.getChildren().get(4).setLayoutX(422);
         root.getChildren().get(4).setLayoutY(292);
+
+        root.getChildren().add(imageViewCarpet);
         root.getChildren().get(5).setLayoutX(22);
         root.getChildren().get(5).setLayoutY(292);
 
@@ -292,10 +301,6 @@ public class Main extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
 
-        final boolean[] right = {true};
-        final boolean[] left = {true};
-        final boolean[] down = {true};
-        final boolean[] up = {true};
         final boolean[] intersection = {false};
         final int[] counter = {0};
 
@@ -308,19 +313,15 @@ public class Main extends Application {
                 }
                 intersection[0] = intersect(obstacles, root, KeyCode.RIGHT);
                 counter[0]++;
-                if(root.getChildren().get(38).getLayoutX() < 585 && right[0] && !intersection[0]) {
-                    left[0] = true;
-                    up[0] = true;
-                    down[0] = true;
+                if(root.getChildren().get(38).getLayoutX() < 585 && !intersection[0]) {
                     double x = root.getChildren().get(38).getLayoutX();
                     double y = root.getChildren().get(38).getLayoutY();
                     root.getChildren().set(38,imageViewPlayerRight);
-                    root.getChildren().get(38).setLayoutX(x + 2);
+                    root.getChildren().get(38).setLayoutX(x + 2.5);
                     root.getChildren().get(38).setLayoutY(y);
                 } else {
                     root.getChildren().get(38).setLayoutX(root.getChildren().get(38).getLayoutX() - 0.5);
                     intersection[0] = false;
-                    right[0] = false;
                 }
             } else if (event.getCode() == KeyCode.LEFT) {
                 if(counter[0] % 6 == 0) {
@@ -330,19 +331,15 @@ public class Main extends Application {
                 }
                 intersection[0] = intersect(obstacles, root, KeyCode.LEFT);
                 counter[0]++;
-                if(root.getChildren().get(38).getLayoutX() > 20 && left[0] && !intersection[0]) {
-                    right[0] = true;
-                    up[0] = true;
-                    down[0] = true;
+                if(root.getChildren().get(38).getLayoutX() > 20  && !intersection[0]) {
                     double x = root.getChildren().get(38).getLayoutX();
                     double y = root.getChildren().get(38).getLayoutY();
                     root.getChildren().set(38,imageViewPlayerLeft);
-                    root.getChildren().get(38).setLayoutX(x - 2);
+                    root.getChildren().get(38).setLayoutX(x - 2.5);
                     root.getChildren().get(38).setLayoutY(y);
                 } else {
                     root.getChildren().get(38).setLayoutX(root.getChildren().get(38).getLayoutX() + 0.5);
                     intersection[0] = false;
-                    left[0] = false;
                 }
             } else if (event.getCode() == KeyCode.DOWN) {
                 if(counter[0] % 6 == 0) {
@@ -352,19 +349,15 @@ public class Main extends Application {
                 }
                 intersection[0] = intersect(obstacles, root, KeyCode.DOWN);
                 counter[0]++;
-                if(root.getChildren().get(38).getLayoutY() < 400 && down[0] && !intersection[0]) {
-                    left[0] = true;
-                    up[0] = true;
-                    right[0] = true;
+                if(root.getChildren().get(38).getLayoutY() < 400 && !intersection[0]) {
                     double x = root.getChildren().get(38).getLayoutX();
                     double y = root.getChildren().get(38).getLayoutY();
                     root.getChildren().set(38,imageViewPlayerDown);
-                    root.getChildren().get(38).setLayoutY(y + 2);
+                    root.getChildren().get(38).setLayoutY(y + 2.5);
                     root.getChildren().get(38).setLayoutX(x);
                 } else {
                     root.getChildren().get(38).setLayoutY(root.getChildren().get(38).getLayoutY() - 0.5);
                     intersection[0] = false;
-                    down[0] = false;
                 }
             } else if (event.getCode() == KeyCode.UP) {
                 if(counter[0] % 6 == 0) {
@@ -374,19 +367,15 @@ public class Main extends Application {
                 }
                 intersection[0] = intersect(obstacles, root, KeyCode.UP);
                 counter[0]++;
-                if(root.getChildren().get(38).getLayoutY() > 10  && up[0] && !intersection[0]) {
-                    left[0] = true;
-                    right[0] = true;
-                    down[0] = true;
+                if(root.getChildren().get(38).getLayoutY() > 10 && !intersection[0]) {
                     double x = root.getChildren().get(38).getLayoutX();
                     double y = root.getChildren().get(38).getLayoutY();
                     root.getChildren().set(38,imageViewPlayerUp);
-                    root.getChildren().get(38).setLayoutY(y - 2);
+                    root.getChildren().get(38).setLayoutY(y - 2.5);
                     root.getChildren().get(38).setLayoutX(x);
                 } else {
                     root.getChildren().get(38).setLayoutY(root.getChildren().get(38).getLayoutY() + 0.5);
                     intersection[0] = false;
-                    up[0] = false;
                 }
             }
         });
@@ -394,7 +383,7 @@ public class Main extends Application {
 
     private boolean intersect(Rectangle[] obstacles, Group root, KeyCode key) {
         for (Rectangle obstacle : obstacles) {
-            if((obstacle.getX() == 302 || obstacle.getX() == 22 || obstacle.getX() == 2) && (obstacle.getY() == 22 || obstacle.getY() == 122 ||
+            if((obstacle.getX() == 302 || obstacle.getX() == 22 || obstacle.getX() == 2) && (obstacle.getY() == 22 ||
                     obstacle.getY() == 252 || obstacle.getY() == 200 || obstacle.getY() == 232) && key.equals(KeyCode.LEFT)) {
                 if(obstacle.intersects(root.getChildren().get(38).getLayoutX(),
                         root.getChildren().get(38).getLayoutY() + 50,2,8)) {
@@ -405,6 +394,19 @@ public class Main extends Application {
                 if(obstacle.intersects(root.getChildren().get(38).getLayoutX(),
                         root.getChildren().get(38).getLayoutY() + 50,2,8)) {
                     return true;
+                }
+            }
+            if((obstacle.getX() == 302 || obstacle.getX() == 402)  && (obstacle.getY() == 22 ||
+                    obstacle.getY() == 232) && key.equals(KeyCode.RIGHT)) {
+                if(obstacle.intersects(root.getChildren().get(38).getLayoutX() + 30,
+                        root.getChildren().get(38).getLayoutY() ,2,8)) {
+                    return true;
+                }
+            }
+            if(obstacle.getX() == 302  && obstacle.getY() == 122 && key.equals(KeyCode.RIGHT)) {
+                if(obstacle.intersects(root.getChildren().get(38).getLayoutX() + 30,
+                        root.getChildren().get(38).getLayoutY() ,2,8)) {
+                    return false;
                 }
             }
             if(obstacle.intersects(root.getChildren().get(38).getLayoutX() + 25,
