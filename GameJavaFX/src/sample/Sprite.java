@@ -67,5 +67,20 @@ public class Sprite {
         return " Position: [" + positionX + "," + positionY + "]"
                 + " Velocity: [" + velocityX + "," + velocityY + "]";
     }
+    public Rectangle2D bottomBoundary(){
+        return new Rectangle2D(positionX+2, positionY+height,width-4,0);
+    }
+
+    public Rectangle2D upperBoundary(){
+        return new Rectangle2D(positionX+2,positionY+height-20,width-4,0);
+    }
+
+    public Rectangle2D leftBoundary(){
+        return new Rectangle2D(positionX,positionY+height-18,0,14);
+    }
+
+    public Rectangle2D rightBoundary(){
+        return new Rectangle2D(positionX+width,positionY+height-18,0,14);
+    }
 
 }
