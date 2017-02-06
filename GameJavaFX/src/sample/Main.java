@@ -9,7 +9,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
-
 import java.util.ArrayDeque;
 
 public class Main extends Application {
@@ -22,7 +21,7 @@ public class Main extends Application {
         ImageView imageViewParquet = new ImageView();
         imageViewParquet.setImage(parquet);
         imageViewParquet.setFitHeight(210);
-        imageViewParquet.setFitWidth(280);
+        imageViewParquet.setFitWidth(290);
 
         Image tiles = new Image("img/tiles.jpg");
         ImageView imageViewTiles = new ImageView();
@@ -40,7 +39,7 @@ public class Main extends Application {
         ImageView imageViewCarpet2 = new ImageView();
         imageViewCarpet2.setImage(carpet2);
         imageViewCarpet2.setFitHeight(210);
-        imageViewCarpet2.setFitWidth(296);
+        imageViewCarpet2.setFitWidth(306);
 
         Image sofa = new Image("./img/sofa.png");
         ImageView imageViewSofa = new ImageView();
@@ -157,7 +156,7 @@ public class Main extends Application {
         root.getChildren().get(0).setLayoutY(62);
 
         root.getChildren().add(imageViewCarpet2);
-        root.getChildren().get(1).setLayoutX(322);
+        root.getChildren().get(1).setLayoutX(312);
         root.getChildren().get(1).setLayoutY(62);
 
         root.getChildren().add(imageViewChair);
@@ -183,31 +182,27 @@ public class Main extends Application {
         Rectangle rDown = new Rectangle(2, 458, 636, 20);
         Rectangle rLeft = new Rectangle(2, 22, 20, 436);
         Rectangle rRight = new Rectangle(618, 22, 20, 436);
-        Rectangle wall = new Rectangle(302, 22, 20, 100);
         Rectangle wall2 = new Rectangle(2, 232, 100, 20);
         Rectangle wall3 = new Rectangle(162, 232, 100, 20);
         Rectangle wall4 = new Rectangle(262, 232, 240, 20);
         Rectangle wall5 = new Rectangle(562, 232, 56, 20);
         Rectangle wall6 = new Rectangle(402, 232, 20, 226);
-        Rectangle wall7 = new Rectangle(302, 200, 20, 52);
 
         Rectangle wallHeight1 = new Rectangle(22, 22, 80, 40);
-        Rectangle wallHeight2 = new Rectangle(162, 22, 140, 40);
+        Rectangle wallHeight2 = new Rectangle(162, 22, 160, 40);
         Rectangle wallHeight3 = new Rectangle(322, 22, 296, 40);
         Rectangle wallHeight4 = new Rectangle(22, 252, 80, 40);
         Rectangle wallHeight5 = new Rectangle(162, 252, 240, 40);
         Rectangle wallHeight6 = new Rectangle(422, 252, 80, 40);
         Rectangle wallHeight7 = new Rectangle(562, 252, 56, 40);
-        Rectangle wallHeight8 = new Rectangle(302, 122, 20, 60);
 
         Rectangle threshold1 = new Rectangle(102, 42, 60, 20);
         Rectangle threshold2 = new Rectangle(102, 272, 60, 20);
         Rectangle threshold3 = new Rectangle(502, 272, 60, 20);
-        Rectangle threshold4 = new Rectangle(302, 180, 20, 20);
 
         Rectangle[] obstacles = {
-                rUp , rUp1 ,rDown, rLeft, rRight, wall, wall2, wall3, wall4, wall5, wall6, wall7, wallHeight1,
-                wallHeight2, wallHeight3, wallHeight4, wallHeight5, wallHeight6, wallHeight7, wallHeight8
+                rUp , rUp1 ,rDown, rLeft, rRight, wall2, wall3, wall4, wall5, wall6, wallHeight1,
+                wallHeight2, wallHeight3, wallHeight4, wallHeight5, wallHeight6, wallHeight7
         };
 
         rUp.setFill(Color.ROSYBROWN);
@@ -220,8 +215,6 @@ public class Main extends Application {
         root.getChildren().add(rLeft);
         rRight.setFill(Color.ROSYBROWN);
         root.getChildren().add(rRight);
-        wall.setFill(Color.ROSYBROWN);
-        root.getChildren().add(wall);
         wall4.setFill(Color.ROSYBROWN);
         root.getChildren().add(wall4);
         wall2.setFill(Color.ROSYBROWN);
@@ -232,8 +225,6 @@ public class Main extends Application {
         root.getChildren().add(wall5);
         wall6.setFill(Color.ROSYBROWN);
         root.getChildren().add(wall6);
-        wall7.setFill(Color.ROSYBROWN);
-        root.getChildren().add(wall7);
 
         wallHeight1.setFill(Color.WHITE);
         root.getChildren().add(wallHeight1);
@@ -249,8 +240,6 @@ public class Main extends Application {
         root.getChildren().add(wallHeight6);
         wallHeight7.setFill(Color.WHITE);
         root.getChildren().add(wallHeight7);
-        wallHeight8.setFill(Color.WHITE);
-        root.getChildren().add(wallHeight8);
 
         threshold1.setFill(Color.DARKSALMON);
         root.getChildren().add(threshold1);
@@ -258,44 +247,42 @@ public class Main extends Application {
         root.getChildren().add(threshold2);
         threshold3.setFill(Color.DARKSALMON);
         root.getChildren().add(threshold3);
-        threshold4.setFill(Color.DARKSALMON);
-        root.getChildren().add(threshold4);
 
         root.getChildren().add(imageViewSofa);
-        root.getChildren().get(30).setLayoutX(280);
-        root.getChildren().get(30).setLayoutY(242);
+        root.getChildren().get(26).setLayoutX(280);
+        root.getChildren().get(26).setLayoutY(242);
 
         root.getChildren().add(imageViewToilet);
-        root.getChildren().get(31).setLayoutX(430);
-        root.getChildren().get(31).setLayoutY(262);
+        root.getChildren().get(27).setLayoutX(430);
+        root.getChildren().get(27).setLayoutY(262);
 
         root.getChildren().add(imageViewBed);
-        root.getChildren().get(32).setLayoutX(500);
-        root.getChildren().get(32).setLayoutY(25);
+        root.getChildren().get(28).setLayoutX(500);
+        root.getChildren().get(28).setLayoutY(25);
 
         root.getChildren().add(imageViewPainting);
-        root.getChildren().get(33).setLayoutX(410);
-        root.getChildren().get(33).setLayoutY(24);
+        root.getChildren().get(29).setLayoutX(410);
+        root.getChildren().get(29).setLayoutY(24);
 
         root.getChildren().add(imageViewWardrobe);
-        root.getChildren().get(34).setLayoutX(330);
-        root.getChildren().get(34).setLayoutY(26);
+        root.getChildren().get(30).setLayoutX(330);
+        root.getChildren().get(30).setLayoutY(26);
 
         root.getChildren().add(imageViewSink);
-        root.getChildren().get(35).setLayoutX(558);
-        root.getChildren().get(35).setLayoutY(252);
+        root.getChildren().get(31).setLayoutX(558);
+        root.getChildren().get(31).setLayoutY(252);
 
         root.getChildren().add(imageViewBathtub);
-        root.getChildren().get(36).setLayoutX(450);
-        root.getChildren().get(36).setLayoutY(400);
+        root.getChildren().get(32).setLayoutX(450);
+        root.getChildren().get(32).setLayoutY(400);
 
         root.getChildren().add(imageViewSiphon);
-        root.getChildren().get(37).setLayoutX(510);
-        root.getChildren().get(37).setLayoutY(345);
+        root.getChildren().get(33).setLayoutX(510);
+        root.getChildren().get(33).setLayoutY(345);
 
         root.getChildren().add(imageViewPlayerDown);
-        root.getChildren().get(38).setLayoutX(115);
-        root.getChildren().get(38).setLayoutY(5);
+        root.getChildren().get(34).setLayoutX(115);
+        root.getChildren().get(34).setLayoutY(5);
 
         primaryStage.setTitle("Game of Maleficent");
         primaryStage.setScene(scene);
@@ -313,14 +300,13 @@ public class Main extends Application {
                 }
                 intersection[0] = intersect(obstacles, root, KeyCode.RIGHT);
                 counter[0]++;
-                if(root.getChildren().get(38).getLayoutX() < 585 && !intersection[0]) {
-                    double x = root.getChildren().get(38).getLayoutX();
-                    double y = root.getChildren().get(38).getLayoutY();
-                    root.getChildren().set(38,imageViewPlayerRight);
-                    root.getChildren().get(38).setLayoutX(x + 2.5);
-                    root.getChildren().get(38).setLayoutY(y);
+                if(root.getChildren().get(34).getLayoutX() < 585 && !intersection[0]) {
+                    double x = root.getChildren().get(34).getLayoutX();
+                    double y = root.getChildren().get(34).getLayoutY();
+                    root.getChildren().set(34,imageViewPlayerRight);
+                    root.getChildren().get(34).setLayoutX(x + 2.5);
+                    root.getChildren().get(34).setLayoutY(y);
                 } else {
-                    root.getChildren().get(38).setLayoutX(root.getChildren().get(38).getLayoutX() - 0.5);
                     intersection[0] = false;
                 }
             } else if (event.getCode() == KeyCode.LEFT) {
@@ -331,14 +317,13 @@ public class Main extends Application {
                 }
                 intersection[0] = intersect(obstacles, root, KeyCode.LEFT);
                 counter[0]++;
-                if(root.getChildren().get(38).getLayoutX() > 20  && !intersection[0]) {
-                    double x = root.getChildren().get(38).getLayoutX();
-                    double y = root.getChildren().get(38).getLayoutY();
-                    root.getChildren().set(38,imageViewPlayerLeft);
-                    root.getChildren().get(38).setLayoutX(x - 2.5);
-                    root.getChildren().get(38).setLayoutY(y);
+                if(root.getChildren().get(34).getLayoutX() > 20  && !intersection[0]) {
+                    double x = root.getChildren().get(34).getLayoutX();
+                    double y = root.getChildren().get(34).getLayoutY();
+                    root.getChildren().set(34,imageViewPlayerLeft);
+                    root.getChildren().get(34).setLayoutX(x - 2.5);
+                    root.getChildren().get(34).setLayoutY(y);
                 } else {
-                    root.getChildren().get(38).setLayoutX(root.getChildren().get(38).getLayoutX() + 0.5);
                     intersection[0] = false;
                 }
             } else if (event.getCode() == KeyCode.DOWN) {
@@ -349,14 +334,13 @@ public class Main extends Application {
                 }
                 intersection[0] = intersect(obstacles, root, KeyCode.DOWN);
                 counter[0]++;
-                if(root.getChildren().get(38).getLayoutY() < 400 && !intersection[0]) {
-                    double x = root.getChildren().get(38).getLayoutX();
-                    double y = root.getChildren().get(38).getLayoutY();
-                    root.getChildren().set(38,imageViewPlayerDown);
-                    root.getChildren().get(38).setLayoutY(y + 2.5);
-                    root.getChildren().get(38).setLayoutX(x);
+                if(root.getChildren().get(34).getLayoutY() < 400 && !intersection[0]) {
+                    double x = root.getChildren().get(34).getLayoutX();
+                    double y = root.getChildren().get(34).getLayoutY();
+                    root.getChildren().set(34,imageViewPlayerDown);
+                    root.getChildren().get(34).setLayoutY(y + 2.5);
+                    root.getChildren().get(34).setLayoutX(x);
                 } else {
-                    root.getChildren().get(38).setLayoutY(root.getChildren().get(38).getLayoutY() - 0.5);
                     intersection[0] = false;
                 }
             } else if (event.getCode() == KeyCode.UP) {
@@ -367,14 +351,13 @@ public class Main extends Application {
                 }
                 intersection[0] = intersect(obstacles, root, KeyCode.UP);
                 counter[0]++;
-                if(root.getChildren().get(38).getLayoutY() > 10 && !intersection[0]) {
-                    double x = root.getChildren().get(38).getLayoutX();
-                    double y = root.getChildren().get(38).getLayoutY();
-                    root.getChildren().set(38,imageViewPlayerUp);
-                    root.getChildren().get(38).setLayoutY(y - 2.5);
-                    root.getChildren().get(38).setLayoutX(x);
+                if(root.getChildren().get(34).getLayoutY() > 10 && !intersection[0]) {
+                    double x = root.getChildren().get(34).getLayoutX();
+                    double y = root.getChildren().get(34).getLayoutY();
+                    root.getChildren().set(34,imageViewPlayerUp);
+                    root.getChildren().get(34).setLayoutY(y - 2.5);
+                    root.getChildren().get(34).setLayoutX(x);
                 } else {
-                    root.getChildren().get(38).setLayoutY(root.getChildren().get(38).getLayoutY() + 0.5);
                     intersection[0] = false;
                 }
             }
@@ -383,35 +366,22 @@ public class Main extends Application {
 
     private boolean intersect(Rectangle[] obstacles, Group root, KeyCode key) {
         for (Rectangle obstacle : obstacles) {
-            if((obstacle.getX() == 302 || obstacle.getX() == 22 || obstacle.getX() == 2) && (obstacle.getY() == 22 ||
-                    obstacle.getY() == 252 || obstacle.getY() == 200 || obstacle.getY() == 232) && key.equals(KeyCode.LEFT)) {
-                if(obstacle.intersects(root.getChildren().get(38).getLayoutX(),
-                        root.getChildren().get(38).getLayoutY() + 50,2,8)) {
-                    return true;
-                }
+
+            if(obstacle.intersects(root.getChildren().get(34).getLayoutX() + 2.5,
+                    root.getChildren().get(34).getLayoutY(),30,80) && key.equals(KeyCode.RIGHT)) {
+                return !(  obstacle.getY() == 2 || obstacle.getY() == 22 || obstacle.getY() == 252);
             }
-            if(obstacle.getX() == 402 && obstacle.getY() == 232 && key.equals(KeyCode.LEFT)) {
-                if(obstacle.intersects(root.getChildren().get(38).getLayoutX(),
-                        root.getChildren().get(38).getLayoutY() + 50,2,8)) {
-                    return true;
-                }
+            if(obstacle.intersects(root.getChildren().get(34).getLayoutX() - 2.5,
+                    root.getChildren().get(34).getLayoutY(),30,80) && key.equals(KeyCode.LEFT)) {
+                return !( obstacle.getY() == 2 || obstacle.getY() == 22 || obstacle.getY() == 252);
             }
-            if((obstacle.getX() == 302 || obstacle.getX() == 402)  && (obstacle.getY() == 22 ||
-                    obstacle.getY() == 232) && key.equals(KeyCode.RIGHT)) {
-                if(obstacle.intersects(root.getChildren().get(38).getLayoutX() + 30,
-                        root.getChildren().get(38).getLayoutY() ,2,8)) {
-                    return true;
-                }
+            if(obstacle.intersects(root.getChildren().get(34).getLayoutX(),
+                    root.getChildren().get(34).getLayoutY() + 2.5,30,80) && key.equals(KeyCode.DOWN)) {
+                return !( obstacle.getY() == 2 || obstacle.getY() == 22 || obstacle.getY() == 252);
             }
-            if(obstacle.getX() == 302  && obstacle.getY() == 122 && key.equals(KeyCode.RIGHT)) {
-                if(obstacle.intersects(root.getChildren().get(38).getLayoutX() + 30,
-                        root.getChildren().get(38).getLayoutY() ,2,8)) {
-                    return false;
-                }
-            }
-            if(obstacle.intersects(root.getChildren().get(38).getLayoutX() + 25,
-                    root.getChildren().get(38).getLayoutY() + 50,2,8)) {
-                return true;
+            if(obstacle.intersects(root.getChildren().get(34).getLayoutX(),
+                    root.getChildren().get(34).getLayoutY() - 2.5,30,80) && key.equals(KeyCode.UP)) {
+                return !( obstacle.getY() == 2 || obstacle.getY() == 22 || obstacle.getY() == 252);
             }
         }
         return false;
