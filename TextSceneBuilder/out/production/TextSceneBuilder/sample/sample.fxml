@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
+
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+   </rowConstraints>
+   <children>
+      <AnchorPane prefHeight="500.0" prefWidth="505.0">
+         <children>
+            <Rectangle id="borderUp1" arcHeight="5.0" arcWidth="5.0" height="18.0" layoutX="18.0" stroke="BLACK" strokeType="INSIDE" width="146.0">
+               <fill>
+                  <LinearGradient cycleMethod="REFLECT" endX="1.0" endY="1.0" proportional="false">
+                     <stops>
+                        <Stop color="BLACK" />
+                        <Stop color="#1f93ff0d" offset="0.5292096219931272" />
+                        <Stop color="#1f93ff0d" offset="0.6185567010309279" />
+                        <Stop color="#1f93ff0d" offset="0.6597938144329896" />
+                        <Stop color="#1f93ff0d" offset="0.697594501718213" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </fill></Rectangle>
+            <Rectangle id="borderUp2" arcHeight="5.0" arcWidth="5.0" height="18.0" layoutX="230.0" stroke="BLACK" strokeType="INSIDE" width="277.0">
+               <fill>
+                  <LinearGradient cycleMethod="REFLECT" endX="1.0" endY="1.0" proportional="false">
+                     <stops>
+                        <Stop color="BLACK" />
+                        <Stop color="#1f93ff0d" offset="0.5292096219931272" />
+                        <Stop color="#1f93ff0d" offset="0.6185567010309279" />
+                        <Stop color="#1f93ff0d" offset="0.6597938144329896" />
+                        <Stop color="#1f93ff0d" offset="0.697594501718213" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </fill></Rectangle>
+            <Rectangle id="borderRight" arcHeight="5.0" arcWidth="5.0" height="500.0" layoutX="504.0" stroke="BLACK" strokeType="INSIDE" width="19.0">
+               <fill>
+                  <LinearGradient cycleMethod="REFLECT" endX="1.0" endY="1.0" proportional="false">
+                     <stops>
+                        <Stop color="BLACK" />
+                        <Stop color="#1f93ff0d" offset="0.5292096219931272" />
+                        <Stop color="#1f93ff0d" offset="0.6185567010309279" />
+                        <Stop color="#1f93ff0d" offset="0.6597938144329896" />
+                        <Stop color="#1f93ff0d" offset="0.697594501718213" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </fill></Rectangle>
+            <Rectangle id="borderLeft" arcHeight="5.0" arcWidth="5.0" height="500.0" stroke="BLACK" strokeType="INSIDE" width="19.0">
+               <fill>
+                  <LinearGradient cycleMethod="REFLECT" endX="1.0" endY="1.0" proportional="false">
+                     <stops>
+                        <Stop color="BLACK" />
+                        <Stop color="#1f93ff0d" offset="0.5292096219931272" />
+                        <Stop color="#1f93ff0d" offset="0.6185567010309279" />
+                        <Stop color="#1f93ff0d" offset="0.6597938144329896" />
+                        <Stop color="#1f93ff0d" offset="0.697594501718213" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </fill></Rectangle>
+            <Rectangle id="borderDown" arcHeight="5.0" arcWidth="5.0" height="18.0" layoutX="18.0" layoutY="482.0" stroke="BLACK" strokeType="INSIDE" width="487.0">
+               <fill>
+                  <LinearGradient cycleMethod="REFLECT" endX="1.0" endY="1.0" proportional="false">
+                     <stops>
+                        <Stop color="BLACK" />
+                        <Stop color="#1f93ff0d" offset="0.5292096219931272" />
+                        <Stop color="#1f93ff0d" offset="0.6185567010309279" />
+                        <Stop color="#1f93ff0d" offset="0.6597938144329896" />
+                        <Stop color="#1f93ff0d" offset="0.697594501718213" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </fill></Rectangle>
+            <ImageView id="carpetBedroom2" fitHeight="126.0" fitWidth="195.0" layoutX="308.0" layoutY="151.0">
+               <image>
+                  <Image url="@../img/moket1.jpg" />
+               </image>
+            </ImageView>
+            <ImageView id="carpetBedroom1" fitHeight="118.0" fitWidth="195.0" layoutX="308.0" layoutY="54.0">
+               <image>
+                  <Image url="@../img/moket1.jpg" />
+               </image>
+            </ImageView>
+            <ImageView id="parquet2" fitHeight="118.0" fitWidth="271.0" layoutX="19.0" layoutY="159.0">
+               <image>
+                  <Image url="@../img/parket.jpg" />
+               </image>
+            </ImageView>
+            <ImageView id="officeChair" fitHeight="77.0" fitWidth="50.0" layoutX="348.0" layoutY="187.0">
+               <image>
+                  <Image url="@../img/chair_burned.png" />
+               </image>
+            </ImageView>
+            <ImageView id="desk" fitHeight="105.0" fitWidth="98.0" layoutX="309.0" layoutY="190.0">
+               <image>
+                  <Image url="@../img/studentTable_burned.png" />
+               </image>
+            </ImageView>
+            <Rectangle id="borderInsideBedroomBathroomKitchenLiving" arcHeight="5.0" arcWidth="5.0" height="18.0" layoutX="232.0" layoutY="241.0" stroke="BLACK" strokeType="INSIDE" width="178.0">
+               <fill>
+                  <LinearGradient cycleMethod="REFLECT" endX="1.0" endY="1.0" proportional="false">
+                     <stops>
+                        <Stop color="BLACK" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </fill></Rectangle>
+            <Rectangle id="borderInsideKitchenBedroom2" arcHeight="5.0" arcWidth="5.0" height="18.0" layoutX="289.0" layoutY="224.0" stroke="BLACK" strokeType="INSIDE" width="19.0">
+               <fill>
+                  <LinearGradient cycleMethod="REFLECT" endX="1.0" endY="1.0" proportional="false">
+                     <stops>
+                        <Stop color="BLACK" />
+                        <Stop color="#1f93ff0d" offset="0.5292096219931272" />
+                        <Stop color="#1f93ff0d" offset="0.6185567010309279" />
+                        <Stop color="#1f93ff0d" offset="0.6597938144329896" />
+                        <Stop color="#1f93ff0d" offset="0.697594501718213" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </fill></Rectangle>
+            <Rectangle id="borderInsideKitchenLiving" arcHeight="5.0" arcWidth="5.0" height="18.0" layoutX="18.0" layoutY="241.0" stroke="BLACK" strokeType="INSIDE" width="146.0">
+               <fill>
+                  <LinearGradient cycleMethod="REFLECT" endX="1.0" endY="1.0" proportional="false">
+                     <stops>
+                        <Stop color="BLACK" />
+                        <Stop color="#1f93ff0d" offset="0.5292096219931272" />
+                        <Stop color="#1f93ff0d" offset="0.6185567010309279" />
+                        <Stop color="#1f93ff0d" offset="0.6597938144329896" />
+                        <Stop color="#1f93ff0d" offset="0.697594501718213" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </fill></Rectangle>
+            <Rectangle id="borderInsideLivingBathroom" arcHeight="5.0" arcWidth="5.0" height="223.0" layoutX="330.0" layoutY="259.0" stroke="BLACK" strokeType="INSIDE" width="19.0">
+               <fill>
+                  <LinearGradient cycleMethod="REFLECT" endX="1.0" endY="1.0" proportional="false">
+                     <stops>
+                        <Stop color="BLACK" />
+                        <Stop color="#1f93ff0d" offset="0.5292096219931272" />
+                        <Stop color="#1f93ff0d" offset="0.6185567010309279" />
+                        <Stop color="#1f93ff0d" offset="0.6597938144329896" />
+                        <Stop color="#1f93ff0d" offset="0.697594501718213" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </fill></Rectangle>
+            <Rectangle id="borderInsideBedroomBathroom" arcHeight="5.0" arcWidth="5.0" height="18.0" layoutX="461.0" layoutY="241.0" stroke="BLACK" strokeType="INSIDE" width="43.0">
+               <fill>
+                  <LinearGradient cycleMethod="REFLECT" endX="1.0" endY="1.0" proportional="false">
+                     <stops>
+                        <Stop color="BLACK" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </fill></Rectangle>
+            <Rectangle id="wallKitchen1" arcHeight="5.0" arcWidth="5.0" fill="#9add9e" height="36.0" layoutX="18.0" layoutY="18.0" stroke="BLACK" strokeType="INSIDE" width="146.0" />
+            <Rectangle id="wallLiving1" arcHeight="5.0" arcWidth="5.0" fill="#9add9e" height="36.0" layoutX="18.0" layoutY="259.0" stroke="BLACK" strokeType="INSIDE" width="146.0" />
+            <Rectangle id="wallLiving2" arcHeight="5.0" arcWidth="5.0" fill="#9add9e" height="36.0" layoutX="232.0" layoutY="259.0" stroke="BLACK" strokeType="INSIDE" width="98.0" />
+            <Rectangle id="wallBedroom" arcHeight="5.0" arcWidth="5.0" fill="#9add9e" height="36.0" layoutX="309.0" layoutY="18.0" stroke="BLACK" strokeType="INSIDE" width="195.0" />
+            <Rectangle id="wallKitchen2" arcHeight="5.0" arcWidth="5.0" fill="#9add9e" height="36.0" layoutX="230.0" layoutY="18.0" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <Rectangle id="wallBathroom1" arcHeight="5.0" arcWidth="5.0" fill="#9add9e" height="36.0" layoutX="349.0" layoutY="259.0" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <Rectangle id="wallBathroom2" arcHeight="5.0" arcWidth="5.0" fill="#9add9e" height="36.0" layoutX="461.0" layoutY="259.0" stroke="BLACK" strokeType="INSIDE" width="43.0" />
+            <ImageView id="carpetLivingRoom1" fitHeight="94.0" fitWidth="146.0" layoutX="19.0" layoutY="295.0">
+               <image>
+                  <Image url="@../img/carpet.jpg" />
+               </image>
+            </ImageView>
+            <ImageView id="carpetLivingRoom4" fitHeight="94.0" fitWidth="165.0" layoutX="165.0" layoutY="389.0" nodeOrientation="RIGHT_TO_LEFT">
+               <image>
+                  <Image url="@../img/carpet.jpg" />
+               </image>
+            </ImageView>
+            <ImageView id="carpetLivingRoom3" fitHeight="94.0" fitWidth="146.0" layoutX="19.0" layoutY="389.0">
+               <image>
+                  <Image url="@../img/carpet.jpg" />
+               </image>
+            </ImageView>
+            <ImageView id="carpetLivingRoom2" fitHeight="94.0" fitWidth="165.0" layoutX="165.0" layoutY="295.0" nodeOrientation="RIGHT_TO_LEFT">
+               <image>
+                  <Image url="@../img/carpet.jpg" />
+               </image>
+            </ImageView>
+            <ImageView id="parquet1" fitHeight="118.0" fitWidth="271.0" layoutX="19.0" layoutY="54.0">
+               <image>
+                  <Image url="@../img/parket.jpg" />
+               </image>
+            </ImageView>
+            <Rectangle id="thresholdLivingRoom" arcHeight="5.0" arcWidth="5.0" fill="#eba7a7" height="18.0" layoutX="164.0" layoutY="277.0" strokeType="INSIDE" width="68.0" />
+            <Rectangle id="thresholdBedroom" arcHeight="5.0" arcWidth="5.0" fill="#eba7a791" height="73.0" layoutX="289.0" layoutY="151.0" strokeType="INSIDE" width="19.0" />
+            <Rectangle id="thresholdEntrance" arcHeight="5.0" arcWidth="5.0" fill="#eba7a791" height="18.0" layoutX="164.0" layoutY="36.0" strokeType="INSIDE" width="68.0" />
+            <Rectangle id="thresholdBathroom" arcHeight="5.0" arcWidth="5.0" fill="#eba7a791" height="18.0" layoutX="409.0" layoutY="277.0" strokeType="INSIDE" width="50.0" />
+            <ImageView id="tiles1" fitHeight="105.0" fitWidth="155.0" layoutX="349.0" layoutY="295.0">
+               <image>
+                  <Image url="@../img/plochki.jpg" />
+               </image>
+            </ImageView>
+            <ImageView id="tiles2" fitHeight="94.0" fitWidth="155.0" layoutX="349.0" layoutY="389.0">
+               <image>
+                  <Image url="@../img/plochki.jpg" />
+               </image>
+            </ImageView>
+            <Rectangle id="borderInsideKitchenBedroom1" arcHeight="5.0" arcWidth="5.0" height="87.0" layoutX="290.0" layoutY="17.0" stroke="BLACK" strokeType="INSIDE" width="19.0">
+               <fill>
+                  <LinearGradient cycleMethod="REFLECT" endX="1.0" endY="1.0" proportional="false">
+                     <stops>
+                        <Stop color="BLACK" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </fill></Rectangle>
+            <Rectangle id="wallKitchenBedroom" arcHeight="5.0" arcWidth="5.0" fill="#9add9e" height="47.0" layoutX="290.0" layoutY="104.0" stroke="BLACK" strokeType="INSIDE" width="19.0" />
+            <ImageView id="painting" fitHeight="26.0" fitWidth="60.0" layoutX="359.0" layoutY="23.0">
+               <image>
+                  <Image url="@../img/painting.jpg" />
+               </image>
+            </ImageView>
+            <ImageView id="bed" fitHeight="105.0" fitWidth="91.0" layoutX="410.0" layoutY="23.0">
+               <image>
+                  <Image url="@../img/bed_burned.png" />
+               </image>
+            </ImageView>
+            <ImageView id="wardrobe" fitHeight="87.0" fitWidth="43.0" layoutX="306.0" layoutY="23.0">
+               <image>
+                  <Image url="@../img/wardrobe_burned.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="18.0" fitWidth="19.0" layoutX="418.0" layoutY="371.0">
+               <image>
+                  <Image url="@../img/siphon_burned.png" />
+               </image>
+            </ImageView>
+            <ImageView id="tv" fitHeight="77.0" fitWidth="102.0" layoutX="219.0" layoutY="398.0">
+               <image>
+                  <Image url="@../img/living%20room_burned_burned.png" />
+               </image>
+            </ImageView>
+            <ImageView id="sofa" fitHeight="77.0" fitWidth="136.0" layoutX="20.0" layoutY="263.0">
+               <image>
+                  <Image url="@../img/sofa_burned.png" />
+               </image>
+            </ImageView>
+            <ImageView id="coffeeTable" fitHeight="65.0" fitWidth="136.0" layoutX="55.0" layoutY="315.0">
+               <image>
+                  <Image url="@../img/coffee%20table_burned.png" />
+               </image>
+            </ImageView>
+            <ImageView id="livingDresser" fitHeight="65.0" fitWidth="77.0" layoutX="243.0" layoutY="275.0">
+               <image>
+                  <Image url="@../img/dresser_burned.png" />
+               </image>
+            </ImageView>
+            <ImageView id="oldRadio" fitHeight="37.0" fitWidth="59.0" layoutX="252.0" layoutY="259.0">
+               <image>
+                  <Image url="@../img/vef_burned.png" />
+               </image>
+            </ImageView>
+            <ImageView id="rubberPlant" fitHeight="90.0" fitWidth="65.0" layoutX="23.0" layoutY="391.0">
+               <image>
+                  <Image url="@../img/robber%20plant_burned.png" />
+               </image>
+            </ImageView>
+            <ImageView id="bathtub" fitHeight="58.0" fitWidth="136.0" layoutX="359.0" layoutY="417.0">
+               <image>
+                  <Image url="@../img/bathtub_burned1.png" />
+               </image>
+            </ImageView>
+            <ImageView id="toilet" fitHeight="65.0" fitWidth="49.0" layoutX="354.0" layoutY="258.0">
+               <image>
+                  <Image url="@../img/toilet_burned.png" />
+               </image>
+            </ImageView>
+            <ImageView id="siphon" fitHeight="26.0" fitWidth="26.0" layoutX="411.0" layoutY="363.0">
+               <image>
+                  <Image url="@../img/siphon_burned.png" />
+               </image>
+            </ImageView>
+            <ImageView id="fridge" fitHeight="73.0" fitWidth="69.0" layoutX="227.0" layoutY="24.0">
+               <image>
+                  <Image url="@../img/fridge.png" />
+               </image>
+            </ImageView>
+            <ImageView id="kitchenSink" fitHeight="77.0" fitWidth="60.0" layoutX="101.0" layoutY="11.0">
+               <image>
+                  <Image url="@../img/kitchen%20sink_burned.png" />
+               </image>
+            </ImageView>
+            <ImageView id="stove" fitHeight="58.0" fitWidth="43.0" layoutX="61.0" layoutY="25.0">
+               <image>
+                  <Image url="@../img/stove_burned.png" />
+               </image>
+            </ImageView>
+            <ImageView id="kitchenDresser" fitHeight="58.0" fitWidth="43.0" layoutX="18.0" layoutY="25.0">
+               <image>
+                  <Image url="@../img/kitchen%20dresser_burned.png" />
+               </image>
+            </ImageView>
+            <ImageView id="kitchenTable" fitHeight="73.0" fitWidth="102.0" layoutX="37.0" layoutY="119.0">
+               <image>
+                  <Image url="@../img/table_burned.png" />
+               </image>
+            </ImageView>
+            <ImageView id="sink" fitHeight="65.0" fitWidth="50.0" layoutX="458.0" layoutY="263.0">
+               <image>
+                  <Image url="@../img/sink_burned.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </children>
+</GridPane>
