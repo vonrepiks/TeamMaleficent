@@ -40,14 +40,11 @@ public class Main extends Application
         // Create Image and ImageView objects
         Image parquet = new Image("img/parquete.jpg");
         Image tiles = new Image("img/tiles.jpg");
-        Image carpet = new Image("img/carpet.jpg");
-        Image carpet2 = new Image("img/carpet03.jpg");
-        Image toilet = new Image("img/toilet.png");
+        Image carpet = new Image("img/carpet.png");
+        Image carpet2 = new Image("img/parquete.jpg");
         Image bed = new Image("img/bed_burned.png");
         Image painting = new Image("img/painting.jpg");
         Image wardrobe = new Image("img/wardrobe_burned1.png");
-        Image sink = new Image("img/sink_burned.png");
-        Image bathtub = new Image("img/bathtub_burned.png");
         Image studentTable = new Image("img/studentTable_burned.png");
         Image chair = new Image("img/chair_burned.png");
         Image siphon = new Image("img/siphon_burned.png");
@@ -113,10 +110,61 @@ public class Main extends Application
         player.setImage("img/playerFront0.png");
         player.setPosition(500, 150);
 
-        //The sofa object
+        //Sets the image for the forniture objects
         Sprite sofa = new Sprite();
         sofa.setImage("img/sofa.png");
-        sofa.setPosition(220,240);
+        sofa.setPosition(230,260);
+
+        Sprite toilet = new Sprite();
+        toilet.setImage("img/toilet.png");
+        toilet.setPosition(430, 250);
+
+        Sprite sink = new Sprite();
+        sink.setImage("img/sink_burned.png");
+        sink.setPosition(570, 250);
+
+        Sprite bathtub = new Sprite();
+        bathtub.setImage("img/bathtub_burned.png");
+        bathtub.setPosition(415, 385);
+
+        Sprite dirtyClothes = new Sprite();
+        dirtyClothes.setImage("img/dirtyClothes.png");
+        dirtyClothes.setPosition(580, 415);
+
+        Sprite plunger = new Sprite();
+        plunger.setImage("img/plunger.png");
+        plunger.setPosition(565, 430);
+
+        Sprite drawers = new Sprite();
+        drawers.setImage("img/drawers.png");
+        drawers.setPosition(20,255);
+
+        Sprite tableLiving = new Sprite();
+        tableLiving.setImage("img/LivingRoomTable.png");
+        tableLiving.setPosition(245, 330);
+
+        Sprite plantA = new Sprite();
+        plantA.setImage("img/plantA.png");
+        plantA.setPosition(350, 285);
+
+        //All furniture present in the top of the house need fixing
+        Sprite kitchen = new Sprite();
+        kitchen.setImage("img/kitchen.jpg");
+        kitchen.setPosition(20, 20);
+
+        Sprite kitchenTable = new Sprite();
+        kitchenTable.setImage("img/kitchenTable.png");
+        kitchenTable.setPosition(20,100);
+
+        Sprite plantB = new Sprite();
+        plantB.setImage("img/plantB.png");
+        plantB.setPosition(230,10);
+
+        Sprite bedCabinet = new Sprite();
+        bedCabinet.setImage("img/bedCabinet.png");
+        bedCabinet.setPosition(565, 20);
+
+
 
         LongValue lastNanoTime = new LongValue( System.nanoTime() );
         IntValue score = new IntValue(0);
@@ -130,12 +178,32 @@ public class Main extends Application
                 lastNanoTime.value = currentNanoTime;
 
                 Rectangle2D so = sofa.getBoundary();
+                Rectangle2D wc = toilet.getBoundary();
+                Rectangle2D snk = sink.getBoundary();
+                Rectangle2D bath = bathtub.getBoundary();
+                Rectangle2D draw = drawers.getBoundary();
+                Rectangle2D tabLiving = tableLiving.getBoundary();
+                Rectangle2D plant1 = plantA.getBoundary();
+                Rectangle2D clothes = dirtyClothes.getBoundary();
+
+                //All furniture present in the top of the house need fixing
+                Rectangle2D kit = kitchen.getBoundary();
+                Rectangle2D tabkitchen = kitchenTable.getBoundary();
+                Rectangle2D plant2 = plantB.getBoundary();
+                Rectangle2D bedCab = bedCabinet.getBoundary();
 
                 // Player movement
 
                 player.setVelocity(0, 0);
                 if (input.contains("LEFT")){
                     if (player.leftBoundary().intersects(so)||
+                            player.leftBoundary().intersects(wc)||
+                            player.leftBoundary().intersects(bath)||
+                            player.leftBoundary().intersects(draw)||
+                            player.leftBoundary().intersects(tabLiving)||
+                            player.leftBoundary().intersects(tabkitchen)||
+                            player.leftBoundary().intersects(plant1)||
+                            player.leftBoundary().intersects(plant2)||
                             player.leftBoundary().intersects(0,0,140,40)||
                             player.leftBoundary().intersects(0,0,20,480)||
                             player.leftBoundary().intersects(0,270,140,8)||
@@ -158,6 +226,10 @@ public class Main extends Application
                 }
                 if (input.contains("RIGHT")){
                     if (player.rightBoundary().intersects(so)||
+                            player.rightBoundary().intersects(snk)||
+                            player.rightBoundary().intersects(tabLiving)||
+                            player.rightBoundary().intersects(plant1)||
+                            player.rightBoundary().intersects(plant2)||
                             player.rightBoundary().intersects(220,0,20,40)||
                             player.rightBoundary().intersects(302,0,20,144)||
                             player.rightBoundary().intersects(620,0,20,480)||
@@ -180,6 +252,14 @@ public class Main extends Application
                 }
                 if (input.contains("UP")){
                     if (player.upperBoundary().intersects(so)||
+                            player.upperBoundary().intersects(wc)||
+                            player.upperBoundary().intersects(snk)||
+                            player.upperBoundary().intersects(draw)||
+                            player.upperBoundary().intersects(tabLiving)||
+                            player.upperBoundary().intersects(plant1)||
+                            player.upperBoundary().intersects(tabkitchen)||
+                            player.upperBoundary().intersects(plant2)||
+                            player.upperBoundary().intersects(bedCab)||
                             player.upperBoundary().intersects(0,0,140,50)||
                             player.upperBoundary().intersects(220,0,420,50)||
                             player.upperBoundary().intersects(302,140,20,4)||
@@ -201,6 +281,11 @@ public class Main extends Application
                 }
                 if (input.contains("DOWN")){
                     if (player.bottomBoundary().intersects(so)||
+                            player.bottomBoundary().intersects(bath)||
+                            player.bottomBoundary().intersects(clothes)||
+                            player.bottomBoundary().intersects(tabLiving)||
+                            player.bottomBoundary().intersects(plant1)||
+                            player.bottomBoundary().intersects(tabkitchen)||
                             player.bottomBoundary().intersects(302,200,20,20)||
                             player.bottomBoundary().intersects(0,270,140,20)||
                             player.bottomBoundary().intersects(220,270,280,20)||
@@ -239,7 +324,7 @@ public class Main extends Application
                 gc.drawImage(brickShort,20,0);
                 gc.drawImage(wallShort,0,20);
                 gc.drawImage(wallColon,302,120);
-                gc.drawImage(bed,480,40);
+                gc.drawImage(bed,440,30);
                 gc.drawImage(wardrobe,330,20);
 
                 //Draw the player if it`s in the first half of the screen(above the top walls
@@ -256,9 +341,6 @@ public class Main extends Application
                 gc.drawImage(wallShort,360,250);
                 gc.drawImage(wallShort,560,250);
 
-                gc.drawImage(toilet,430,250);
-                gc.drawImage(sink,570,250);
-                gc.drawImage(bathtub,450,385);
 
                 //Render the bricks
                 gc.drawImage(brickVertical,0,0);
@@ -281,6 +363,23 @@ public class Main extends Application
 
                 //Player above the middle wall and the obstacles in the low middle part of the screen
                 sofa.render(gc);
+                sofa.render(gc);
+                toilet.render(gc);
+                sink.render(gc);
+                bathtub.render(gc);
+                drawers.render(gc);
+                tableLiving.render(gc);
+                plantA.render(gc);
+                dirtyClothes.render(gc);
+                plunger.render(gc);
+
+                //those are not working properly
+                kitchen.render(gc);
+                kitchenTable.render(gc);
+                plantB.render(gc);
+                bedCabinet.render(gc);
+
+
                 if (player.bottomBoundary().intersects(0,280,640,210)){
                     player.render(gc);
                 }
