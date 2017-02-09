@@ -336,6 +336,7 @@ public class Main extends Application
                             player.bottomBoundary().intersects(330,432,176,77)|| //bathtub
                             player.bottomBoundary().intersects(parquet.getWidth() + 40,230,98,100)||
                             player.bottomBoundary().intersects(brickVertical.getWidth() + parquet.getWidth(),brickShortVert.getHeight() + 90,brickSingleVert.getWidth(), 60) ||
+                            player.bottomBoundary().intersects(0,263,20 + brickShort.getWidth(),20)||
                             player.bottomBoundary().intersects(20 + brickShort.getWidth() + 62,263,brickShort.getWidth() + 60,20)||
                             player.bottomBoundary().intersects(canvas.getWidth() - 20 - 60,263,60,20)||
                             player.bottomBoundary().intersects(0,canvas.getHeight() + 10,canvas.getWidth(),20)){
