@@ -15,27 +15,28 @@ import javafx.scene.input.KeyEvent;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 
+public class Main extends Application {
 
-public class Main extends Application
-{
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         launch(args);
     }
 
     @Override
-    public void start(Stage theStage)
-    {
-        theStage.setTitle( "Team Maleficent" );
+    public void start(Stage theStage) {
+        theStage.setTitle("Team Maleficent");
 
         Group root = new Group();
 
         Scene theScene = new Scene(root, 640, 480, Color.WHITESMOKE);
-        theStage.setScene( theScene );
+        theStage.setScene(theScene);
 
-        Canvas canvas = new Canvas( 640, 480 );
-        root.getChildren().add( canvas );
+        Canvas canvas = new Canvas(640, 480);
+        root.getChildren().add(canvas);
 
         // Create Image and ImageView objects
         Image parquet = new Image("img/parquete.jpg");
@@ -77,98 +78,119 @@ public class Main extends Application
         playerUpImages.addLast("img/playerBack1.png");
         playerUpImages.addLast("img/playerBack2.png");
 
-
         //Take the keys inputs
         ArrayList<String> input = new ArrayList<String>();
 
         theScene.setOnKeyPressed(
-                new EventHandler<KeyEvent>()
-                {
-                    public void handle(KeyEvent e)
-                    {
-                        String code = e.getCode().toString();
-                        if ( !input.contains(code) )
-                            input.add( code );
-                    }
-                });
+                new EventHandler<KeyEvent>() {
+            public void handle(KeyEvent e) {
+                String code = e.getCode().toString();
+                if (!input.contains(code)) {
+                    input.add(code);
+                }
+            }
+        });
 
         theScene.setOnKeyReleased(
-                new EventHandler<KeyEvent>()
-                {
-                    public void handle(KeyEvent e)
-                    {
-                        String code = e.getCode().toString();
-                        input.remove( code );
-                    }
-                });
+                new EventHandler<KeyEvent>() {
+            public void handle(KeyEvent e) {
+                String code = e.getCode().toString();
+                input.remove(code);
+            }
+        });
 
         // Display the graphics and movement
         GraphicsContext gc = canvas.getGraphicsContext2D();
 
-        //The player object
-        Sprite player = new Sprite();
+        ArrayList<Sprite> staticGameObjects = new ArrayList<Sprite>();
+
+        // The player object
+        Player player = new Player("thief");
         player.setImage("img/playerFront0.png");
         player.setPosition(500, 150);
 
         //Sets the image for the forniture objects
         Sprite sofa = new Sprite();
         sofa.setImage("img/sofa.png");
-        sofa.setPosition(230,260);
+        sofa.setPosition(230, 260);
+        staticGameObjects.add(sofa);
 
         Sprite toilet = new Sprite();
         toilet.setImage("img/toilet.png");
         toilet.setPosition(430, 250);
+        staticGameObjects.add(toilet);
 
         Sprite sink = new Sprite();
         sink.setImage("img/sink_burned.png");
         sink.setPosition(570, 250);
+        sink.items.add(toilet);
+        staticGameObjects.add(sink);
 
         Sprite bathtub = new Sprite();
         bathtub.setImage("img/bathtub_burned.png");
         bathtub.setPosition(415, 385);
+        staticGameObjects.add(bathtub);
 
         Sprite dirtyClothes = new Sprite();
         dirtyClothes.setImage("img/dirtyClothes.png");
         dirtyClothes.setPosition(580, 415);
+        staticGameObjects.add(dirtyClothes);
 
         Sprite plunger = new Sprite();
         plunger.setImage("img/plunger.png");
         plunger.setPosition(565, 430);
+        plunger.items.add(bathtub);
+        staticGameObjects.add(plunger);
 
         Sprite drawers = new Sprite();
         drawers.setImage("img/drawers.png");
-        drawers.setPosition(20,255);
+        drawers.setPosition(20, 255);
+        staticGameObjects.add(drawers);
 
         Sprite tableLiving = new Sprite();
         tableLiving.setImage("img/LivingRoomTable.png");
         tableLiving.setPosition(245, 330);
 
+        Sprite testItem = new Sprite();
+        testItem.setImage("img/plantB.png");
+        testItem.setPosition(230, 10);
+        tableLiving.items.add(testItem);
+
+        staticGameObjects.add(tableLiving);
+
         Sprite plantA = new Sprite();
         plantA.setImage("img/plantA.png");
         plantA.setPosition(350, 285);
+        staticGameObjects.add(plantA);
 
         //All furniture present in the top of the house need fixing
         Sprite kitchen = new Sprite();
         kitchen.setImage("img/kitchen.jpg");
         kitchen.setPosition(20, 20);
+        staticGameObjects.add(kitchen);
 
         Sprite kitchenTable = new Sprite();
         kitchenTable.setImage("img/kitchenTable.png");
-        kitchenTable.setPosition(20,100);
+        kitchenTable.setPosition(20, 100);
+        staticGameObjects.add(kitchenTable);
 
         Sprite plantB = new Sprite();
         plantB.setImage("img/plantB.png");
-        plantB.setPosition(230,10);
+        plantB.setPosition(230, 10);
+        staticGameObjects.add(plantB);
 
         Sprite bedCabinet = new Sprite();
         bedCabinet.setImage("img/bedCabinet.png");
         bedCabinet.setPosition(565, 20);
+        staticGameObjects.add(bedCabinet);
 
-
-
-        LongValue lastNanoTime = new LongValue( System.nanoTime() );
+        LongValue lastNanoTime = new LongValue(System.nanoTime());
         IntValue score = new IntValue(0);
         AtomicInteger stepCounter = new AtomicInteger(0);
+
+        Text pressSpace = new Text(100, 100, "Press SPACE key to steal an item");
+        pressSpace.setFont(Font.font("Verdana", 20));
+        pressSpace.setFill(Color.WHITE);
 
         //The animation begins
         new AnimationTimer() {
@@ -193,199 +215,264 @@ public class Main extends Application
                 Rectangle2D bedCab = bedCabinet.getBoundary();
 
                 // Player movement
-
                 player.setVelocity(0, 0);
-                if (input.contains("LEFT")){
-                    if (player.leftBoundary().intersects(so)||
-                            player.leftBoundary().intersects(wc)||
-                            player.leftBoundary().intersects(bath)||
-                            player.leftBoundary().intersects(draw)||
-                            player.leftBoundary().intersects(tabLiving)||
-                            player.leftBoundary().intersects(tabkitchen)||
-                            player.leftBoundary().intersects(plant1)||
-                            player.leftBoundary().intersects(plant2)||
-                            player.leftBoundary().intersects(0,0,140,40)||
-                            player.leftBoundary().intersects(0,0,20,480)||
-                            player.leftBoundary().intersects(0,270,140,8)||
-                            player.leftBoundary().intersects(402,270,20,240)||
-                            player.leftBoundary().intersects(480,270,20,8)||
-                            player.leftBoundary().intersects(302,200,20,80)||
-                            player.leftBoundary().intersects(302,0,20,144)) {
+
+                //ArrayList<Node> nodes = new ArrayList<Node>();
+                //addAllDescendents(root, nodes);
+                //ObservableList<Node> allSceneObjects = FXCollections.observableArrayList(nodes);
+                //Node closestGameNode = player.findNearestNode(allSceneObjects);
+                if (input.contains("SPACE")) {
+
+                    for (Sprite obj : staticGameObjects) {
+                        if (player.collidesWith(obj)) {
+
+                            System.out.println(obj.items.toString());
+
+                            if (obj.items.size() > 0) {
+                                player.inventory.addAll(obj.items);
+                                System.out.println(player.inventory.toString());
+                                System.out.println("I obtained the items from this furniture");
+                            }
+                        }
+                    }
+                }
+                if (input.contains(
+                        "LEFT")) {
+                    if (player.leftBoundary().intersects(so)
+                            || player.leftBoundary().intersects(wc)
+                            || player.leftBoundary().intersects(bath)
+                            || player.leftBoundary().intersects(draw)
+                            || player.leftBoundary().intersects(tabLiving)
+                            || player.leftBoundary().intersects(tabkitchen)
+                            || player.leftBoundary().intersects(plant1)
+                            || player.leftBoundary().intersects(plant2)
+                            || player.leftBoundary().intersects(0, 0, 140, 40)
+                            || player.leftBoundary().intersects(0, 0, 20, 480)
+                            || player.leftBoundary().intersects(0, 270, 140, 8)
+                            || player.leftBoundary().intersects(402, 270, 20, 240)
+                            || player.leftBoundary().intersects(480, 270, 20, 8)
+                            || player.leftBoundary().intersects(302, 200, 20, 80)
+                            || player.leftBoundary().intersects(302, 0, 20, 144)) {
 
                         player.addVelocity(0, 0);
-                    }else {
+                        if (!root.getChildren().contains(pressSpace)) {
+                            root.getChildren().add(pressSpace);
+                        }
+
+                    } else {
                         player.addVelocity(-90, 0);
                         stepCounter.addAndGet(1);
-                        if (stepCounter.get() == 10){
+                        if (stepCounter.get() == 10) {
                             String tempImage = playerLeftImages.pop();
                             playerLeftImages.addLast(tempImage);
                             player.setImage(tempImage);
                             stepCounter.set(0);
                         }
+                        root.getChildren().remove(pressSpace);
                     }
                 }
-                if (input.contains("RIGHT")){
-                    if (player.rightBoundary().intersects(so)||
-                            player.rightBoundary().intersects(snk)||
-                            player.rightBoundary().intersects(tabLiving)||
-                            player.rightBoundary().intersects(plant1)||
-                            player.rightBoundary().intersects(plant2)||
-                            player.rightBoundary().intersects(220,0,20,40)||
-                            player.rightBoundary().intersects(302,0,20,144)||
-                            player.rightBoundary().intersects(620,0,20,480)||
-                            player.rightBoundary().intersects(402,270,20,220)||
-                            player.rightBoundary().intersects(220,270,20,8)||
-                            player.rightBoundary().intersects(302,200,20,80)||
-                            player.rightBoundary().intersects(560,270,20,8)){
+
+                if (input.contains(
+                        "RIGHT")) {
+                    if (player.rightBoundary().intersects(so)
+                            || player.rightBoundary().intersects(snk)
+                            || player.rightBoundary().intersects(tabLiving)
+                            || player.rightBoundary().intersects(plant1)
+                            || player.rightBoundary().intersects(plant2)
+                            || player.rightBoundary().intersects(220, 0, 20, 40)
+                            || player.rightBoundary().intersects(302, 0, 20, 144)
+                            || player.rightBoundary().intersects(620, 0, 20, 480)
+                            || player.rightBoundary().intersects(402, 270, 20, 220)
+                            || player.rightBoundary().intersects(220, 270, 20, 8)
+                            || player.rightBoundary().intersects(302, 200, 20, 80)
+                            || player.rightBoundary().intersects(560, 270, 20, 8)) {
 
                         player.addVelocity(0, 0);
-                    }else {
+                        if (!root.getChildren().contains(pressSpace)) {
+                            root.getChildren().add(pressSpace);
+                        }
+                    } else {
                         player.addVelocity(90, 0);
                         stepCounter.addAndGet(1);
-                        if (stepCounter.get() == 10){
+                        if (stepCounter.get() == 10) {
                             String tempImage = playerRightImages.pop();
                             playerRightImages.addLast(tempImage);
                             player.setImage(tempImage);
                             stepCounter.set(0);
                         }
+                        root.getChildren().remove(pressSpace);
                     }
                 }
-                if (input.contains("UP")){
-                    if (player.upperBoundary().intersects(so)||
-                            player.upperBoundary().intersects(wc)||
-                            player.upperBoundary().intersects(snk)||
-                            player.upperBoundary().intersects(draw)||
-                            player.upperBoundary().intersects(tabLiving)||
-                            player.upperBoundary().intersects(plant1)||
-                            player.upperBoundary().intersects(tabkitchen)||
-                            player.upperBoundary().intersects(plant2)||
-                            player.upperBoundary().intersects(bedCab)||
-                            player.upperBoundary().intersects(0,0,140,50)||
-                            player.upperBoundary().intersects(220,0,420,50)||
-                            player.upperBoundary().intersects(302,140,20,4)||
-                            player.upperBoundary().intersects(0,260,140,20)||
-                            player.upperBoundary().intersects(220,260,280,20)||
-                            player.upperBoundary().intersects(560,260,60,20)){
+
+                if (input.contains(
+                        "UP")) {
+                    if (player.upperBoundary().intersects(so)
+                            || player.upperBoundary().intersects(wc)
+                            || player.upperBoundary().intersects(snk)
+                            || player.upperBoundary().intersects(draw)
+                            || player.upperBoundary().intersects(tabLiving)
+                            || player.upperBoundary().intersects(plant1)
+                            || player.upperBoundary().intersects(tabkitchen)
+                            || player.upperBoundary().intersects(plant2)
+                            || player.upperBoundary().intersects(bedCab)
+                            || player.upperBoundary().intersects(0, 0, 140, 50)
+                            || player.upperBoundary().intersects(220, 0, 420, 50)
+                            || player.upperBoundary().intersects(302, 140, 20, 4)
+                            || player.upperBoundary().intersects(0, 260, 140, 20)
+                            || player.upperBoundary().intersects(220, 260, 280, 20)
+                            || player.upperBoundary().intersects(560, 260, 60, 20)) {
 
                         player.addVelocity(0, 0);
-                    }else{
+                        if (!root.getChildren().contains(pressSpace)) {
+                            root.getChildren().add(pressSpace);
+                        }
+                    } else {
                         player.addVelocity(0, -90);
                         stepCounter.addAndGet(1);
-                        if (stepCounter.get() == 10){
+                        if (stepCounter.get() == 10) {
                             String tempImage = playerUpImages.pop();
                             playerUpImages.addLast(tempImage);
                             player.setImage(tempImage);
                             stepCounter.set(0);
                         }
+                        root.getChildren().remove(pressSpace);
                     }
                 }
-                if (input.contains("DOWN")){
-                    if (player.bottomBoundary().intersects(so)||
-                            player.bottomBoundary().intersects(bath)||
-                            player.bottomBoundary().intersects(clothes)||
-                            player.bottomBoundary().intersects(tabLiving)||
-                            player.bottomBoundary().intersects(plant1)||
-                            player.bottomBoundary().intersects(tabkitchen)||
-                            player.bottomBoundary().intersects(302,200,20,20)||
-                            player.bottomBoundary().intersects(0,270,140,20)||
-                            player.bottomBoundary().intersects(220,270,280,20)||
-                            player.bottomBoundary().intersects(560,270,60,20)||
-                            player.bottomBoundary().intersects(0,460,640,20)){
+
+                if (input.contains(
+                        "DOWN")) {
+                    if (player.bottomBoundary().intersects(so)
+                            || player.bottomBoundary().intersects(bath)
+                            || player.bottomBoundary().intersects(clothes)
+                            || player.bottomBoundary().intersects(tabLiving)
+                            || player.bottomBoundary().intersects(plant1)
+                            || player.bottomBoundary().intersects(tabkitchen)
+                            || player.bottomBoundary().intersects(302, 200, 20, 20)
+                            || player.bottomBoundary().intersects(0, 270, 140, 20)
+                            || player.bottomBoundary().intersects(220, 270, 280, 20)
+                            || player.bottomBoundary().intersects(560, 270, 60, 20)
+                            || player.bottomBoundary().intersects(0, 460, 640, 20)) {
 
                         player.addVelocity(0, 0);
-                    }else {
+                        if (!root.getChildren().contains(pressSpace)) {
+                            root.getChildren().add(pressSpace);
+                        }
+                    } else {
                         player.addVelocity(0, 90);
                         stepCounter.addAndGet(1);
-                        if (stepCounter.get() == 10){
+                        if (stepCounter.get() == 10) {
                             String tempImage = playerDownImages.pop();
                             playerDownImages.addLast(tempImage);
                             player.setImage(tempImage);
                             stepCounter.set(0);
                         }
+                        root.getChildren().remove(pressSpace);
                     }
                 }
+
                 player.update(elapsedTime);
 
                 // Render the image objects
-
                 gc.clearRect(0, 0, 640, 480);
-                gc.drawImage(parquet,20,40,302,250);
-                gc.drawImage(carpet2,320,62,300,230);
-                gc.drawImage(chair,382,172);
-                gc.drawImage(studentTable,320,180);
-                gc.drawImage(tiles,422,290,198,172);
-                gc.drawImage(carpet,20,290,382,170);
+                gc.drawImage(parquet, 20, 40, 302, 250);
+                gc.drawImage(carpet2, 320, 62, 300, 230);
+                gc.drawImage(chair, 382, 172);
+                gc.drawImage(studentTable, 320, 180);
+                gc.drawImage(tiles, 422, 290, 198, 172);
+                gc.drawImage(carpet, 20, 290, 382, 170);
 
                 //Draw upper walls and bricks
-                gc.drawImage(brickHorizontal,220,0);
-                gc.drawImage(brickHorizontal,460,0);
-                gc.drawImage(wall,220,20);
-                gc.drawImage(brickShortVert,302,0);
-                gc.drawImage(brickShort,20,0);
-                gc.drawImage(wallShort,0,20);
-                gc.drawImage(wallColon,302,120);
-                gc.drawImage(bed,440,30);
-                gc.drawImage(wardrobe,330,20);
+                gc.drawImage(brickHorizontal, 220, 0);
+                gc.drawImage(brickHorizontal, 460, 0);
+                gc.drawImage(wall, 220, 20);
+                gc.drawImage(brickShortVert, 302, 0);
+                gc.drawImage(brickShort, 20, 0);
+                gc.drawImage(wallShort, 0, 20);
+                gc.drawImage(wallColon, 302, 120);
+                gc.drawImage(bed, 440, 30);
+                gc.drawImage(wardrobe, 330, 20);
 
                 //Draw the player if it`s in the first half of the screen(above the top walls
                 // and behind the middle walls)
-                if (player.bottomBoundary().intersects(0,0,640,290)){
+                if (player.bottomBoundary()
+                        .intersects(0, 0, 640, 290)) {
                     player.render(gc);
                 }
 
                 //render the  middle walls
-                gc.drawImage(wallShort,0,250);
-                gc.drawImage(wallShort,220,250);
+                gc.drawImage(wallShort, 0, 250);
+                gc.drawImage(wallShort, 220, 250);
 
-                gc.drawImage(wallShort,320,250);
-                gc.drawImage(wallShort,360,250);
-                gc.drawImage(wallShort,560,250);
-
+                gc.drawImage(wallShort, 320, 250);
+                gc.drawImage(wallShort, 360, 250);
+                gc.drawImage(wallShort, 560, 250);
 
                 //Render the bricks
-                gc.drawImage(brickVertical,0,0);
-                gc.drawImage(brickVertical,0,240);
+                gc.drawImage(brickVertical, 0, 0);
+                gc.drawImage(brickVertical, 0, 240);
 
-                gc.drawImage(brickSingleVert,302,180);
-                gc.drawImage(brickVertical,402,230);
+                gc.drawImage(brickSingleVert, 302, 180);
+                gc.drawImage(brickVertical, 402, 230);
 
-                gc.drawImage(brickHorizontal,0,480);
-                gc.drawImage(brickShort,20,230);
-                gc.drawImage(brickHorizontal,220,230);
-                gc.drawImage(brickShort,380,230);
+                gc.drawImage(brickHorizontal, 0, 480);
+                gc.drawImage(brickShort, 20, 230);
+                gc.drawImage(brickHorizontal, 220, 230);
+                gc.drawImage(brickShort, 380, 230);
 
-                gc.drawImage(brickShort,560,230);
-                gc.drawImage(brickHorizontal,20,460);
-                gc.drawImage(brickHorizontal,260,460);
-                gc.drawImage(brickHorizontal,500,460);
-                gc.drawImage(brickVertical,620,0);
-                gc.drawImage(brickVertical,620,240);
+                gc.drawImage(brickShort, 560, 230);
+                gc.drawImage(brickHorizontal, 20, 460);
+                gc.drawImage(brickHorizontal, 260, 460);
+                gc.drawImage(brickHorizontal, 500, 460);
+                gc.drawImage(brickVertical, 620, 0);
+                gc.drawImage(brickVertical, 620, 240);
 
                 //Player above the middle wall and the obstacles in the low middle part of the screen
                 sofa.render(gc);
+
                 sofa.render(gc);
+
                 toilet.render(gc);
+
                 sink.render(gc);
+
                 bathtub.render(gc);
+
                 drawers.render(gc);
+
                 tableLiving.render(gc);
+
                 plantA.render(gc);
+
                 dirtyClothes.render(gc);
+
                 plunger.render(gc);
 
                 //those are not working properly
                 kitchen.render(gc);
+
                 kitchenTable.render(gc);
+
                 plantB.render(gc);
+
                 bedCabinet.render(gc);
 
-
-                if (player.bottomBoundary().intersects(0,280,640,210)){
+                if (player.bottomBoundary()
+                        .intersects(0, 280, 640, 210)) {
                     player.render(gc);
                 }
             }
-        }.start();
+        }
+                .start();
 
         theStage.show();
+    }
+
+    private static void addAllDescendents(Parent parent, ArrayList<Node> nodes) {
+        for (Node node : parent.getChildrenUnmodifiable()) {
+            nodes.add(node);
+            if (node instanceof Parent) {
+                addAllDescendents((Parent) node, nodes);
+            }
+        }
     }
 }
