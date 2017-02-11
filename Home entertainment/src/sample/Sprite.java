@@ -12,6 +12,8 @@ public class Sprite {
     private double velocityY;
     private double width;
     private double height;
+    public boolean hasAlreadyHit = false;
+//    public boolean isMoving = false;
 
     public Sprite() {
         positionX = 0;
@@ -27,13 +29,29 @@ public class Sprite {
     }
 
     public void setImage(String filename) {
-        Image i = new Image(filename);
+        Image i = new Image(filename, 45, 120, false, false);
         setImage(i);
     }
 
     public void setPosition(double x, double y) {
         positionX = x;
         positionY = y;
+    }
+
+    public double getX(){
+        return positionX;
+    }
+
+    public double getY(){
+        return positionY;
+    }
+
+    public double getWidth(){
+        return width;
+    }
+
+    public double getHeight(){
+        return height;
     }
 
     public void setVelocity(double x, double y) {
