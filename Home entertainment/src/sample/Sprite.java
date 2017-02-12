@@ -12,6 +12,8 @@ public class Sprite {
     private double velocityY;
     private double width;
     private double height;
+    public boolean hasAlreadyHit = false;
+//    public boolean isMoving = false;
 
     public Sprite() {
         positionX = 0;
