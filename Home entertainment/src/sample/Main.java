@@ -57,10 +57,8 @@ public class Main extends Application {
 
         //borders Bedroom
         double BEDROOM_X = brickSingleVert.getWidth() + KITCHEN_WIDTH + brickSingleVert.getWidth();
-        ;
         double BEDROOM_Y = brickSingleHorizontal.getHeight() + wallShort.getHeight();
         double BEDROOM_WIDTH = canvas.getWidth() - KITCHEN_WIDTH - (3 * brickSingleVert.getWidth());
-        ;
         double BEDROOM_HEIGHT = canvas.getHeight() / 2 - brickSingleHorizontal.getHeight();
 
         //borders Bathroom
@@ -68,7 +66,6 @@ public class Main extends Application {
         double BATHROOM_Y = brickSingleHorizontal.getHeight() + wallShort.getHeight() + KITCHEN_HEIGHT + brickSingleHorizontal.getHeight();
         double BATHROOM_WIDTH = canvas.getWidth() - (3 * brickSingleVert.getWidth()) - LIVINGROOM_WIDTH;
         double BATHROOM_HEIGHT = canvas.getHeight() - LIVINGROOM_Y - (2 * brickSingleHorizontal.getHeight());
-        ;
 
         Image parquet = new Image("img/parquet.jpg", KITCHEN_WIDTH, KITCHEN_HEIGHT / 2, false, false);
         Image tiles = new Image("img/tiles2.jpg", BATHROOM_WIDTH, BATHROOM_HEIGHT / 2, false, false);
@@ -98,7 +95,7 @@ public class Main extends Application {
 
 
         //Take the keys inputs
-        ArrayList<String> input = new ArrayList<String>();
+        ArrayList<String> input = new ArrayList<>();
 
         theScene.setOnKeyPressed(
                 new EventHandler<KeyEvent>() {
@@ -230,7 +227,7 @@ public class Main extends Application {
         bathroomSink.setPosition(BATHROOM_X + 10, BATHROOM_Y - 70);
 
         // Preparing sounds
-        AudioClip wallHit = new AudioClip(Paths.get("src/sounds/wall_hit.wav").toUri().toString());
+        AudioClip wallHit = new AudioClip(Paths.get("Home entertainment/src/sounds/wall_hit.wav").toUri().toString());
 //      AudioClip walking = new AudioClip(Paths.get("src/sounds/walking.wav").toUri().toString());
 
 
