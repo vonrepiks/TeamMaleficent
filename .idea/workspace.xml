@@ -1,7 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4d5a1fea-d21e-47ab-a95c-4a39581612f3" name="Default" comment="" />
+    <list default="true" id="4d5a1fea-d21e-47ab-a95c-4a39581612f3" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/13475846_Alt01.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/bathtub.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/bed.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/brickHorizontal.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/brickShort.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/brickShortVert.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/brickSingleHorizontal.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/brickSingleVert.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/brickVertical.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/carpet.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/carpet03.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/coffeeTable.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/desk.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/dresser.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/fridge.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/kitchenDresser.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/kitchenSink.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/livingChair.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/painting.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/painting.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/parquet.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/playerBack0.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/playerBack1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/playerBack2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/playerFront0.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/playerFront1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/playerFront2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/playerLeft0.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/playerLeft1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/playerLeft2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/playerRight0.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/playerRight1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/playerRight2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/robber plant_burned.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/sink.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/siphon.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/sofa.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/stove.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/table_burned_burned.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/tiles2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/toilet.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/tv.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/wall.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/wallColon.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/wallShort.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/wardrobe_burned.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/sample/Controller.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/sample/IntValue.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/sample/LongValue.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/sample/Main$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/sample/Main$2.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/sample/Main$3.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/sample/Main.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/sample/Sprite.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/sample/sample.fxml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/sounds/walking.wav" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/sounds/wall_hit.wav" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home entertainment/out/sample/Main$3.class" afterPath="$PROJECT_DIR$/Home entertainment/out/sample/Main$3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home entertainment/out/sample/Main.class" afterPath="$PROJECT_DIR$/Home entertainment/out/sample/Main.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home entertainment/src/sample/Main.java" afterPath="$PROJECT_DIR$/Home entertainment/src/sample/Main.java" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,18 +76,73 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Home entertainment/src/sample/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="109" column="16" lean-forward="false" selection-start-line="109" selection-start-column="16" selection-end-line="109" selection-end-column="16" />
+            <state relative-caret-position="9418">
+              <caret line="576" column="72" lean-forward="true" selection-start-line="576" selection-start-column="72" selection-end-line="576" selection-end-column="72" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="LongValue.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Home entertainment/src/sample/LongValue.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="1" column="13" lean-forward="false" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IntValue.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Home entertainment/src/sample/IntValue.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Sprite.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Home entertainment/src/sample/Sprite.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-390">
+              <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+              <folding>
+                <element signature="e#939#940#0" expanded="true" />
+                <element signature="e#971#972#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Player.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Home entertainment/src/sample/Player.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="10" column="22" lean-forward="false" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
+              <folding>
+                <element signature="e#97#98#0" expanded="true" />
+                <element signature="e#125#126#0" expanded="true" />
+                <element signature="e#154#155#0" expanded="true" />
+                <element signature="e#183#184#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -38,6 +155,7 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/Home entertainment/src/sample/Player.java" />
         <option value="$PROJECT_DIR$/Home entertainment/src/sample/Main.java" />
       </list>
     </option>
@@ -49,9 +167,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-4" />
-    <option name="width" value="1292" />
-    <option name="height" value="780" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1382" />
+    <option name="height" value="744" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -68,6 +187,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -134,11 +255,31 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TeamMaleficent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TeamMaleficent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Home entertainment" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="img" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -410,6 +551,7 @@
       <setting name="passParentEnv" value="true" />
       <setting name="launchBrowser" value="true" />
       <setting name="launchBrowserUrl" value="" />
+      <setting name="depsClasspath" value="false" />
       <method />
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
@@ -531,6 +673,12 @@
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.npm" factoryName="npm">
@@ -566,6 +714,7 @@
       <option name="presentableId" value="Default" />
       <updated>1486909357347</updated>
       <workItem from="1486909359377" duration="862000" />
+      <workItem from="1486934535509" duration="3208000" />
     </task>
     <task id="LOCAL-00001" summary="Last Update">
       <created>1486910195961</created>
@@ -578,41 +727,41 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="862000" />
+    <option name="totallyTimeSpent" value="4070000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-4" y="0" width="1292" height="780" extended-state="0" />
-    <editor active="false" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32921174" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32921174" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32921174" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16544656" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -636,8 +785,56 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/Home entertainment/src/sample/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="109" column="16" lean-forward="false" selection-start-line="109" selection-start-column="16" selection-end-line="109" selection-end-column="16" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Home entertainment/src/sample/LongValue.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="13" lean-forward="false" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Home entertainment/src/sample/IntValue.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Home entertainment/src/sample/Sprite.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-390">
+          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding>
+            <element signature="e#939#940#0" expanded="true" />
+            <element signature="e#971#972#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Home entertainment/src/sample/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="22" lean-forward="false" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
+          <folding>
+            <element signature="e#97#98#0" expanded="true" />
+            <element signature="e#125#126#0" expanded="true" />
+            <element signature="e#154#155#0" expanded="true" />
+            <element signature="e#183#184#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Home entertainment/src/sample/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="9418">
+          <caret line="576" column="72" lean-forward="true" selection-start-line="576" selection-start-column="72" selection-end-line="576" selection-end-column="72" />
           <folding />
         </state>
       </provider>

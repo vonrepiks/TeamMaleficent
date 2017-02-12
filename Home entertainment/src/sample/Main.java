@@ -3,6 +3,8 @@ package sample;
 import javafx.application.Application;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.media.AudioClip;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.Group;
@@ -72,6 +74,7 @@ public class Main extends Application {
         Image carpet = new Image("img/carpet.jpg", LIVINGROOM_WIDTH / 2, LIVINGROOM_HEIGHT / 2, false, false);
         Image carpet2 = new Image("img/carpet03.jpg", BEDROOM_WIDTH, BEDROOM_HEIGHT / 2, false, false);
         Image siphon = new Image("img/siphon.png", 40, 40, false, false);
+        Image statsBoard = new Image("img/statsBoard.png");
 
         ArrayDeque<String> playerRightImages = new ArrayDeque<>();
         playerRightImages.addLast("img/playerRight0.png");
@@ -119,7 +122,7 @@ public class Main extends Application {
 
         //The player object
         Image playerImage = new Image("img/playerFront0.png", 45, 120, false, false);
-        Sprite player = new Sprite();
+        Player player = new Player();
         player.setImage(playerImage);
         player.setPosition(5 * brickSingleHorizontal.getWidth(), 20);
 
@@ -230,6 +233,12 @@ public class Main extends Application {
         AudioClip wallHit = new AudioClip(Paths.get("Home entertainment/src/sounds/wall_hit.wav").toUri().toString());
 //      AudioClip walking = new AudioClip(Paths.get("src/sounds/walking.wav").toUri().toString());
 
+        //Prepare the score text
+        IntValue points = new IntValue(0);
+        Font scoreFont = Font.font("Arial", FontWeight.NORMAL, 20 );
+        gc.setFont( scoreFont );
+        gc.setStroke( Color.BLACK );
+        gc.setLineWidth(1);
 
         LongValue lastNanoTime = new LongValue(System.nanoTime());
         IntValue score = new IntValue(0);
@@ -457,15 +466,16 @@ public class Main extends Application {
 
                 //Upper border
                 for (int i = 0; i < 4; i++) {
-                    gc.drawImage(brickSingleHorizontal, brickSingleVert.getWidth() + (i * brickSingleHorizontal.getWidth()), 0);
                     gc.drawImage(wallShort, brickSingleVert.getWidth() + (i * brickSingleHorizontal.getWidth()), brickSingleHorizontal.getHeight());
+                    gc.drawImage(brickSingleHorizontal, brickSingleVert.getWidth() + (i * brickSingleHorizontal.getWidth()), 0);
                     wallUpBorder1 += brickSingleHorizontal.getWidth();
                 }
                 for (int i = 0; i < canvas.getWidth() / brickSingleHorizontal.getWidth(); i++) {
-                    gc.drawImage(brickSingleHorizontal, brickSingleVert.getWidth() + wallUpBorder1 + doorWidth + (i * brickSingleHorizontal.getWidth()), 0);
                     gc.drawImage(wallShort, brickSingleVert.getWidth() + wallUpBorder1 + doorWidth + (i * brickSingleHorizontal.getWidth()), brickSingleHorizontal.getHeight());
+                    //Stats board
+                    gc.drawImage(statsBoard,canvas.getWidth()-240,3);
+                    gc.drawImage(brickSingleHorizontal, brickSingleVert.getWidth() + wallUpBorder1 + doorWidth + (i * brickSingleHorizontal.getWidth()), 0);
                 }
-
                 //wall between kitchen and bedroom
                 for (int i = 0; i < 3; i++) {
                     gc.drawImage(brickSingleVert, brickSingleVert.getWidth() + wallUpBorder1 + doorWidth + (2 * brickSingleHorizontal.getWidth()), i * brickSingleVert.getHeight());
@@ -558,6 +568,15 @@ public class Main extends Application {
                 for (int i = 0; i < canvas.getHeight() / brickSingleVert.getHeight(); i++) {
                     gc.drawImage(brickSingleVert, canvas.getWidth() - brickSingleVert.getWidth(), i * brickSingleVert.getHeight());
                 }
+
+                //Display scores on the stats board
+                String pointsText = "Points: " + points.value;
+                gc.fillText( pointsText, canvas.getWidth()-statsBoard.getWidth()+5, canvas.getLayoutY()+40);
+
+                //Display health on stats board
+                String healthText = "Health " + player.getHealth() +"%";
+                gc.fillText( healthText, canvas.getWidth()-statsBoard.getWidth()+5, canvas.getLayoutY()+20);
+
 
             }
         }.start();
