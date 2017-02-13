@@ -251,7 +251,8 @@ public class Main extends Application {
 
         // Preparing sounds
         AudioClip wallHit = new AudioClip(Paths.get("Home entertainment/src/sounds/wall_hit.wav").toUri().toString());
-//      AudioClip walking = new AudioClip(Paths.get("src/sounds/walking.wav").toUri().toString());
+        AudioClip pickup = new AudioClip(Paths.get("Home entertainment/src/sounds/pickup.wav").toUri().toString());
+
 
         //Prepare the score text
         IntValue points = new IntValue(0);
@@ -675,6 +676,7 @@ public class Main extends Application {
                     {
                         monstersIter.remove();
                         points.value++;
+                        pickup.play();
                     }
                 }
             }
