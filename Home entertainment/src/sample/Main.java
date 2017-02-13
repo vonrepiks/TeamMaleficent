@@ -574,7 +574,7 @@ public class Main extends Application {
                 gc.fillText( pointsText, canvas.getWidth()-statsBoard.getWidth()+5, canvas.getLayoutY()+40);
 
                 //Display health on stats board
-                String healthText = "Health " + player.getHealth() +"%";
+                String healthText = "Health " + player.getPlayerHealth() +"%";
                 gc.fillText( healthText, canvas.getWidth()-statsBoard.getWidth()+5, canvas.getLayoutY()+20);
 
 
