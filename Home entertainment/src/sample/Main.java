@@ -1,5 +1,6 @@
 package sample;
 
+import javafx.animation.Interpolatable;
 import javafx.application.Application;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.media.AudioClip;
@@ -19,6 +20,7 @@ import javafx.scene.input.KeyEvent;
 import java.nio.file.Paths;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicInteger;
 
 
@@ -96,6 +98,31 @@ public class Main extends Application {
         playerUpImages.addLast("img/playerBack1.png");
         playerUpImages.addLast("img/playerBack2.png");
 
+        ArrayDeque<String> monstersImages = new ArrayDeque<>();
+        monstersImages.addLast("img/monster.gif");
+        monstersImages.addLast("img/monster1.png");
+        monstersImages.addLast("img/monster2.png");
+
+        //The player object
+        Image playerImage = new Image("img/playerFront0.png", 45, 120, false, false);
+        Player player = new Player();
+        player.setImage(playerImage);
+        player.setPosition(5 * brickSingleHorizontal.getWidth(), 20);
+
+
+        //Create different monsters
+        ArrayDeque<Sprite> monsterList = new ArrayDeque<>();
+        for (int i = 0; i < 15; i++)
+        {
+            Sprite monster = new Sprite();
+            String tempImage = monstersImages.pop();
+            monstersImages.addLast(tempImage);
+            Image monsterImage = new Image(tempImage,50,44,false,false);
+            monster.setImage(monsterImage);
+            monsterList.add( monster );
+        }
+        ArrayList<Sprite> monstersToRender = new ArrayList<>();
+
 
         //Take the keys inputs
         ArrayList<String> input = new ArrayList<>();
@@ -120,11 +147,6 @@ public class Main extends Application {
         // Display the graphics and movement
         GraphicsContext gc = canvas.getGraphicsContext2D();
 
-        //The player object
-        Image playerImage = new Image("img/playerFront0.png", 45, 120, false, false);
-        Player player = new Player();
-        player.setImage(playerImage);
-        player.setPosition(5 * brickSingleHorizontal.getWidth(), 20);
 
         //The kitchenDresser object
         Image kitchenDresserImage = new Image("img/kitchenDresser.png", 80, 135, false, false);
@@ -241,8 +263,8 @@ public class Main extends Application {
         gc.setLineWidth(1);
 
         LongValue lastNanoTime = new LongValue(System.nanoTime());
-        IntValue score = new IntValue(0);
         AtomicInteger stepCounter = new AtomicInteger(0);
+        AtomicInteger monsterCounter = new AtomicInteger(0);
 
         //The animation begins
         new AnimationTimer() {
@@ -271,9 +293,10 @@ public class Main extends Application {
                 Rectangle2D bathroomSinkBoundary = bathroomSink.getBoundary();
 
                 // Player movement
-
                 player.setVelocity(0, 0);
                 if (input.contains("LEFT")) {
+                    stepCounter.addAndGet(1);
+
                     if (player.leftBoundary().intersects(kitchenSinkBoundary) ||
                             player.leftBoundary().intersects(kitchenTableBoundary) ||
                             player.leftBoundary().intersects(wardrobeBoundary) ||
@@ -305,18 +328,33 @@ public class Main extends Application {
                         player.hasAlreadyHit = true;
                         player.addVelocity(0, 0);
                     } else {
-                        player.addVelocity(-90, 0);
-                        stepCounter.addAndGet(1);
-                        if (stepCounter.get() == 10) {
-                            String tempImage = playerLeftImages.pop();
-                            playerLeftImages.addLast(tempImage);
-                            player.setImage(tempImage);
-                            stepCounter.set(0);
+                        //Running
+                        if (input.contains("SHIFT")){
+                            player.addVelocity(-180, 0);
+
+                            if (stepCounter.get() == 5) {
+                                String tempImage = playerLeftImages.pop();
+                                playerLeftImages.addLast(tempImage);
+                                player.setImage(tempImage);
+                                stepCounter.set(0);
+                            }
+                        //Walking
+                        }else {
+                            player.addVelocity(-90, 0);
+
+                            if (stepCounter.get() == 10) {
+                                String tempImage = playerLeftImages.pop();
+                                playerLeftImages.addLast(tempImage);
+                                player.setImage(tempImage);
+                                stepCounter.set(0);
+                            }
                         }
                         player.hasAlreadyHit = false;
                     }
                 }
                 if (input.contains("RIGHT")) {
+                    stepCounter.addAndGet(1);
+
                     if (player.rightBoundary().intersects(fridgeBoundary) ||
                             player.rightBoundary().intersects(bedBoundary) ||
                             player.rightBoundary().intersects(livingRoomChairBoundary) ||
@@ -344,18 +382,33 @@ public class Main extends Application {
                         player.hasAlreadyHit = true;
                         player.addVelocity(0, 0);
                     } else {
-                        player.addVelocity(90, 0);
-                        stepCounter.addAndGet(1);
-                        if (stepCounter.get() == 10) {
-                            String tempImage = playerRightImages.pop();
-                            playerRightImages.addLast(tempImage);
-                            player.setImage(tempImage);
-                            stepCounter.set(0);
+                        //Running
+                        if (input.contains("SHIFT")){
+                            player.addVelocity(180, 0);
+
+                            if (stepCounter.get() == 5) {
+                                String tempImage = playerRightImages.pop();
+                                playerRightImages.addLast(tempImage);
+                                player.setImage(tempImage);
+                                stepCounter.set(0);
+                            }
+                        //Walking
+                        }else{
+                            player.addVelocity(90, 0);
+                            if (stepCounter.get() == 10) {
+                                String tempImage = playerRightImages.pop();
+                                playerRightImages.addLast(tempImage);
+                                player.setImage(tempImage);
+                                stepCounter.set(0);
+                            }
                         }
+
                         player.hasAlreadyHit = false;
                     }
                 }
                 if (input.contains("UP")) {
+                    stepCounter.addAndGet(1);
+
                     if (player.upperBoundary().intersects(kitchenDresserBoundary) ||
                             player.upperBoundary().intersects(kitchenSinkBoundary) ||
                             player.upperBoundary().intersects(kitchenTableBoundary) ||
@@ -388,18 +441,34 @@ public class Main extends Application {
                         player.hasAlreadyHit = true;
                         player.addVelocity(0, 0);
                     } else {
-                        player.addVelocity(0, -90);
-                        stepCounter.addAndGet(1);
-                        if (stepCounter.get() == 10) {
-                            String tempImage = playerUpImages.pop();
-                            playerUpImages.addLast(tempImage);
-                            player.setImage(tempImage);
-                            stepCounter.set(0);
+                        //Running
+                        if (input.contains("SHIFT")){
+                            player.addVelocity(0, -180);
+
+                            if (stepCounter.get() == 5) {
+                                String tempImage = playerUpImages.pop();
+                                playerUpImages.addLast(tempImage);
+                                player.setImage(tempImage);
+                                stepCounter.set(0);
+                            }
+                        //Walking
+                        }else{
+                            player.addVelocity(0, -90);
+
+                            if (stepCounter.get() == 10) {
+                                String tempImage = playerUpImages.pop();
+                                playerUpImages.addLast(tempImage);
+                                player.setImage(tempImage);
+                                stepCounter.set(0);
+                            }
                         }
+
                         player.hasAlreadyHit = false;
                     }
                 }
                 if (input.contains("DOWN")) {
+                    stepCounter.addAndGet(1);
+
                     if (player.bottomBoundary().intersects(kitchenTableBoundary) ||
                             player.bottomBoundary().intersects(livingRoomChairBoundary) ||
                             player.bottomBoundary().intersects(desk.getX(), desk.getY() + 40, desk.getWidth(), desk.getHeight()) || //desk
@@ -426,18 +495,35 @@ public class Main extends Application {
                         player.hasAlreadyHit = true;
                         player.addVelocity(0, 0);
                     } else {
-                        player.addVelocity(0, 90);
-                        stepCounter.addAndGet(1);
-                        if (stepCounter.get() == 10) {
-                            String tempImage = playerDownImages.pop();
-                            playerDownImages.addLast(tempImage);
-                            player.setImage(tempImage);
-                            stepCounter.set(0);
+                        //Running
+                        if (input.contains("SHIFT")){
+                            player.addVelocity(0, 180);
+
+                            if (stepCounter.get() == 5) {
+                                String tempImage = playerDownImages.pop();
+                                playerDownImages.addLast(tempImage);
+                                player.setImage(tempImage);
+                                stepCounter.set(0);
+                            }
+                        //Walking
+                        }else{
+                            player.addVelocity(0, 90);
+
+                            if (stepCounter.get() == 10) {
+                                String tempImage = playerDownImages.pop();
+                                playerDownImages.addLast(tempImage);
+                                player.setImage(tempImage);
+                                stepCounter.set(0);
+                            }
                         }
+
                         player.hasAlreadyHit = false;
                     }
                 }
                 player.update(elapsedTime);
+                if (stepCounter.intValue()==Integer.MAX_VALUE){
+                    stepCounter.set(0);
+                }
 
                 // Render the image objects
 
@@ -576,6 +662,32 @@ public class Main extends Application {
                 //Display health on stats board
                 String healthText = "Health " + player.getPlayerHealth() +"%";
                 gc.fillText( healthText, canvas.getWidth()-statsBoard.getWidth()+5, canvas.getLayoutY()+20);
+
+                monsterCounter.addAndGet(1);
+                if (monsterCounter.get() == 200) {
+                    Sprite tempMonster = monsterList.pop();
+                    monsterList.addLast(tempMonster);
+                    double px = (player.getX() * Math.random()+100);
+                    double py = (player.getY() * Math.random()+100);
+                    tempMonster.setPosition(px,py);
+                    monstersToRender.add(tempMonster);
+                    monsterCounter.set(0);
+                }
+                for (Sprite monster : monstersToRender) {
+                    monster.render(gc);
+                }
+
+                //Collision with monsters
+                Iterator<Sprite> monstersIter = monstersToRender.iterator();
+                while ( monstersIter.hasNext() )
+                {
+                    Sprite monster = monstersIter.next();
+                    if ( player.intersects(monster) )
+                    {
+                        monstersIter.remove();
+                        points.value++;
+                    }
+                }
 
 
             }
