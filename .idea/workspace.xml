@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4d5a1fea-d21e-47ab-a95c-4a39581612f3" name="Default" comment="">
+    <list default="true" id="4d5a1fea-d21e-47ab-a95c-4a39581612f3" name="Default" comment="Added working player running functionality.">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home entertainment/out/sample/Main$3.class" afterPath="$PROJECT_DIR$/Home entertainment/out/sample/Main$3.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -21,7 +22,7 @@
         <entry file="file://$PROJECT_DIR$/Home entertainment/src/sample/Main.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="100">
-              <caret line="493" column="54" lean-forward="false" selection-start-line="493" selection-start-column="54" selection-end-line="493" selection-end-column="54" />
+              <caret line="493" column="57" lean-forward="true" selection-start-line="493" selection-start-column="57" selection-end-line="493" selection-end-column="57" />
               <folding>
                 <element signature="e#12073#41924#0" expanded="true" />
                 <element signature="e#41923#41924#0" expanded="true" />
@@ -194,46 +195,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Home entertainment" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TeamMaleficent" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TeamMaleficent" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Home entertainment" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TeamMaleficent" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TeamMaleficent" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Home entertainment" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sample" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -676,7 +637,7 @@
       <workItem from="1486909359377" duration="862000" />
       <workItem from="1486934535509" duration="3208000" />
       <workItem from="1486963529556" duration="99000" />
-      <workItem from="1486971566780" duration="19976000" />
+      <workItem from="1486971566780" duration="21222000" />
     </task>
     <task id="LOCAL-00001" summary="Last Update">
       <created>1486910195961</created>
@@ -706,11 +667,18 @@
       <option name="project" value="LOCAL" />
       <updated>1486993822063</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Added working player running functionality.">
+      <created>1486993871625</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1486993871625</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24145000" />
+    <option name="totallyTimeSpent" value="25391000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -757,7 +725,8 @@
     <MESSAGE value="Last Update" />
     <MESSAGE value="Added player`s health and score." />
     <MESSAGE value="Added Bugs sprite and player gains points collecting them. Cleaned player images." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Bugs sprite and player gains points collecting them. Cleaned player images." />
+    <MESSAGE value="Added working player running functionality." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added working player running functionality." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -963,7 +932,7 @@
     <entry file="file://$PROJECT_DIR$/Home entertainment/src/sample/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
-          <caret line="493" column="54" lean-forward="false" selection-start-line="493" selection-start-column="54" selection-end-line="493" selection-end-column="54" />
+          <caret line="493" column="57" lean-forward="true" selection-start-line="493" selection-start-column="57" selection-end-line="493" selection-end-column="57" />
           <folding>
             <element signature="e#12073#41924#0" expanded="true" />
             <element signature="e#41923#41924#0" expanded="true" />
