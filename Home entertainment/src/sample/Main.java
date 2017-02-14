@@ -21,6 +21,7 @@ import java.nio.file.Paths;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.Timer;
 import java.util.concurrent.atomic.AtomicInteger;
 
 
@@ -252,6 +253,8 @@ public class Main extends Application {
         // Preparing sounds
         AudioClip wallHit = new AudioClip(Paths.get("Home entertainment/src/sounds/wall_hit.wav").toUri().toString());
         AudioClip pickup = new AudioClip(Paths.get("Home entertainment/src/sounds/pickup.wav").toUri().toString());
+        AudioClip walking = new AudioClip(Paths.get("Home entertainment/src/sounds/walking.wav").toUri().toString());
+        AudioClip running = new AudioClip(Paths.get("Home entertainment/src/sounds/running.mp4").toUri().toString());
 
 
         //Prepare the score text
@@ -319,6 +322,8 @@ public class Main extends Application {
                         }
 
                         if (!player.hasAlreadyHit) {
+                            walking.stop();
+                            running.stop();
                             wallHit.play(1);
                         }
 
@@ -331,6 +336,12 @@ public class Main extends Application {
                         if (input.contains("SHIFT")){
                             player.addVelocity(-180, 0);
                             if (stepCounter.get() == 5) {
+                                if(walking.isPlaying()){
+                                    walking.stop();
+                                }
+                                if(!running.isPlaying()){
+                                    running.play(1, 0, 1.0, 0.0, -5);
+                                }
                                 String tempImage = playerLeftImages.pop();
                                 playerLeftImages.addLast(tempImage);
                                 player.setImage(tempImage);
@@ -340,6 +351,9 @@ public class Main extends Application {
                         }
                         player.addVelocity(-90, 0);
                         if (stepCounter.get() == 10) {
+                            if(!walking.isPlaying()) {
+                                walking.play(1, 0, 1.2, 0.0, -5);
+                            }
                             String tempImage = playerLeftImages.pop();
                             playerLeftImages.addLast(tempImage);
                             player.setImage(tempImage);
@@ -371,6 +385,8 @@ public class Main extends Application {
                         }
 
                         if (!player.hasAlreadyHit) {
+                            walking.stop();
+                            running.stop();
                             wallHit.play(1);
                         }
 
@@ -383,6 +399,12 @@ public class Main extends Application {
                         if (input.contains("SHIFT")){
                             player.addVelocity(180, 0);
                             if (stepCounter.get() == 5) {
+                                if(walking.isPlaying()){
+                                    walking.stop();
+                                }
+                                if(!running.isPlaying()){
+                                    running.play(1, 0, 1.0, 0.0, -5);
+                                }
                                 String tempImage = playerRightImages.pop();
                                 playerRightImages.addLast(tempImage);
                                 player.setImage(tempImage);
@@ -393,6 +415,9 @@ public class Main extends Application {
                         player.addVelocity(90, 0);
 
                         if (stepCounter.get() == 10) {
+                            if(!walking.isPlaying()) {
+                                walking.play(1, 0, 1.2, 0.0, -5);
+                            }
                             String tempImage = playerRightImages.pop();
                             playerRightImages.addLast(tempImage);
                             player.setImage(tempImage);
@@ -429,6 +454,8 @@ public class Main extends Application {
                         }
 
                         if (!player.hasAlreadyHit) {
+                            walking.stop();
+                            running.stop();
                             wallHit.play(1);
                         }
 
@@ -441,6 +468,12 @@ public class Main extends Application {
                         if (input.contains("SHIFT")){
                             player.addVelocity(0, -180);
                             if (stepCounter.get() == 5) {
+                                if(walking.isPlaying()){
+                                    walking.stop();
+                                }
+                                if(!running.isPlaying()){
+                                    running.play(1, 0, 1.0, 0.0, -5);
+                                }
                                 String tempImage = playerUpImages.pop();
                                 playerUpImages.addLast(tempImage);
                                 player.setImage(tempImage);
@@ -451,6 +484,9 @@ public class Main extends Application {
                         player.addVelocity(0, -90);
 
                         if (stepCounter.get() == 10) {
+                            if(!walking.isPlaying()) {
+                                walking.play(1, 0, 1.2, 0.0, -5);
+                            }
                             String tempImage = playerUpImages.pop();
                             playerUpImages.addLast(tempImage);
                             player.setImage(tempImage);
@@ -481,6 +517,8 @@ public class Main extends Application {
                         }
 
                         if (!player.hasAlreadyHit) {
+                            walking.stop();
+                            running.stop();
                             wallHit.play(1);
                         }
 
@@ -493,6 +531,12 @@ public class Main extends Application {
                         if (input.contains("SHIFT")){
                             player.addVelocity(0, 180);
                             if (stepCounter.get() == 5) {
+                                if(walking.isPlaying()){
+                                    walking.stop();
+                                }
+                                if(!running.isPlaying()){
+                                    running.play(1, 0, 1.0, 0.0, -5);
+                                }
                                 String tempImage = playerDownImages.pop();
                                 playerDownImages.addLast(tempImage);
                                 player.setImage(tempImage);
@@ -504,6 +548,9 @@ public class Main extends Application {
                         player.addVelocity(0, 90);
 
                         if (stepCounter.get() == 10) {
+                            if(!walking.isPlaying()) {
+                                walking.play(1, 0, 1.2, 0.0, -5);
+                            }
                             String tempImage = playerDownImages.pop();
                             playerDownImages.addLast(tempImage);
                             player.setImage(tempImage);
@@ -512,6 +559,11 @@ public class Main extends Application {
 
                         player.hasAlreadyHit = false;
                     }
+                }
+                //Stops sound effects while standing in place
+                if(input.isEmpty()){
+                    walking.stop();
+                    running.stop();
                 }
                 player.update(elapsedTime);
 
