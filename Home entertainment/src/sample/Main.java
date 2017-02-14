@@ -351,6 +351,9 @@ public class Main extends Application {
                         }
                         player.addVelocity(-90, 0);
                         if (stepCounter.get() == 10) {
+                            if(running.isPlaying()){
+                                running.stop();
+                            }
                             if(!walking.isPlaying()) {
                                 walking.play(1, 0, 1.2, 0.0, -5);
                             }
@@ -415,6 +418,9 @@ public class Main extends Application {
                         player.addVelocity(90, 0);
 
                         if (stepCounter.get() == 10) {
+                            if(running.isPlaying()){
+                                running.stop();
+                            }
                             if(!walking.isPlaying()) {
                                 walking.play(1, 0, 1.2, 0.0, -5);
                             }
@@ -484,6 +490,9 @@ public class Main extends Application {
                         player.addVelocity(0, -90);
 
                         if (stepCounter.get() == 10) {
+                            if(running.isPlaying()){
+                                running.stop();
+                            }
                             if(!walking.isPlaying()) {
                                 walking.play(1, 0, 1.2, 0.0, -5);
                             }
@@ -548,6 +557,9 @@ public class Main extends Application {
                         player.addVelocity(0, 90);
 
                         if (stepCounter.get() == 10) {
+                            if(running.isPlaying()){
+                                running.stop();
+                            }
                             if(!walking.isPlaying()) {
                                 walking.play(1, 0, 1.2, 0.0, -5);
                             }
