@@ -1,5 +1,7 @@
 package sample;
 
+import java.util.ArrayList;
+
 public class Player extends Sprite{
     private double health;
 
@@ -14,4 +16,9 @@ public class Player extends Sprite{
     public void subtractPlayerHealth(){
         this.health -= 0.05;
     }
+
+    public int score = 0;
+
+    public ArrayList<Achievement> achievements = new ArrayList<>();
+
 }

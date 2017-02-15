@@ -249,10 +249,10 @@ public class Main extends Application {
         bathroomSink.setPosition(BATHROOM_X + 10, BATHROOM_Y - 70);
 
         // Preparing sounds
-        AudioClip wallHit = new AudioClip(Paths.get("Home entertainment/src/sounds/wall_hit.wav").toUri().toString());
-        AudioClip pickup = new AudioClip(Paths.get("Home entertainment/src/sounds/pickup.wav").toUri().toString());
-        AudioClip walking = new AudioClip(Paths.get("Home entertainment/src/sounds/walking.wav").toUri().toString());
-        AudioClip running = new AudioClip(Paths.get("Home entertainment/src/sounds/running.mp4").toUri().toString());
+        AudioClip wallHit = new AudioClip(Paths.get("src/sounds/wall_hit.wav").toUri().toString());
+        AudioClip pickup = new AudioClip(Paths.get("src/sounds/pickup.wav").toUri().toString());
+        AudioClip walking = new AudioClip(Paths.get("src/sounds/walking.wav").toUri().toString());
+        AudioClip running = new AudioClip(Paths.get("src/sounds/running.mp4").toUri().toString());
 
 
         //Prepare the score text
@@ -708,11 +708,12 @@ public class Main extends Application {
                 }
 
                 //Display scores on the stats board
-                String pointsText = "Points: " + points.value;
+                String pointsText = "Points: " + player.score;
                 gc.fillText( pointsText, canvas.getWidth()-statsBoard.getWidth()+5, canvas.getLayoutY()+40);
 
                 //Display health on stats board
                 String healthText = "Health " + (int)(player.getPlayerHealth()) +"%";
+
                 gc.fillText( healthText, canvas.getWidth()-statsBoard.getWidth()+5, canvas.getLayoutY()+20);
 
                 monsterCounter.addAndGet(1);
@@ -729,14 +730,18 @@ public class Main extends Application {
                     monster.render(gc);
                 }
 
-                //Collision with monsters
+                AchievementManager AM = new AchievementManager(player, gc, root);
+
+                // Collision with monsters
                 Iterator<Sprite> monstersIter = monstersToRender.iterator();
                 while ( monstersIter.hasNext() )
                 {
                     Sprite monster = monstersIter.next();
-                    if ( player.intersects(monster) ) {
+                    if ( player.intersects(monster) )
+                    {
                         player.subtractPlayerHealth();
-                        healthText = "Health " + (int)(player.getPlayerHealth()) +"%";
+                        player.score++;
+                        AM.observe();
                         pickup.play();
                     }
                 }
