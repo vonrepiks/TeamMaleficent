@@ -61,10 +61,10 @@ public class AchievementManager {
         t.setFill(Color.DARKRED);
         root.getChildren().add(t);
 
-        FadeTransition ft = new FadeTransition(Duration.millis(3000), t);
+        FadeTransition ft = new FadeTransition(Duration.millis(2000), t);
         ft.setFromValue(1);
         ft.setToValue(0);
-        ft.setCycleCount(3);
+        ft.setCycleCount(1);
         ft.play();
     }
 }
