@@ -316,7 +316,7 @@ public class Main extends Application {
                             player.leftBoundary().intersects(BEDROOM_X - brickSingleVert.getWidth(), (3 * brickSingleVert.getHeight()) + (2 * wallColon.getHeight()) + brickSingleVert.getHeight() + 40, brickSingleVert.getWidth(), brickSingleVert.getHeight() * 2) || // wall between kitchen and bedroom(one brick)
                             player.leftBoundary().intersects(BATHROOM_X - brickSingleVert.getWidth(), BATHROOM_Y, brickSingleVert.getWidth(), BATHROOM_HEIGHT + 40)) { //wall between living room and bathroom
 
-                        processPlayer();
+                        checkIfPlayerCollidesUD();
 
                     } else {
                         stepCounter.addAndGet(1);
@@ -372,7 +372,7 @@ public class Main extends Application {
                             player.rightBoundary().intersects(BEDROOM_X - brickSingleVert.getWidth(), (3 * brickSingleVert.getHeight()) + (2 * wallColon.getHeight()) + brickSingleVert.getHeight() + 40, brickSingleVert.getWidth(), brickSingleVert.getHeight() * 2) || // wall between kitchen and bedroom(one brick)
                             player.rightBoundary().intersects(BATHROOM_X - brickSingleVert.getWidth(), BATHROOM_Y, brickSingleVert.getWidth(), BATHROOM_HEIGHT + 40)) { //wall between living room and bathroom
 
-                        processPlayer();
+                        checkIfPlayerCollidesUD();
                     } else {
                         stepCounter.addAndGet(1);
 
@@ -433,7 +433,7 @@ public class Main extends Application {
                             player.upperBoundary().intersects(brickSingleVert.getWidth() + (14 * brickSingleHorizontal.getWidth()), BATHROOM_Y - brickSingleHorizontal.getHeight(), 2 * brickSingleHorizontal.getWidth(), brickSingleHorizontal.getHeight()) || //wall between bedroom and bathroom
                             player.upperBoundary().intersects(BEDROOM_X - brickSingleVert.getWidth(), 0, brickSingleVert.getWidth(), (3 * brickSingleVert.getHeight()) + (2 * wallColon.getHeight()))) { //wall between kitchen and bedroom
 
-                        processPlayer();
+                        checkIfPlayerCollidesLR();
                     } else {
                         stepCounter.addAndGet(1);
 
@@ -488,7 +488,7 @@ public class Main extends Application {
                             player.bottomBoundary().intersects(brickSingleVert.getWidth() + (6 * brickSingleHorizontal.getWidth()), wallShort.getHeight(), 10 * brickSingleHorizontal.getWidth(), brickSingleHorizontal.getHeight()) || //upper wall right from entrance
                             player.bottomBoundary().intersects(BEDROOM_X - brickSingleVert.getWidth(), (3 * brickSingleVert.getHeight()) + (2 * wallColon.getHeight()) + brickSingleVert.getHeight() + 40, brickSingleVert.getWidth(), brickSingleVert.getHeight() * 2)) { // wall between kitchen and bedroom(one brick)
 
-                        processPlayer();
+                        checkIfPlayerCollidesLR();
                     } else {
                         stepCounter.addAndGet(1);
 
@@ -699,10 +699,22 @@ public class Main extends Application {
 
         theStage.show();
     }
-
-    private void processPlayer() {
-        //checks if another button is already pressed; prevents sound spam
+    private void checkIfPlayerCollidesUD() {
+        //checks if UP or DOWN is already pressed; prevents sound spam
         if (input.contains("UP") || input.contains("DOWN")) {
+            player.hasAlreadyHit = true;
+        }
+        if (!player.hasAlreadyHit) {
+            walking.stop();
+            running.stop();
+            wallHit.play(1);
+        }
+        player.hasAlreadyHit = true;
+        player.addVelocity(0, 0);
+    }
+    private void checkIfPlayerCollidesLR() {
+        //checks if LEFT or RIGHT is already pressed; prevents sound spam
+        if (input.contains("LEFT") || input.contains("RIGHT")) {
             player.hasAlreadyHit = true;
         }
         if (!player.hasAlreadyHit) {
