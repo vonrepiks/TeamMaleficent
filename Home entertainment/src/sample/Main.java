@@ -19,16 +19,15 @@ import javafx.scene.input.KeyEvent;
 import java.nio.file.Paths;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class Main extends Application {
 
     private  static Player player;
     private static ArrayList<String> input;
-    private static AudioClip walking;
-    private static AudioClip running;
-    private static AudioClip wallHit;
+    private static AudioClip walking, running, wallHit;
+    private static AtomicInteger stepCounter;
+    ArrayDeque<String> playerDownImages, playerRightImages, playerLeftImages, playerUpImages;
 
     public static void main(String[] args) {
         launch(args);
@@ -83,22 +82,22 @@ public class Main extends Application {
         Image siphon = new Image("img/siphon.png", 40, 40, false, false);
         Image statsBoard = new Image("img/statsBoard.png");
 
-        ArrayDeque<String> playerRightImages = new ArrayDeque<>();
+        playerRightImages = new ArrayDeque<>();
         playerRightImages.addLast("img/playerRight0.png");
         playerRightImages.addLast("img/playerRight1.png");
         playerRightImages.addLast("img/playerRight2.png");
 
-        ArrayDeque<String> playerLeftImages = new ArrayDeque<>();
+        playerLeftImages = new ArrayDeque<>();
         playerLeftImages.addLast("img/playerLeft0.png");
         playerLeftImages.addLast("img/playerLeft1.png");
         playerLeftImages.addLast("img/playerLeft2.png");
 
-        ArrayDeque<String> playerDownImages = new ArrayDeque<>();
+        playerDownImages = new ArrayDeque<>();
         playerDownImages.addLast("img/playerFront0.png");
         playerDownImages.addLast("img/playerFront1.png");
         playerDownImages.addLast("img/playerFront2.png");
 
-        ArrayDeque<String> playerUpImages = new ArrayDeque<>();
+        playerUpImages = new ArrayDeque<>();
         playerUpImages.addLast("img/playerBack0.png");
         playerUpImages.addLast("img/playerBack1.png");
         playerUpImages.addLast("img/playerBack2.png");
@@ -265,7 +264,7 @@ public class Main extends Application {
         gc.setLineWidth(1);
 
         LongValue lastNanoTime = new LongValue(System.nanoTime());
-        AtomicInteger stepCounter = new AtomicInteger(0);
+        stepCounter = new AtomicInteger(0);
         AtomicInteger monsterCounter = new AtomicInteger(0);
 
         //The animation begins
@@ -319,40 +318,7 @@ public class Main extends Application {
                         checkIfPlayerCollidesUD();
 
                     } else {
-                        stepCounter.addAndGet(1);
-
-                        //Running
-                        if (input.contains("SHIFT")){
-                            player.addVelocity(-180, 0);
-                            if (stepCounter.get() == 5) {
-                                if(walking.isPlaying()){
-                                    walking.stop();
-                                }
-                                if(!running.isPlaying()){
-                                    running.play(1, 0, 1.0, 0.0, -5);
-                                }
-                                String tempImage = playerLeftImages.pop();
-                                playerLeftImages.addLast(tempImage);
-                                player.setImage(tempImage);
-                                stepCounter.set(0);
-                            }
-                        //Walking
-                        }
-                        player.addVelocity(-90, 0);
-                        if (stepCounter.get() == 10) {
-                            if(running.isPlaying()){
-                                running.stop();
-                            }
-                            if(!walking.isPlaying()) {
-                                walking.play(1, 0, 1.2, 0.0, -5);
-                            }
-                            String tempImage = playerLeftImages.pop();
-                            playerLeftImages.addLast(tempImage);
-                            player.setImage(tempImage);
-                            stepCounter.set(0);
-                        }
-
-                        player.hasAlreadyHit = false;
+                        playerMove(-180, 0, "left", -90, 0);
                     }
                 }
                 if (input.contains("RIGHT")) {
@@ -374,41 +340,7 @@ public class Main extends Application {
 
                         checkIfPlayerCollidesUD();
                     } else {
-                        stepCounter.addAndGet(1);
-
-                        //Running
-                        if (input.contains("SHIFT")){
-                            player.addVelocity(180, 0);
-                            if (stepCounter.get() == 5) {
-                                if(walking.isPlaying()){
-                                    walking.stop();
-                                }
-                                if(!running.isPlaying()){
-                                    running.play(1, 0, 1.0, 0.0, -5);
-                                }
-                                String tempImage = playerRightImages.pop();
-                                playerRightImages.addLast(tempImage);
-                                player.setImage(tempImage);
-                                stepCounter.set(0);
-                            }
-                        }
-                        //Walking
-                        player.addVelocity(90, 0);
-
-                        if (stepCounter.get() == 10) {
-                            if(running.isPlaying()){
-                                running.stop();
-                            }
-                            if(!walking.isPlaying()) {
-                                walking.play(1, 0, 1.2, 0.0, -5);
-                            }
-                            String tempImage = playerRightImages.pop();
-                            playerRightImages.addLast(tempImage);
-                            player.setImage(tempImage);
-                            stepCounter.set(0);
-                        }
-
-                        player.hasAlreadyHit = false;
+                        playerMove(180, 0, "right", 90, 0);
                     }
                 }
                 if (input.contains("UP")) {
@@ -435,41 +367,7 @@ public class Main extends Application {
 
                         checkIfPlayerCollidesLR();
                     } else {
-                        stepCounter.addAndGet(1);
-
-                        //Running
-                        if (input.contains("SHIFT")){
-                            player.addVelocity(0, -180);
-                            if (stepCounter.get() == 5) {
-                                if(walking.isPlaying()){
-                                    walking.stop();
-                                }
-                                if(!running.isPlaying()){
-                                    running.play(1, 0, 1.0, 0.0, -5);
-                                }
-                                String tempImage = playerUpImages.pop();
-                                playerUpImages.addLast(tempImage);
-                                player.setImage(tempImage);
-                                stepCounter.set(0);
-                            }
-                        //Walking
-                        }
-                        player.addVelocity(0, -90);
-
-                        if (stepCounter.get() == 10) {
-                            if(running.isPlaying()){
-                                running.stop();
-                            }
-                            if(!walking.isPlaying()) {
-                                walking.play(1, 0, 1.2, 0.0, -5);
-                            }
-                            String tempImage = playerUpImages.pop();
-                            playerUpImages.addLast(tempImage);
-                            player.setImage(tempImage);
-                            stepCounter.set(0);
-                        }
-
-                        player.hasAlreadyHit = false;
+                        playerMove(0, -180 , "up", 0, -90);
                     }
                 }
                 if (input.contains("DOWN")) {
@@ -490,42 +388,7 @@ public class Main extends Application {
 
                         checkIfPlayerCollidesLR();
                     } else {
-                        stepCounter.addAndGet(1);
-
-                        //Running
-                        if (input.contains("SHIFT")){
-                            player.addVelocity(0, 180);
-                            if (stepCounter.get() == 5) {
-                                if(walking.isPlaying()){
-                                    walking.stop();
-                                }
-                                if(!running.isPlaying()){
-                                    running.play(1, 0, 1.0, 0.0, -5);
-                                }
-                                String tempImage = playerDownImages.pop();
-                                playerDownImages.addLast(tempImage);
-                                player.setImage(tempImage);
-                                stepCounter.set(0);
-                            }
-
-                        //Walking
-                        }
-                        player.addVelocity(0, 90);
-
-                        if (stepCounter.get() == 10) {
-                            if(running.isPlaying()){
-                                running.stop();
-                            }
-                            if(!walking.isPlaying()) {
-                                walking.play(1, 0, 1.2, 0.0, -5);
-                            }
-                            String tempImage = playerDownImages.pop();
-                            playerDownImages.addLast(tempImage);
-                            player.setImage(tempImage);
-                            stepCounter.set(0);
-                        }
-
-                        player.hasAlreadyHit = false;
+                        playerMove(0, 180 , "down", 0, 90);
                     }
                 }
                 //Stops sound effects while standing in place
@@ -536,8 +399,6 @@ public class Main extends Application {
                 player.update(elapsedTime);
 
                 // Render the image objects
-//                double startCarpetY = brickHorizontal.getHeight() + wallShort.getHeight() + (2 * parquet.getHeight()) + brickHorizontal.getHeight();
-//                double tilesStartX = (2 * brickVertical.getWidth()) + (2 * carpet.getWidth());
                 double doorWidth = 2 * brickSingleHorizontal.getWidth();
                 double wallKitchenLivingRoomWidth = 0;
                 double wallKitchenLivingRoomBedroomBathroomWidth = 0;
@@ -564,6 +425,7 @@ public class Main extends Application {
                     gc.drawImage(brickSingleHorizontal, brickSingleVert.getWidth() + (i * brickSingleHorizontal.getWidth()), 0);
                     wallUpBorder1 += brickSingleHorizontal.getWidth();
                 }
+
                 for (int i = 0; i < canvas.getWidth() / brickSingleHorizontal.getWidth(); i++) {
                     gc.drawImage(wallShort, brickSingleVert.getWidth() + wallUpBorder1 + doorWidth + (i * brickSingleHorizontal.getWidth()), brickSingleHorizontal.getHeight());
                     //Stats board
@@ -575,6 +437,7 @@ public class Main extends Application {
                     gc.drawImage(brickSingleVert, brickSingleVert.getWidth() + wallUpBorder1 + doorWidth + (2 * brickSingleHorizontal.getWidth()), i * brickSingleVert.getHeight());
                     wallKitchenBedroomHeight += brickSingleVert.getHeight();
                 }
+
                 for (int i = 0; i < 2; i++) {
                     gc.drawImage(wallColon, brickSingleVert.getWidth() + wallUpBorder1 + doorWidth + (2 * brickSingleHorizontal.getWidth()), wallKitchenBedroomHeight + (i * wallColon.getHeight()));
                 }
@@ -678,27 +541,84 @@ public class Main extends Application {
                     monstersToRender.add(tempMonster);
                     monsterCounter.set(0);
                 }
+
                 for (Sprite monster : monstersToRender) {
                     monster.render(gc);
                 }
 
                 //Collision with monsters
-                Iterator<Sprite> monstersIter = monstersToRender.iterator();
-                while ( monstersIter.hasNext() ) {
-                    Sprite monster = monstersIter.next();
-                    if ( player.intersects(monster) ) {
+                for (Sprite monster : monstersToRender) {
+                    if (player.intersects(monster)) {
                         player.subtractPlayerHealth();
-                        healthText = "Health " + (int)(player.getPlayerHealth()) +"%";
-                        if(!pickup.isPlaying()){
+                        healthText = "Health " + (int) (player.getPlayerHealth()) + "%";
+                        if (!pickup.isPlaying()) {
                             pickup.play();
                         }
                     }
                 }
             }
         }.start();
-
         theStage.show();
     }
+
+    private void playerMove(int x, int y, String direction, int x1, int y1) {
+        stepCounter.addAndGet(1);
+        //Running
+        if (input.contains("SHIFT")){
+            player.addVelocity(x, y);
+            if (stepCounter.get() == 5) {
+                if(walking.isPlaying()){
+                    walking.stop();
+                }
+                if(!running.isPlaying()){
+                    running.play(1, 0, 1.0, 0.0, -5);
+                }
+                changeImage(direction);
+                stepCounter.set(0);
+            }
+            //Walking
+        }
+        player.addVelocity(x1, y1);
+
+        if (stepCounter.get() == 10) {
+            if(running.isPlaying()){
+                running.stop();
+            }
+            if(!walking.isPlaying()) {
+                walking.play(1, 0, 1.2, 0.0, -5);
+            }
+            changeImage(direction);
+            stepCounter.set(0);
+        }
+        player.hasAlreadyHit = false;
+    }
+
+    private void changeImage(String direction) {
+        switch (direction){
+            case "down":
+                String tempImage = playerDownImages.pop();
+                playerDownImages.addLast(tempImage);
+                player.setImage(tempImage);
+                break;
+            case "up":
+                String tempImageUp = playerUpImages.pop();
+                playerUpImages.addLast(tempImageUp);
+                player.setImage(tempImageUp);
+                break;
+            case "right":
+                String tempImageRight = playerRightImages.pop();
+                playerRightImages.addLast(tempImageRight);
+                player.setImage(tempImageRight);
+                break;
+            case "left":
+                String tempImageLeft = playerLeftImages.pop();
+                playerLeftImages.addLast(tempImageLeft);
+                player.setImage(tempImageLeft);
+                break;
+            default:break;
+        }
+    }
+
     private void checkIfPlayerCollidesUD() {
         //checks if UP or DOWN is already pressed; prevents sound spam
         if (input.contains("UP") || input.contains("DOWN")) {
@@ -712,6 +632,7 @@ public class Main extends Application {
         player.hasAlreadyHit = true;
         player.addVelocity(0, 0);
     }
+
     private void checkIfPlayerCollidesLR() {
         //checks if LEFT or RIGHT is already pressed; prevents sound spam
         if (input.contains("LEFT") || input.contains("RIGHT")) {
