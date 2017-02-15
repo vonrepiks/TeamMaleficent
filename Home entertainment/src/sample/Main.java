@@ -22,8 +22,14 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicInteger;
 
-
 public class Main extends Application {
+
+    private  static Player player;
+    private static ArrayList<String> input;
+    private static AudioClip walking;
+    private static AudioClip running;
+    private static AudioClip wallHit;
+
     public static void main(String[] args) {
         launch(args);
     }
@@ -104,14 +110,13 @@ public class Main extends Application {
 
         //The player object
         Image playerImage = new Image("img/playerFront0.png", 45, 120, false, false);
-        Player player = new Player();
+        player = new Player();
         player.setImage(playerImage);
         player.setPosition(5 * brickSingleHorizontal.getWidth(), 20);
 
         //Create different monsters
         ArrayDeque<Sprite> monsterList = new ArrayDeque<>();
-        for (int i = 0; i < 15; i++)
-        {
+        for (int i = 0; i < 15; i++) {
             Sprite monster = new Sprite();
             String tempImage = monstersImages.pop();
             monstersImages.addLast(tempImage);
@@ -121,9 +126,8 @@ public class Main extends Application {
         }
         ArrayList<Sprite> monstersToRender = new ArrayList<>();
 
-
         //Take the keys inputs
-        ArrayList<String> input = new ArrayList<>();
+        input = new ArrayList<>();
 
         theScene.setOnKeyPressed(
                 new EventHandler<KeyEvent>() {
@@ -144,7 +148,6 @@ public class Main extends Application {
 
         // Display the graphics and movement
         GraphicsContext gc = canvas.getGraphicsContext2D();
-
 
         //The kitchenDresser object
         Image kitchenDresserImage = new Image("img/kitchenDresser.png", 80, 135, false, false);
@@ -249,11 +252,10 @@ public class Main extends Application {
         bathroomSink.setPosition(BATHROOM_X + 10, BATHROOM_Y - 70);
 
         // Preparing sounds
-        AudioClip wallHit = new AudioClip(Paths.get("Home entertainment/src/sounds/wall_hit.wav").toUri().toString());
+        wallHit = new AudioClip(Paths.get("Home entertainment/src/sounds/wall_hit.wav").toUri().toString());
         AudioClip pickup = new AudioClip(Paths.get("Home entertainment/src/sounds/pickup.wav").toUri().toString());
-        AudioClip walking = new AudioClip(Paths.get("Home entertainment/src/sounds/walking.wav").toUri().toString());
-        AudioClip running = new AudioClip(Paths.get("Home entertainment/src/sounds/running.mp4").toUri().toString());
-
+        walking = new AudioClip(Paths.get("Home entertainment/src/sounds/walking.wav").toUri().toString());
+        running = new AudioClip(Paths.get("Home entertainment/src/sounds/running.mp4").toUri().toString());
 
         //Prepare the score text
         IntValue points = new IntValue(0);
@@ -314,19 +316,8 @@ public class Main extends Application {
                             player.leftBoundary().intersects(BEDROOM_X - brickSingleVert.getWidth(), (3 * brickSingleVert.getHeight()) + (2 * wallColon.getHeight()) + brickSingleVert.getHeight() + 40, brickSingleVert.getWidth(), brickSingleVert.getHeight() * 2) || // wall between kitchen and bedroom(one brick)
                             player.leftBoundary().intersects(BATHROOM_X - brickSingleVert.getWidth(), BATHROOM_Y, brickSingleVert.getWidth(), BATHROOM_HEIGHT + 40)) { //wall between living room and bathroom
 
-                        //checks if another button is already pressed; prevents sound spam
-                        if (input.contains("UP") || input.contains("DOWN")) {
-                            player.hasAlreadyHit = true;
-                        }
+                        processPlayer();
 
-                        if (!player.hasAlreadyHit) {
-                            walking.stop();
-                            running.stop();
-                            wallHit.play(1);
-                        }
-
-                        player.hasAlreadyHit = true;
-                        player.addVelocity(0, 0);
                     } else {
                         stepCounter.addAndGet(1);
 
@@ -381,18 +372,7 @@ public class Main extends Application {
                             player.rightBoundary().intersects(BEDROOM_X - brickSingleVert.getWidth(), (3 * brickSingleVert.getHeight()) + (2 * wallColon.getHeight()) + brickSingleVert.getHeight() + 40, brickSingleVert.getWidth(), brickSingleVert.getHeight() * 2) || // wall between kitchen and bedroom(one brick)
                             player.rightBoundary().intersects(BATHROOM_X - brickSingleVert.getWidth(), BATHROOM_Y, brickSingleVert.getWidth(), BATHROOM_HEIGHT + 40)) { //wall between living room and bathroom
 
-                        if (input.contains("UP") || input.contains("DOWN")) {
-                            player.hasAlreadyHit = true;
-                        }
-
-                        if (!player.hasAlreadyHit) {
-                            walking.stop();
-                            running.stop();
-                            wallHit.play(1);
-                        }
-
-                        player.hasAlreadyHit = true;
-                        player.addVelocity(0, 0);
+                        processPlayer();
                     } else {
                         stepCounter.addAndGet(1);
 
@@ -453,18 +433,7 @@ public class Main extends Application {
                             player.upperBoundary().intersects(brickSingleVert.getWidth() + (14 * brickSingleHorizontal.getWidth()), BATHROOM_Y - brickSingleHorizontal.getHeight(), 2 * brickSingleHorizontal.getWidth(), brickSingleHorizontal.getHeight()) || //wall between bedroom and bathroom
                             player.upperBoundary().intersects(BEDROOM_X - brickSingleVert.getWidth(), 0, brickSingleVert.getWidth(), (3 * brickSingleVert.getHeight()) + (2 * wallColon.getHeight()))) { //wall between kitchen and bedroom
 
-                        if (input.contains("LEFT") || input.contains("RIGHT")) {
-                            player.hasAlreadyHit = true;
-                        }
-
-                        if (!player.hasAlreadyHit) {
-                            walking.stop();
-                            running.stop();
-                            wallHit.play(1);
-                        }
-
-                        player.hasAlreadyHit = true;
-                        player.addVelocity(0, 0);
+                        processPlayer();
                     } else {
                         stepCounter.addAndGet(1);
 
@@ -519,18 +488,7 @@ public class Main extends Application {
                             player.bottomBoundary().intersects(brickSingleVert.getWidth() + (6 * brickSingleHorizontal.getWidth()), wallShort.getHeight(), 10 * brickSingleHorizontal.getWidth(), brickSingleHorizontal.getHeight()) || //upper wall right from entrance
                             player.bottomBoundary().intersects(BEDROOM_X - brickSingleVert.getWidth(), (3 * brickSingleVert.getHeight()) + (2 * wallColon.getHeight()) + brickSingleVert.getHeight() + 40, brickSingleVert.getWidth(), brickSingleVert.getHeight() * 2)) { // wall between kitchen and bedroom(one brick)
 
-                        if (input.contains("LEFT") || input.contains("RIGHT")) {
-                            player.hasAlreadyHit = true;
-                        }
-
-                        if (!player.hasAlreadyHit) {
-                            walking.stop();
-                            running.stop();
-                            wallHit.play(1);
-                        }
-
-                        player.hasAlreadyHit = true;
-                        player.addVelocity(0, 0);
+                        processPlayer();
                     } else {
                         stepCounter.addAndGet(1);
 
@@ -578,7 +536,6 @@ public class Main extends Application {
                 player.update(elapsedTime);
 
                 // Render the image objects
-
 //                double startCarpetY = brickHorizontal.getHeight() + wallShort.getHeight() + (2 * parquet.getHeight()) + brickHorizontal.getHeight();
 //                double tilesStartX = (2 * brickVertical.getWidth()) + (2 * carpet.getWidth());
                 double doorWidth = 2 * brickSingleHorizontal.getWidth();
@@ -601,7 +558,6 @@ public class Main extends Application {
                 gc.drawImage(carpet, LIVINGROOM_X + LIVINGROOM_WIDTH / 2, LIVINGROOM_Y + LIVINGROOM_HEIGHT / 2);
 
                 //Draw upper walls and bricks
-
                 //Upper border
                 for (int i = 0; i < 4; i++) {
                     gc.drawImage(wallShort, brickSingleVert.getWidth() + (i * brickSingleHorizontal.getWidth()), brickSingleHorizontal.getHeight());
@@ -646,7 +602,6 @@ public class Main extends Application {
                 }
 
                 //render the  middle walls
-
                 //wall between kitchen and livingRoom(draw 4 bricks)
                 for (int i = 0; i < 4; i++) {
                     gc.drawImage(brickSingleHorizontal, brickSingleVert.getWidth() + (i * brickSingleHorizontal.getWidth()), canvas.getHeight() / 2);
@@ -673,7 +628,6 @@ public class Main extends Application {
                 }
 
                 //Render the bricks
-
                 //Left border
                 for (int i = 0; i < canvas.getHeight() / brickSingleVert.getHeight(); i++) {
                     gc.drawImage(brickSingleVert, 0, i * brickSingleVert.getHeight());
@@ -700,7 +654,6 @@ public class Main extends Application {
                 for (int i = 0; i < canvas.getWidth() / brickSingleHorizontal.getWidth(); i++) {
                     gc.drawImage(brickSingleHorizontal, brickSingleVert.getWidth() + (i * brickSingleHorizontal.getWidth()), canvas.getHeight() - 2 * brickSingleHorizontal.getHeight());
                 }
-
 
                 //Right border
                 for (int i = 0; i < canvas.getHeight() / brickSingleVert.getHeight(); i++) {
@@ -731,8 +684,7 @@ public class Main extends Application {
 
                 //Collision with monsters
                 Iterator<Sprite> monstersIter = monstersToRender.iterator();
-                while ( monstersIter.hasNext() )
-                {
+                while ( monstersIter.hasNext() ) {
                     Sprite monster = monstersIter.next();
                     if ( player.intersects(monster) ) {
                         player.subtractPlayerHealth();
@@ -746,5 +698,19 @@ public class Main extends Application {
         }.start();
 
         theStage.show();
+    }
+
+    private void processPlayer() {
+        //checks if another button is already pressed; prevents sound spam
+        if (input.contains("UP") || input.contains("DOWN")) {
+            player.hasAlreadyHit = true;
+        }
+        if (!player.hasAlreadyHit) {
+            walking.stop();
+            running.stop();
+            wallHit.play(1);
+        }
+        player.hasAlreadyHit = true;
+        player.addVelocity(0, 0);
     }
 }
