@@ -1,6 +1,5 @@
 package sample;
 
-import javafx.animation.Interpolatable;
 import javafx.application.Application;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.media.AudioClip;
@@ -21,7 +20,6 @@ import java.nio.file.Paths;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.Timer;
 import java.util.concurrent.atomic.AtomicInteger;
 
 
@@ -36,7 +34,7 @@ public class Main extends Application {
 
         Group root = new Group();
 
-        Scene theScene = new Scene(root, 1024, 768, Color.WHITESMOKE);
+        Scene theScene = new Scene(root, 1024, 748, Color.WHITESMOKE);
         theStage.setScene(theScene);
 
         Canvas canvas = new Canvas(1024, 768);
@@ -714,7 +712,7 @@ public class Main extends Application {
                 gc.fillText( pointsText, canvas.getWidth()-statsBoard.getWidth()+5, canvas.getLayoutY()+40);
 
                 //Display health on stats board
-                String healthText = "Health " + player.getPlayerHealth() +"%";
+                String healthText = "Health " + (int)(player.getPlayerHealth()) +"%";
                 gc.fillText( healthText, canvas.getWidth()-statsBoard.getWidth()+5, canvas.getLayoutY()+20);
 
                 monsterCounter.addAndGet(1);
@@ -736,10 +734,9 @@ public class Main extends Application {
                 while ( monstersIter.hasNext() )
                 {
                     Sprite monster = monstersIter.next();
-                    if ( player.intersects(monster) )
-                    {
-                        monstersIter.remove();
-                        points.value++;
+                    if ( player.intersects(monster) ) {
+                        player.subtractPlayerHealth();
+                        healthText = "Health " + (int)(player.getPlayerHealth()) +"%";
                         pickup.play();
                     }
                 }

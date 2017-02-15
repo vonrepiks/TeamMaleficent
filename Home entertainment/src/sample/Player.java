@@ -1,13 +1,17 @@
 package sample;
 
 public class Player extends Sprite{
-    private int health;
+    private double health;
 
     public Player(){
         health =100;
     }
 
-    public int getPlayerHealth(){
+    public double getPlayerHealth(){
         return health;
+    }
+
+    public void subtractPlayerHealth(){
+        this.health -= 0.05;
     }
 }
