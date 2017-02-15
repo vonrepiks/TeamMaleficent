@@ -737,7 +737,9 @@ public class Main extends Application {
                     if ( player.intersects(monster) ) {
                         player.subtractPlayerHealth();
                         healthText = "Health " + (int)(player.getPlayerHealth()) +"%";
-                        pickup.play();
+                        if(!pickup.isPlaying()){
+                            pickup.play();
+                        }
                     }
                 }
             }
