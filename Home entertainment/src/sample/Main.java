@@ -4,15 +4,12 @@ import javafx.animation.*;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.effect.Effect;
 import javafx.scene.effect.Glow;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.*;
 import javafx.scene.media.AudioClip;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
@@ -35,9 +32,6 @@ import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicInteger;
-
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
 
 import static sample.RoomsParameters.*;
 
@@ -241,10 +235,10 @@ public class Main extends Application {
         bathroomSink.setPosition(BATHROOM_X + 10, BATHROOM_Y - 70);
 
 
-        wallHit = new AudioClip(Paths.get("src/sounds/wall_hit.wav").toUri().toString());
-        AudioClip pickup = new AudioClip(Paths.get("src/sounds/pickup.wav").toUri().toString());
-        walking = new AudioClip(Paths.get("src/sounds/walking.wav").toUri().toString());
-        running = new AudioClip(Paths.get("src/sounds/running.mp4").toUri().toString());
+        wallHit = new AudioClip(Paths.get("Home entertainment/src/sounds/wall_hit.wav").toUri().toString());
+        AudioClip pickup = new AudioClip(Paths.get("Home entertainment/src/sounds/pickup.wav").toUri().toString());
+        walking = new AudioClip(Paths.get("Home entertainment/src/sounds/walking.wav").toUri().toString());
+        running = new AudioClip(Paths.get("Home entertainment/src/sounds/running.mp4").toUri().toString());
 
         //Display introduce on Main page
         Image mainImage = new Image("img/07.jpg", canvas.getWidth(), canvas.getHeight(), false, false);
@@ -814,11 +808,14 @@ public class Main extends Application {
                             {
                                 Sprite monster = monstersIter.next();
 
-                                if ( player.sprayBoundary().intersects(monster.sprayBoundary()))
-                                {
-                                    monstersIter.remove();
+                                if ( player.sprayBoundary().intersects(monster.sprayBoundary())) {
                                     player.score++;
                                     pickup.play();
+                                    for (long i = 0; i < 10000000; i++) {
+                                        if ( i == 9999999){
+                                            monstersIter.remove();
+                                        }
+                                    }
                                 }
                             }
                         }
