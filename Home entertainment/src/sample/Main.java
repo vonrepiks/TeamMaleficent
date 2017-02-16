@@ -239,6 +239,7 @@ public class Main extends Application {
         AudioClip pickup = new AudioClip(Paths.get("Home entertainment/src/sounds/pickup.wav").toUri().toString());
         walking = new AudioClip(Paths.get("Home entertainment/src/sounds/walking.wav").toUri().toString());
         running = new AudioClip(Paths.get("Home entertainment/src/sounds/running.mp4").toUri().toString());
+        AudioClip spraying = new AudioClip(Paths.get("Home entertainment/src/sounds/sprayingSound.mp4").toUri().toString());
 
         //Display introduce on Main page
         Image mainImage = new Image("img/07.jpg", canvas.getWidth(), canvas.getHeight(), false, false);
@@ -535,7 +536,7 @@ public class Main extends Application {
 
                         // Player movement
                         player.setVelocity(0, 0);
-                        if (input.contains("LEFT")) {
+                        if (input.contains("LEFT") && !input.contains("SPACE")) {
                             if (player.leftBoundary().intersects(kitchenSinkBoundary) ||
                                     player.leftBoundary().intersects(kitchenTableBoundary) ||
                                     player.leftBoundary().intersects(wardrobeBoundary) ||
@@ -562,7 +563,7 @@ public class Main extends Application {
                                 playerMove(-180, 0, direction, -90, 0);
                             }
                         }
-                        if (input.contains("RIGHT")) {
+                        if (input.contains("RIGHT") && !input.contains("SPACE")) {
                             if (player.rightBoundary().intersects(fridgeBoundary) ||
                                     player.rightBoundary().intersects(bedBoundary) ||
                                     player.rightBoundary().intersects(livingRoomChairBoundary) ||
@@ -585,7 +586,7 @@ public class Main extends Application {
                                 playerMove(180, 0, direction, 90, 0);
                             }
                         }
-                        if (input.contains("UP")) {
+                        if (input.contains("UP") && !input.contains("SPACE")) {
                             if (player.upperBoundary().intersects(kitchenDresserBoundary) ||
                                     player.upperBoundary().intersects(kitchenSinkBoundary) ||
                                     player.upperBoundary().intersects(kitchenTableBoundary) ||
@@ -613,7 +614,7 @@ public class Main extends Application {
                                 playerMove(0, -180, direction, 0, -90);
                             }
                         }
-                        if (input.contains("DOWN")) {
+                        if (input.contains("DOWN") && !input.contains("SPACE")) {
                             if (player.bottomBoundary().intersects(kitchenTableBoundary) ||
                                     player.bottomBoundary().intersects(livingRoomChairBoundary) ||
                                     player.bottomBoundary().intersects(desk.getX(), desk.getY() + 40, desk.getWidth(), desk.getHeight()) || //desk
@@ -636,7 +637,7 @@ public class Main extends Application {
                             }
                         }
                         //Stops sound effects while standing in place
-                        if (input.isEmpty()) {
+                        if ((!input.contains("LEFT") && !input.contains("RIGHT") && !input.contains("UP") && !input.contains("DOWN")) || input.contains("SPACE")) {
                             walking.stop();
                             running.stop();
                         }
@@ -793,6 +794,8 @@ public class Main extends Application {
 
                         //Spraying the monsters
                         if (input.contains("SPACE")) {
+                            if(!spraying.isPlaying())
+                                spraying.play();
 
                             if("left".equals(direction))
                                 player.setSprayImage("img/SprayLeft.gif");
