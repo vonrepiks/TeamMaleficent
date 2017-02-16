@@ -1,2 +1,11 @@
 Teammates contribution:
-1. Maximilian Georgiev - sound effects 
+1. Maximilian Georgiev - sound effects
+2. Ivo Mironov: - implemented Sprite and AnimationTimer classes,
+                - created player`s custom (bottom, upper, left and right) boundaries for intersecting the objects to work in AnimationTimer,
+                - implemented player running functionality
+                - created initial players health and points functionality and stats board
+                - bugs appearing and collecting from player
+
+
+
+
