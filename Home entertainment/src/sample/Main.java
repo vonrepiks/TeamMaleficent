@@ -241,10 +241,10 @@ public class Main extends Application {
         bathroomSink.setPosition(BATHROOM_X + 10, BATHROOM_Y - 70);
 
 
-        wallHit = new AudioClip(Paths.get("src/sounds/wall_hit.wav").toUri().toString());
-        AudioClip pickup = new AudioClip(Paths.get("src/sounds/pickup.wav").toUri().toString());
-        walking = new AudioClip(Paths.get("src/sounds/walking.wav").toUri().toString());
-        running = new AudioClip(Paths.get("src/sounds/running.mp4").toUri().toString());
+        wallHit = new AudioClip(Paths.get("Home entertainment/src/sounds/wall_hit.wav").toUri().toString());
+        AudioClip pickup = new AudioClip(Paths.get("Home entertainment/src/sounds/pickup.wav").toUri().toString());
+        walking = new AudioClip(Paths.get("Home entertainment/src/sounds/walking.wav").toUri().toString());
+        running = new AudioClip(Paths.get("Home entertainment/src/sounds/running.mp4").toUri().toString());
 
         //Display introduce on Main page
         Image mainImage = new Image("img/07.jpg", canvas.getWidth(), canvas.getHeight(), false, false);
@@ -642,7 +642,7 @@ public class Main extends Application {
                             }
                         }
                         //Stops sound effects while standing in place
-                        if (input.isEmpty()) {
+                        if (!input.contains("LEFT") && !input.contains("RIGHT") && !input.contains("UP") && !input.contains("DOWN")) {
                             walking.stop();
                             running.stop();
                         }
