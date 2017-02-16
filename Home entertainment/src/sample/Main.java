@@ -636,7 +636,7 @@ public class Main extends Application {
                             }
                         }
                         //Stops sound effects while standing in place
-                        if (input.isEmpty()) {
+                        if (!input.contains("LEFT") && !input.contains("RIGHT") && !input.contains("UP") && !input.contains("DOWN")) {
                             walking.stop();
                             running.stop();
                         }
