@@ -14,7 +14,7 @@ public class Player extends Sprite{
     }
 
     public void subtractPlayerHealth(){
-        this.health -= 0.20;
+        this.health -= 0.10;
     }
 
     public int score = 0;
