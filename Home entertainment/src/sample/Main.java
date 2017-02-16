@@ -795,6 +795,7 @@ public class Main extends Application {
                             if (player.intersects(monster)) {
                                 player.subtractPlayerHealth();
                                 if (player.getPlayerHealth() <= 0){
+                                    root.getChildren().remove(buttonQuit);
                                     root.getChildren().add(buttonQuit);
                                     root.getChildren().add(buttonStartNewGame);
                                     stop();
