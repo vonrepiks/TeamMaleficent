@@ -32,6 +32,8 @@ import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import static sample.RoomsParameters.*;
+
 public class Main extends Application {
 
     private static Player player;
@@ -40,6 +42,7 @@ public class Main extends Application {
     private static AtomicInteger stepCounter;
     private static final boolean[] mute = {false};
     ArrayDeque<String> playerDownImages, playerRightImages, playerLeftImages, playerUpImages;
+    public static Canvas canvas = new Canvas(1024, 768);
 
     public static void main(String[] args) {
         launch(args);
@@ -47,45 +50,12 @@ public class Main extends Application {
 
     @Override
     public void start(Stage theStage) {
+
         theStage.setTitle("Home entertainment");
-
         Group root = new Group();
-
         Scene theScene = new Scene(root, 1024, 748, Color.WHITESMOKE);
         theStage.setScene(theScene);
-
-        Canvas canvas = new Canvas(1024, 768);
         root.getChildren().add(canvas);
-
-        // Create Image and ImageView objects
-        Image brickSingleHorizontal = new Image("img/brickSingleHorizontal.png");
-        Image brickSingleVert = new Image("img/brickSingleVert.png");
-        Image wallShort = new Image("img/wallShort.png");
-        Image wallColon = new Image("img/wallColon.png");
-
-        //borders Kitchen
-        double KITCHEN_X = brickSingleVert.getWidth();
-        double KITCHEN_Y = brickSingleHorizontal.getHeight() + wallShort.getHeight();
-        double KITCHEN_WIDTH = brickSingleHorizontal.getWidth() * 8;
-        double KITCHEN_HEIGHT = canvas.getHeight() / 2 - brickSingleHorizontal.getHeight();
-
-        //borders Living room
-        double LIVINGROOM_X = brickSingleVert.getWidth();
-        double LIVINGROOM_Y = brickSingleHorizontal.getHeight() + wallShort.getHeight() + KITCHEN_HEIGHT + brickSingleHorizontal.getHeight();
-        double LIVINGROOM_WIDTH = brickSingleHorizontal.getWidth() * 10 - brickSingleVert.getWidth();
-        double LIVINGROOM_HEIGHT = canvas.getHeight() - LIVINGROOM_Y - (2 * brickSingleHorizontal.getHeight());
-
-        //borders Bedroom
-        double BEDROOM_X = brickSingleVert.getWidth() + KITCHEN_WIDTH + brickSingleVert.getWidth();
-        double BEDROOM_Y = brickSingleHorizontal.getHeight() + wallShort.getHeight();
-        double BEDROOM_WIDTH = canvas.getWidth() - KITCHEN_WIDTH - (3 * brickSingleVert.getWidth());
-        double BEDROOM_HEIGHT = canvas.getHeight() / 2 - brickSingleHorizontal.getHeight();
-
-        //borders Bathroom
-        double BATHROOM_X = brickSingleVert.getWidth() + LIVINGROOM_WIDTH + brickSingleVert.getWidth();
-        double BATHROOM_Y = brickSingleHorizontal.getHeight() + wallShort.getHeight() + KITCHEN_HEIGHT + brickSingleHorizontal.getHeight();
-        double BATHROOM_WIDTH = canvas.getWidth() - (3 * brickSingleVert.getWidth()) - LIVINGROOM_WIDTH;
-        double BATHROOM_HEIGHT = canvas.getHeight() - LIVINGROOM_Y - (2 * brickSingleHorizontal.getHeight());
 
         Image parquet = new Image("img/parquet.jpg", KITCHEN_WIDTH, KITCHEN_HEIGHT / 2, false, false);
         Image tiles = new Image("img/tiles2.jpg", BATHROOM_WIDTH, BATHROOM_HEIGHT / 2, false, false);
@@ -375,7 +345,6 @@ public class Main extends Application {
         buttonClose.setLayoutX(menuX - buttonClose.getWidth() / 2);
         buttonClose.setLayoutY(menuY - buttonClose.getHeight() / 2);
 
-
         buttonSound.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -440,7 +409,6 @@ public class Main extends Application {
             @Override
             public void handle(ActionEvent event) {
                 isMainWindow[0] = false;
-
 
                 //Prepare the score text
                 //IntValue points = new IntValue(0);

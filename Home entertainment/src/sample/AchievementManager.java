@@ -45,7 +45,7 @@ public class AchievementManager {
         }
 
         if (player.getPlayerHealth() <= 0){
-            Achievement gameOver = new Achievement("Game Over", "Bugs kill you, Game Over! Points earned: " + player.score);
+            Achievement gameOver = new Achievement("Game Over", "Bugs owned the house and kill you, Game Over!");
             this.player.achievements.add(gameOver);
             this.renderAchievement(gameOver);
         }
