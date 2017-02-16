@@ -797,8 +797,6 @@ public class Main extends Application {
                             monster.render(gc);
                         }
 
-
-
                         //Spraying the monsters
                         if (input.contains("SPACE")) {
 
@@ -833,7 +831,9 @@ public class Main extends Application {
                             if (player.intersects(monster)) {
 
                                 GM.renderMessage("Ouch!", 1000, Color.RED);
-                                GM.watch();
+
+                                if((int)player.getPlayerHealth() <= 0)
+                                    GM.renderMessage("Bugs owned the house and ate you, Game Over!", 10000000, Color.RED);
 
                                 player.subtractPlayerHealth();
 

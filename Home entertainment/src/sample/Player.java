@@ -6,7 +6,7 @@ public class Player extends Sprite{
     private double health;
 
     public Player(){
-        health =100;
+        health = 100;
     }
 
     public double getPlayerHealth(){
@@ -14,7 +14,7 @@ public class Player extends Sprite{
     }
 
     public void subtractPlayerHealth(){
-        this.health -= 0.90;
+        this.health -= 0.20;
     }
 
     public int score = 0;

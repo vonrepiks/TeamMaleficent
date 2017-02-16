@@ -27,11 +27,6 @@ public class GameMessage {
 
     public void watch() {
 
-        // Game over
-        if (player.getPlayerHealth() <= 0){
-            this.renderMessage("Bugs owned the house and ate you, Game Over!", 10000000, Color.RED);
-        }
-
         // Headshot
 
         // Multi kill
