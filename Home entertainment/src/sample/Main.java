@@ -4,12 +4,15 @@ import javafx.animation.*;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.effect.Effect;
 import javafx.scene.effect.Glow;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.*;
 import javafx.scene.media.AudioClip;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
@@ -30,7 +33,11 @@ import javafx.util.Duration;
 import java.nio.file.Paths;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicInteger;
+
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
 
 import static sample.RoomsParameters.*;
 
@@ -43,6 +50,7 @@ public class Main extends Application {
     private static final boolean[] mute = {false};
     ArrayDeque<String> playerDownImages, playerRightImages, playerLeftImages, playerUpImages;
     public static Canvas canvas = new Canvas(1024, 768);
+    public String direction;
 
     public static void main(String[] args) {
         launch(args);
@@ -233,10 +241,10 @@ public class Main extends Application {
         bathroomSink.setPosition(BATHROOM_X + 10, BATHROOM_Y - 70);
 
 
-        wallHit = new AudioClip(Paths.get("Home entertainment/src/sounds/wall_hit.wav").toUri().toString());
-        AudioClip pickup = new AudioClip(Paths.get("Home entertainment/src/sounds/pickup.wav").toUri().toString());
-        walking = new AudioClip(Paths.get("Home entertainment/src/sounds/walking.wav").toUri().toString());
-        running = new AudioClip(Paths.get("Home entertainment/src/sounds/running.mp4").toUri().toString());
+        wallHit = new AudioClip(Paths.get("src/sounds/wall_hit.wav").toUri().toString());
+        AudioClip pickup = new AudioClip(Paths.get("src/sounds/pickup.wav").toUri().toString());
+        walking = new AudioClip(Paths.get("src/sounds/walking.wav").toUri().toString());
+        running = new AudioClip(Paths.get("src/sounds/running.mp4").toUri().toString());
 
         //Display introduce on Main page
         Image mainImage = new Image("img/07.jpg", canvas.getWidth(), canvas.getHeight(), false, false);
@@ -333,7 +341,6 @@ public class Main extends Application {
         keyboardGuide.setY(menuY + 200);
         keyboardGuide.setWrappingWidth(menu.getWidth() - 20);
 
-
         //Button Sound
         buttonSound.setGraphic(new ImageView(imageSound[0]));
         buttonSound.setLayoutX(menuX + 10);
@@ -411,7 +418,6 @@ public class Main extends Application {
                 isMainWindow[0] = false;
 
                 //Prepare the score text
-                //IntValue points = new IntValue(0);
                 Font scoreFont = Font.font("Arial", FontWeight.NORMAL, 20);
                 gc.setFont(scoreFont);
                 gc.setStroke(Color.BLACK);
@@ -482,7 +488,6 @@ public class Main extends Application {
                         buttonResume.setLayoutX(buttonMenu.getLayoutX() + buttonMenu.getPrefWidth() + 50);
                         buttonResume.setLayoutY(canvas.getHeight() - 180);
                         buttonResume.setStyle("-fx-font: 22 arial");
-
 
                         //Button Pause game
                         Button pause = new Button("Pause");
@@ -559,7 +564,8 @@ public class Main extends Application {
                                 checkIfPlayerCollidesUD();
 
                             } else {
-                                playerMove(-180, 0, "left", -90, 0);
+                                direction = "left";
+                                playerMove(-180, 0, direction, -90, 0);
                             }
                         }
                         if (input.contains("RIGHT")) {
@@ -581,7 +587,8 @@ public class Main extends Application {
 
                                 checkIfPlayerCollidesUD();
                             } else {
-                                playerMove(180, 0, "right", 90, 0);
+                                direction = "right";
+                                playerMove(180, 0, direction, 90, 0);
                             }
                         }
                         if (input.contains("UP")) {
@@ -608,7 +615,8 @@ public class Main extends Application {
 
                                 checkIfPlayerCollidesLR();
                             } else {
-                                playerMove(0, -180, "up", 0, -90);
+                                direction = "up";
+                                playerMove(0, -180, direction, 0, -90);
                             }
                         }
                         if (input.contains("DOWN")) {
@@ -629,7 +637,8 @@ public class Main extends Application {
 
                                 checkIfPlayerCollidesLR();
                             } else {
-                                playerMove(0, 180, "down", 0, 90);
+                                direction = "down";
+                                playerMove(0, 180, direction, 0, 90);
                             }
                         }
                         //Stops sound effects while standing in place
@@ -788,30 +797,57 @@ public class Main extends Application {
                             monster.render(gc);
                         }
 
+
+
+                        //Spraying the monsters
+                        if (input.contains("SPACE")) {
+
+                            if("left".equals(direction))
+                                player.setSprayImage("img/SprayLeft.gif");
+                            if("right".equals(direction))
+                                player.setSprayImage("img/SprayRight.gif");
+                            if("up".equals(direction))
+                                player.setSprayImage("img/SprayUp.gif");
+                            if("down".equals(direction))
+                                player.setSprayImage("img/SprayDown.gif");
+
+                            Iterator<Sprite> monstersIter = monstersToRender.iterator();
+                            while ( monstersIter.hasNext())
+                            {
+                                Sprite monster = monstersIter.next();
+
+                                if ( player.sprayBoundary().intersects(monster.sprayBoundary()))
+                                {
+                                    monstersIter.remove();
+                                    player.score++;
+                                    pickup.play();
+                                }
+                            }
+                        }
+
                         AchievementManager AM = new AchievementManager(player, gc, root);
+                        GameMessage GM = new GameMessage(player, root);
 
                         //Collision with monsters
                         for (Sprite monster : monstersToRender) {
                             if (player.intersects(monster)) {
+
+                                GM.renderMessage("Ouch!", 1000, Color.RED);
+                                GM.watch();
+
                                 player.subtractPlayerHealth();
+
                                 if (player.getPlayerHealth() <= 0){
-                                    root.getChildren().remove(buttonQuit);
                                     root.getChildren().add(buttonQuit);
                                     root.getChildren().add(buttonStartNewGame);
                                     stop();
                                 }
-                                player.score++;
+
                                 AM.observe();
 
-                                //healthText = "Health " + (int) (player.getPlayerHealth()) + "%";
-
-                                if (!pickup.isPlaying()) {
-                                    if (!mute[0]) {
-                                        pickup.play();
-                                    }
-                                }
                             }
                         }
+
                     }
                 }.start();
             }

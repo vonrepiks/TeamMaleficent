@@ -43,24 +43,15 @@ public class AchievementManager {
                 this.renderAchievement(maniac);
                 break;
         }
-
-        if (player.getPlayerHealth() <= 0){
-            Achievement gameOver = new Achievement("Game Over", "Bugs owned the house and kill you, Game Over!");
-            this.player.achievements.add(gameOver);
-            this.renderAchievement(gameOver);
-        }
     }
 
     public void renderAchievement(Achievement ach) {
 
-        if (ach.type.equals("Game Over")){
-            addAchievment(ach, 10000000, Color.RED);
-        } else {
-            addAchievment(ach, 10000, Color.GREEN);
-        }
+        addAchievment(ach, 10000, Color.GREEN);
     }
 
     private void addAchievment(Achievement ach, int duration, Color color) {
+
         Text t = new Text(this.achievementX, this.achievementY, ach.unlockingText);
         FadeTransition ft = new FadeTransition(Duration.millis(duration), t);
         t.setFont(Font.font ("Verdana", 25));

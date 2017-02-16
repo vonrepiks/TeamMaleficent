@@ -33,6 +33,15 @@ public class Sprite {
         setImage(i);
     }
 
+    public void setSprayImage(String filename) {
+        Image i = new Image(filename, 70, 120, false, false);
+        setImage(i);
+    }
+
+    public Rectangle2D sprayBoundary() {
+        return new Rectangle2D(positionX, positionY, width+50, height+50);
+    }
+
     public void setPosition(double x, double y) {
         positionX = x;
         positionY = y;
