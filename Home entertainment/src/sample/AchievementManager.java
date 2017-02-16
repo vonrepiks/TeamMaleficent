@@ -2,21 +2,12 @@ package sample;
 
 import javafx.animation.*;
 import javafx.scene.Group;
-import javafx.scene.Node;
-import javafx.scene.Scene;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.control.Label;
-import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
 import javafx.util.Duration;
 
-
-/**
- * Created by cvetan on 2/15/2017.
- */
 public class AchievementManager {
 
     private final GraphicsContext gc;
@@ -52,16 +43,29 @@ public class AchievementManager {
                 this.renderAchievement(maniac);
                 break;
         }
+
+        if (player.getPlayerHealth() <= 0){
+            Achievement gameOver = new Achievement("Game Over", "Bugs kill you, Game Over! Points earned: " + player.score);
+            this.player.achievements.add(gameOver);
+            this.renderAchievement(gameOver);
+        }
     }
 
     public void renderAchievement(Achievement ach) {
 
-        Text t = new Text(this.achievementX, this.achievementY, ach.unlockingText);
-        t.setFont(Font.font ("Verdana", 25));
-        t.setFill(Color.DARKRED);
-        root.getChildren().add(t);
+        if (ach.type.equals("Game Over")){
+            addAchievment(ach, 10000000, Color.RED);
+        } else {
+            addAchievment(ach, 10000, Color.GREEN);
+        }
+    }
 
-        FadeTransition ft = new FadeTransition(Duration.millis(2000), t);
+    private void addAchievment(Achievement ach, int duration, Color color) {
+        Text t = new Text(this.achievementX, this.achievementY, ach.unlockingText);
+        FadeTransition ft = new FadeTransition(Duration.millis(duration), t);
+        t.setFont(Font.font ("Verdana", 25));
+        t.setFill(color);
+        root.getChildren().add(t);
         ft.setFromValue(1);
         ft.setToValue(0);
         ft.setCycleCount(1);

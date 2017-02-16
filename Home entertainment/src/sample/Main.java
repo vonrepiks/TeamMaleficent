@@ -826,6 +826,11 @@ public class Main extends Application {
                         for (Sprite monster : monstersToRender) {
                             if (player.intersects(monster)) {
                                 player.subtractPlayerHealth();
+                                if (player.getPlayerHealth() <= 0){
+                                    root.getChildren().add(buttonQuit);
+                                    root.getChildren().add(buttonStartNewGame);
+                                    stop();
+                                }
                                 player.score++;
                                 AM.observe();
 
