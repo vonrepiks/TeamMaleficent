@@ -252,7 +252,7 @@ public class Main extends Application {
         final Effect glow = new Glow(1.0);
         gc.setEffect(glow);
         gc.setFill(Color.CADETBLUE);
-        String text = "Team Maleficent introduce you Home Entertainment";
+        String text = "Team Maleficent introduce Home Entertainment";
         gc.fillText(text, canvas.getWidth() / 2, canvas.getHeight() - 50);
 
         //Button menu
@@ -794,7 +794,7 @@ public class Main extends Application {
 
                         //Spraying the monsters
                         if (input.contains("SPACE")) {
-                            if(!spraying.isPlaying())
+                            if(!spraying.isPlaying() && !mute[0])
                                 spraying.play();
 
                             if("left".equals(direction))
@@ -813,7 +813,9 @@ public class Main extends Application {
 
                                 if ( player.sprayBoundary().intersects(monster.sprayBoundary())) {
                                     player.score++;
-                                    pickup.play();
+                                    if (!mute[0]) {
+                                        pickup.play();
+                                    }
                                     for (long i = 0; i < 10000000; i++) {
                                         if ( i == 9999999){
                                             monstersIter.remove();
@@ -840,6 +842,7 @@ public class Main extends Application {
                                 if (player.getPlayerHealth() <= 0){
                                     root.getChildren().remove(buttonQuit);
                                     root.getChildren().add(buttonQuit);
+                                    root.getChildren().remove(buttonStartNewGame);
                                     root.getChildren().add(buttonStartNewGame);
                                     stop();
                                 }
@@ -887,7 +890,6 @@ public class Main extends Application {
 
         return blink;
     }
-
 
     private void playerMove(int x, int y, String direction, int x1, int y1) {
         stepCounter.addAndGet(1);
