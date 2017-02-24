@@ -5,6 +5,7 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.media.AudioClip;
 import sample.Player.Player;
+import sample.Player.Sprite;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
@@ -23,6 +24,8 @@ public class GlobalVariables {
     private static Canvas _canvas = new Canvas(1024, 768);
     private static String _direction;
     private static GraphicsContext gc = _canvas.getGraphicsContext2D();
+    private static ArrayList<Sprite> monstersToRender;
+    private static ArrayDeque<Sprite> monsterList;
 
     public static Player getPlayer() {
         return _player;
@@ -154,5 +157,21 @@ public class GlobalVariables {
 
     public static void setRoot(Group root) {
         GlobalVariables.root = root;
+    }
+
+    public static ArrayList<Sprite> getMonstersToRender() {
+        return monstersToRender;
+    }
+
+    public static void setMonstersToRender(ArrayList<Sprite> monstersToRender) {
+        GlobalVariables.monstersToRender = monstersToRender;
+    }
+
+    public static ArrayDeque<Sprite> getMonsterList() {
+        return monsterList;
+    }
+
+    public static void setMonsterList(ArrayDeque<Sprite> monsterList) {
+        GlobalVariables.monsterList = monsterList;
     }
 }
