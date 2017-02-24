@@ -2,15 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4d5a1fea-d21e-47ab-a95c-4a39581612f3" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Home entertainment/src/sample/Buttons/ButtonEvents.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Home entertainment/src/sample/Enemy/Monsters.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Home entertainment/src/sample/Graphics/ImageDefiner.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/sample/Main$3.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/sample/Sprite.class" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home entertainment/out/sample/Main$1.class" afterPath="$PROJECT_DIR$/Home entertainment/out/sample/Main$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home entertainment/out/sample/Main$2.class" afterPath="$PROJECT_DIR$/Home entertainment/out/sample/Main$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home entertainment/out/sample/Main.class" afterPath="$PROJECT_DIR$/Home entertainment/out/sample/Main.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home entertainment/.idea/workspace.xml" afterPath="$PROJECT_DIR$/Home entertainment/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home entertainment/src/sample/Buttons/ButtonManager.java" afterPath="$PROJECT_DIR$/Home entertainment/src/sample/Buttons/ButtonManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home entertainment/src/sample/Achievments/AchievementManager.java" afterPath="$PROJECT_DIR$/Home entertainment/src/sample/Achievments/AchievementManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home entertainment/src/sample/Achievments/GameMessage.java" afterPath="$PROJECT_DIR$/Home entertainment/src/sample/Achievments/GameMessage.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home entertainment/src/sample/Buttons/ButtonEvents.java" afterPath="$PROJECT_DIR$/Home entertainment/src/sample/Buttons/ButtonEvents.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home entertainment/src/sample/Enemy/Monsters.java" afterPath="$PROJECT_DIR$/Home entertainment/src/sample/Enemy/Monsters.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home entertainment/src/sample/GlobalVariables.java" afterPath="$PROJECT_DIR$/Home entertainment/src/sample/GlobalVariables.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home entertainment/src/sample/Graphics/GraphicDisplayer.java" afterPath="$PROJECT_DIR$/Home entertainment/src/sample/Graphics/GraphicDisplayer.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home entertainment/src/sample/Main.java" afterPath="$PROJECT_DIR$/Home entertainment/src/sample/Main.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home entertainment/src/sample/Player/Player.java" afterPath="$PROJECT_DIR$/Home entertainment/src/sample/Player/Player.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home entertainment/src/sample/Player/Sprite.java" afterPath="$PROJECT_DIR$/Home entertainment/src/sample/Player/Sprite.java" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -32,18 +39,42 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Home entertainment/src/sample/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="846">
-              <caret line="97" column="1" lean-forward="false" selection-start-line="97" selection-start-column="1" selection-end-line="97" selection-end-column="1" />
+            <state relative-caret-position="405">
+              <caret line="76" column="43" lean-forward="false" selection-start-line="76" selection-start-column="43" selection-end-line="76" selection-end-column="43" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ButtonEvents.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Home entertainment/src/sample/Buttons/ButtonEvents.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="7434">
+              <caret line="356" column="1" lean-forward="false" selection-start-line="356" selection-start-column="1" selection-end-line="356" selection-end-column="1" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Player.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Home entertainment/src/sample/Player/Player.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3129">
+              <caret line="163" column="13" lean-forward="false" selection-start-line="163" selection-start-column="13" selection-end-line="163" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GlobalVariables.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Home entertainment/src/sample/GlobalVariables.java">
+      <file leaf-file-name="Monsters.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Home entertainment/src/sample/Enemy/Monsters.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+            <state relative-caret-position="966">
+              <caret line="55" column="42" lean-forward="false" selection-start-line="55" selection-start-column="42" selection-end-line="55" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -60,7 +91,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>ESCAPe</find>
       <find>MENU</find>
       <find>menu</find>
       <find>MEnu</find>
@@ -90,6 +120,7 @@
       <find>spraying.</find>
       <find>bug</find>
       <find>team</find>
+      <find>GM</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -118,6 +149,10 @@
         <option value="$PROJECT_DIR$/../testTeamMaleficent/Home entertainment/src/sample/Main.java" />
         <option value="$PROJECT_DIR$/Home entertainment/src/sample/SoundManager.java" />
         <option value="$PROJECT_DIR$/Home entertainment/src/sample/Main.java" />
+        <option value="$PROJECT_DIR$/Home entertainment/src/sample/GlobalVariables.java" />
+        <option value="$PROJECT_DIR$/Home entertainment/src/sample/Enemy/Monsters.java" />
+        <option value="$PROJECT_DIR$/Home entertainment/src/sample/Player/Player.java" />
+        <option value="$PROJECT_DIR$/Home entertainment/src/sample/Buttons/ButtonEvents.java" />
       </list>
     </option>
   </component>
@@ -147,8 +182,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -373,7 +409,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -747,7 +782,14 @@
       <option name="project" value="LOCAL" />
       <updated>1487932505861</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Created simple code structure and defined more classes.">
+      <created>1487942338081</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1487942338081</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -814,7 +856,8 @@
     <MESSAGE value="Removed unused classes and created new GlobalVariables class." />
     <MESSAGE value="Reduced Main class and created 2 more classes for graphic display." />
     <MESSAGE value="Reduced Main class and created code structure." />
-    <option name="LAST_COMMIT_MESSAGE" value="Reduced Main class and created code structure." />
+    <MESSAGE value="Created simple code structure and defined more classes." />
+    <option name="LAST_COMMIT_MESSAGE" value="Created simple code structure and defined more classes." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -827,13 +870,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../testTeamMaleficent/Home entertainment/src/sample/Main.java" />
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_112/src.zip!/java/util/concurrent/atomic/AtomicInteger.java" />
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_112/javafx-src.zip!/javafx/scene/input/KeyEvent.java" />
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_112/javafx-src.zip!/javafx/scene/input/KeyCode.java" />
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_112/javafx-src.zip!/javafx/scene/image/Image.java" />
-    <entry file="file://$PROJECT_DIR$/../testTeamMaleficent/Home entertainment/src/img/playerLeft2.png" />
-    <entry file="file://$PROJECT_DIR$/../testTeamMaleficent/Home entertainment/src/img/playerLeft0.png" />
     <entry file="file://$PROJECT_DIR$/../testTeamMaleficent/Home entertainment/src/img/playerLeft1.png" />
     <entry file="file://$PROJECT_DIR$/../testTeamMaleficent/Home entertainment/src/sample/Player.java" />
     <entry file="file://$PROJECT_DIR$/../testTeamMaleficent/Home entertainment/src/sample/Sprite.java" />
@@ -881,20 +917,80 @@
     <entry file="file://$PROJECT_DIR$/../testTeamMaleficent/Home entertainment/src/sample/IntValue.java" />
     <entry file="file://$PROJECT_DIR$/../testTeamMaleficent/Home entertainment/src/sample/LongValue.java" />
     <entry file="file://$PROJECT_DIR$/../testTeamMaleficent/Home entertainment/src/sample/Main.java" />
+    <entry file="file://$PROJECT_DIR$/Home entertainment/src/sample/SoundManager.java" />
     <entry file="file://$PROJECT_DIR$/Home entertainment/src/sample/GlobalVariables.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+        <state relative-caret-position="147">
+          <caret line="7" column="28" lean-forward="false" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Home entertainment/src/sample/SoundManager.java" />
-    <entry file="file://$PROJECT_DIR$/Home entertainment/src/sample/Main.java">
+    <entry file="file://$PROJECT_DIR$/Home entertainment/src/sample/Achievments/Achievement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Home entertainment/src/sample/Achievments/AchievementManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Home entertainment/src/sample/Achievments/GameMessage.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="846">
-          <caret line="97" column="1" lean-forward="false" selection-start-line="97" selection-start-column="1" selection-end-line="97" selection-end-column="1" />
+          <caret line="57" column="0" lean-forward="true" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Home entertainment/src/sample/Buttons/Blinker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="777">
+          <caret line="42" column="0" lean-forward="true" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Home entertainment/src/sample/Enemy/Monsters.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="966">
+          <caret line="55" column="42" lean-forward="false" selection-start-line="55" selection-start-column="42" selection-end-line="55" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Home entertainment/src/sample/Buttons/ButtonEvents.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7434">
+          <caret line="356" column="1" lean-forward="false" selection-start-line="356" selection-start-column="1" selection-end-line="356" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Home entertainment/src/sample/Player/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3129">
+          <caret line="163" column="13" lean-forward="false" selection-start-line="163" selection-start-column="13" selection-end-line="163" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Home entertainment/src/sample/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="76" column="43" lean-forward="false" selection-start-line="76" selection-start-column="43" selection-end-line="76" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

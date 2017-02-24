@@ -54,6 +54,7 @@ public class Main extends Application {
         //Take the keys inputs
         GlobalVariables.setInput(new ArrayList<>());
 
+        //add event handlers on the scene
         theScene.setOnKeyPressed(
                 new EventHandler<KeyEvent>() {
                     public void handle(KeyEvent e) {
@@ -62,7 +63,6 @@ public class Main extends Application {
                             GlobalVariables.getInput().add(code);
                     }
                 });
-
         theScene.setOnKeyReleased(
                 new EventHandler<KeyEvent>() {
                     public void handle(KeyEvent e) {

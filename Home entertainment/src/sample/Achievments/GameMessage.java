@@ -8,9 +8,6 @@ import javafx.scene.text.Text;
 import javafx.util.Duration;
 import sample.Player.Player;
 
-/**
- * Created by cvetan on 2/16/2017.
- */
 public class GameMessage {
 
     private final Group root;

@@ -6,7 +6,6 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.media.AudioClip;
 import sample.Player.Player;
 import sample.Player.Sprite;
-
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;

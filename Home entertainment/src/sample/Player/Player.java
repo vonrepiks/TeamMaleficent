@@ -3,8 +3,10 @@ package sample.Player;
 import javafx.scene.image.Image;
 import sample.Achievments.Achievement;
 import sample.GlobalVariables;
+import sample.Sounds.SoundManager;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import static sample.Graphics.RoomsParameters.brickSingleHorizontal;
 
@@ -127,5 +129,39 @@ public class Player extends Sprite {
         GlobalVariables.setPlayer(new Player());
         GlobalVariables.getPlayer().setImage(playerImage);
         GlobalVariables.getPlayer().setPosition(5 * brickSingleHorizontal.getWidth(), 20);
+    }
+
+    public static void sprayMonsters() {
+        if (GlobalVariables.getInput().contains("SPACE")) {
+            if(!SoundManager.getSpraying().isPlaying() && !GlobalVariables.getMute()[0])
+                SoundManager.getSpraying().play();
+
+            if("left".equals(GlobalVariables.getDirection()))
+                GlobalVariables.getPlayer().setSprayImage("img/SprayLeft.gif");
+            if("right".equals(GlobalVariables.getDirection()))
+                GlobalVariables.getPlayer().setSprayImage("img/SprayRight.gif");
+            if("up".equals(GlobalVariables.getDirection()))
+                GlobalVariables.getPlayer().setSprayImage("img/SprayUp.gif");
+            if("down".equals(GlobalVariables.getDirection()))
+                GlobalVariables.getPlayer().setSprayImage("img/SprayDown.gif");
+
+            Iterator<Sprite> monstersIter = GlobalVariables.getMonstersToRender().iterator();
+            while ( monstersIter.hasNext())
+            {
+                Sprite monster = monstersIter.next();
+
+                if ( GlobalVariables.getPlayer().sprayBoundary().intersects(monster.sprayBoundary())) {
+                    GlobalVariables.getPlayer().score++;
+                    if (!GlobalVariables.getMute()[0]) {
+                        SoundManager.getPickup().play();
+                    }
+                    for (long i = 0; i < 10000000; i++) {
+                        if ( i == 9999999){
+                            monstersIter.remove();
+                        }
+                    }
+                }
+            }
+        }
     }
 }
