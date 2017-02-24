@@ -1,8 +1,10 @@
-package sample;
+package sample.Player;
+
+import sample.Achievments.Achievement;
 
 import java.util.ArrayList;
 
-public class Player extends Sprite{
+public class Player extends Sprite {
     private double health;
 
     public Player(){

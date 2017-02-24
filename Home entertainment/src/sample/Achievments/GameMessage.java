@@ -1,4 +1,4 @@
-package sample;
+package sample.Achievments;
 
 import javafx.animation.FadeTransition;
 import javafx.scene.Group;
@@ -6,6 +6,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
+import sample.Player.Player;
 
 /**
  * Created by cvetan on 2/16/2017.

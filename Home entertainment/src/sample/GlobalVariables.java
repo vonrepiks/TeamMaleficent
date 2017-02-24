@@ -1,8 +1,10 @@
 package sample;
 
+import javafx.scene.Group;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.media.AudioClip;
+import sample.Player.Player;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
@@ -11,6 +13,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class GlobalVariables {
     private static final String PROJECT_PATH = System.getProperty("user.dir");
 
+    private static Group root = new Group();
     private static final boolean[] _mute = {false};
     private static Player _player;
     private static ArrayList<String> _input;
@@ -143,5 +146,13 @@ public class GlobalVariables {
 
     public static GraphicsContext getGraphicContext () {
         return gc;
+    }
+
+    public static Group getRoot() {
+        return root;
+    }
+
+    public static void setRoot(Group root) {
+        GlobalVariables.root = root;
     }
 }

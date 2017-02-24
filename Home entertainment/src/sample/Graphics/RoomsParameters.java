@@ -1,6 +1,7 @@
-package sample;
+package sample.Graphics;
 
 import javafx.scene.image.Image;
+import sample.GlobalVariables;
 
 public class RoomsParameters {
 

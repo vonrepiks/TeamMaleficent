@@ -1,14 +1,20 @@
-package sample;
+package sample.Graphics;
 
+import javafx.scene.effect.Effect;
+import javafx.scene.effect.Glow;
 import javafx.scene.image.Image;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.TextAlignment;
+import sample.GlobalVariables;
 
-import static sample.RoomsParameters.*;
-import static sample.RoomsParameters.BATHROOM_X;
-import static sample.RoomsParameters.BATHROOM_Y;
+import static sample.Graphics.RoomsParameters.*;
+import static sample.Graphics.RoomsParameters.BATHROOM_X;
+import static sample.Graphics.RoomsParameters.BATHROOM_Y;
 
 public class GraphicDisplayer {
-    public static void displayObjects (){
 
+    public static void displayObjects (){
         //The kitchenDresser object
         Image kitchenDresserImage = new Image("img/kitchenDresser.png", 80, 135, false, false);
         FurnitureObjects.getKitchenDresser().setImage(kitchenDresserImage);
@@ -93,5 +99,20 @@ public class GraphicDisplayer {
         Image sinkImage = new Image("img/sink.png", 110, 130, false, false);
         FurnitureObjects.getBathroomSink().setImage(sinkImage);
         FurnitureObjects.getBathroomSink().setPosition(BATHROOM_X + 10, BATHROOM_Y - 70);
+    }
+
+    public static void displayIntroduce() {
+        Image mainImage = new Image("img/07.jpg", GlobalVariables.getCanvas().getWidth(), GlobalVariables.getCanvas().getHeight(), false, false);
+        GlobalVariables.getGraphicContext().drawImage(mainImage, 0, 0);
+
+        //Introduce title
+        Font introduce = Font.font(java.awt.Font.DIALOG, 43);
+        GlobalVariables.getGraphicContext().setTextAlign(TextAlignment.CENTER);
+        GlobalVariables.getGraphicContext().setFont(introduce);
+        final Effect glow = new Glow(1.0);
+        GlobalVariables.getGraphicContext().setEffect(glow);
+        GlobalVariables.getGraphicContext().setFill(Color.CADETBLUE);
+        String text = "Team Maleficent introduce Home Entertainment";
+        GlobalVariables.getGraphicContext().fillText(text, GlobalVariables.getCanvas().getWidth() / 2, GlobalVariables.getCanvas().getHeight() - 50);
     }
 }

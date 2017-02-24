@@ -5,35 +5,34 @@ import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.geometry.Rectangle2D;
-import javafx.scene.Node;
+import javafx.scene.Group;
 import javafx.scene.control.Button;
-import javafx.scene.effect.Effect;
-import javafx.scene.effect.Glow;
-import javafx.scene.image.ImageView;
-import javafx.scene.media.AudioClip;
+import javafx.scene.image.ImageView;;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
-import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
-import javafx.scene.Group;
-import javafx.scene.canvas.Canvas;
-import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 import javafx.event.EventHandler;
 import javafx.scene.input.KeyEvent;
-import javafx.util.Duration;
+import sample.Achievments.AchievementManager;
+import sample.Achievments.GameMessage;
+import sample.Buttons.ButtonManager;
+import sample.Graphics.FurnitureObjects;
+import sample.Graphics.GraphicDisplayer;
+import sample.Player.Player;
+import sample.Player.Sprite;
+import sample.Sounds.SoundManager;
 
-import java.nio.file.Paths;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import static sample.RoomsParameters.*;
+import static sample.Graphics.RoomsParameters.*;
 
 public class Main extends Application {
     public static void main(String[] args) {
@@ -44,10 +43,10 @@ public class Main extends Application {
     public void start(Stage theStage) {
 
         theStage.setTitle("Home entertainment");
-        Group root = new Group();
-        Scene theScene = new Scene(root, 1024, 748, Color.WHITESMOKE);
+        GlobalVariables.setRoot(new Group());
+        Scene theScene = new Scene(GlobalVariables.getRoot(), 1024, 748, Color.WHITESMOKE);
         theStage.setScene(theScene);
-        root.getChildren().add(GlobalVariables.getCanvas());
+        GlobalVariables.getRoot().getChildren().add(GlobalVariables.getCanvas());
 
         Image parquet = new Image("img/parquet.jpg", KITCHEN_WIDTH, KITCHEN_HEIGHT / 2, false, false);
         Image tiles = new Image("img/tiles2.jpg", BATHROOM_WIDTH, BATHROOM_HEIGHT / 2, false, false);
@@ -105,184 +104,129 @@ public class Main extends Application {
                     }
                 });
 
+        //Display introduce on Main page
+        GraphicDisplayer.displayIntroduce();
+
         //Display all objects in the house.
         GraphicDisplayer.displayObjects();
 
-        // Display the graphics and movement
-        GlobalVariables.setWallHit(new AudioClip(Paths.get(GlobalVariables.getProjectPath() + "/src/sounds/wall_hit.wav").toUri().toString()));
-        AudioClip pickup = new AudioClip(Paths.get(GlobalVariables.getProjectPath() + "/src/sounds/pickup.wav").toUri().toString());
-        GlobalVariables.setWalking(new AudioClip(Paths.get(GlobalVariables.getProjectPath() + "/src/sounds/walking.wav").toUri().toString()));
-        GlobalVariables.setRunning(new AudioClip(Paths.get(GlobalVariables.getProjectPath() + "/src/sounds/running.mp4").toUri().toString()));
-        AudioClip spraying = new AudioClip(Paths.get(GlobalVariables.getProjectPath() + "/src/sounds/sprayingSound.mp4").toUri().toString());
+        // Load sounds
+        SoundManager.loadSounds();
 
-        //Display introduce on Main page
-        Image mainImage = new Image("img/07.jpg", GlobalVariables.getCanvas().getWidth(), GlobalVariables.getCanvas().getHeight(), false, false);
-        GlobalVariables.getGraphicContext().drawImage(mainImage, 0, 0);
-
-        //Introduce title
-        Font introduce = Font.font(java.awt.Font.DIALOG, 43);
-        GlobalVariables.getGraphicContext().setTextAlign(TextAlignment.CENTER);
-        GlobalVariables.getGraphicContext().setFont(introduce);
-        final Effect glow = new Glow(1.0);
-        GlobalVariables.getGraphicContext().setEffect(glow);
-        GlobalVariables.getGraphicContext().setFill(Color.CADETBLUE);
-        String text = "Team Maleficent introduce Home Entertainment";
-        GlobalVariables.getGraphicContext().fillText(text, GlobalVariables.getCanvas().getWidth() / 2, GlobalVariables.getCanvas().getHeight() - 50);
-
-        //Button menu
-        Button buttonMenu = new Button("Menu");
-        buttonMenu.setPrefHeight(50);
-        buttonMenu.setPrefWidth(150);
-        buttonMenu.setLayoutX((GlobalVariables.getCanvas().getWidth() - (3 * buttonMenu.getPrefWidth()) - (2 * 50)) / 2 + 15);
-        buttonMenu.setLayoutY(GlobalVariables.getCanvas().getHeight() - 180);
-        buttonMenu.setStyle("-fx-font: 22 arial");
-        root.getChildren().add(buttonMenu);
-
-        //Button start
-        Button buttonStart = new Button("Start");
-        buttonStart.setPrefHeight(50);
-        buttonStart.setPrefWidth(150);
-        buttonStart.setLayoutX(buttonMenu.getLayoutX() + buttonMenu.getPrefWidth() + 50);
-        buttonStart.setLayoutY(GlobalVariables.getCanvas().getHeight() - 180);
-        buttonStart.setStyle("-fx-font: 22 arial");
-        root.getChildren().add(buttonStart);
-
-        //Button quit
-        Button buttonQuit = new Button("Quit");
-        buttonQuit.setPrefHeight(50);
-        buttonQuit.setPrefWidth(150);
-        buttonQuit.setLayoutX(buttonStart.getLayoutX() + buttonStart.getPrefWidth() + 50);
-        buttonQuit.setLayoutY(GlobalVariables.getCanvas().getHeight() - 180);
-        buttonQuit.setStyle("-fx-font: 22 arial");
-        root.getChildren().add(buttonQuit);
-
-        //Blink option
-        Timeline blinker = createBlinker(buttonStart);
-        SequentialTransition blinkedButton = new SequentialTransition(buttonStart, blinker);
-
-        final boolean[] isMainWindow = {true};
-        final Image[] imageSound = {new Image("img/soundOn.png", 30, 30, false, false)};
-        Text menuTitle = new Text("Menu");
-        Text menuSoundText1 = new Text("Sound ON");
-        Text menuSoundText2 = new Text("Affects all sounds and music");
-        Text keyboardGuideTitle = new Text("Keyboard guide:\n");
-        Text keyboardGuide = new Text("\t-'P' button - pause;\n\t-'Esc' button - show menu;\n\t-'Left' button - player moving left;\n\t-'Right' button - player moving right;\n\t-'Up' button - player moving up;\n\t-'Down' button - player moving down;\n\t-'Shift' button with combination('Left', 'Right', 'Up', or 'Down' buttons) - player start running;");
-        Button buttonClose = new Button();
-        Button buttonSound = new Button();
-        Button buttonStartNewGame = new Button("New Game");
-        Button buttonResume = new Button("Resume");
+       //CreateButtons
+        ButtonManager.createButtons();
 
         //Menu params
-        double menuWidth = (3 * buttonMenu.getPrefWidth()) + (2 * 50);
+        double menuWidth = (3 * ButtonManager.getButtonMenu().getPrefWidth()) + (2 * 50);
         double menuHeight = GlobalVariables.getCanvas().getHeight() - (GlobalVariables.getCanvas().getHeight() / 2) + 100;
-        double menuX = buttonMenu.getLayoutX();
+        double menuX = ButtonManager.getButtonMenu().getLayoutX();
         double menuY = (GlobalVariables.getCanvas().getHeight() - (GlobalVariables.getCanvas().getHeight() / 2)) / 2 - 100;
         Rectangle menu = new Rectangle(menuX, menuY, menuWidth, menuHeight);
         menu.setFill(Color.SKYBLUE);
 
         //Menu Title
         Font menuTitleFont = Font.font(java.awt.Font.MONOSPACED, 43);
-        menuTitle.setFont(menuTitleFont);
-        menuTitle.setFill(Color.MEDIUMVIOLETRED);
-        menuTitle.setX(GlobalVariables.getCanvas().getWidth() / 2 - 20);
-        menuTitle.setY(menuY + 50);
+        ButtonManager.getMenuTitle().setFont(menuTitleFont);
+        ButtonManager.getMenuTitle().setFill(Color.MEDIUMVIOLETRED);
+        ButtonManager.getMenuTitle().setX(GlobalVariables.getCanvas().getWidth() / 2 - 20);
+        ButtonManager.getMenuTitle().setY(menuY + 50);
 
         //Menu Sound control
         Font menuSound1 = Font.font(java.awt.Font.MONOSPACED, 20);
-        menuSoundText1.setFont(menuSound1);
-        menuSoundText1.setFill(Color.MEDIUMVIOLETRED);
-        menuSoundText1.setX(menuX + 60);
-        menuSoundText1.setY(menuY + 100);
+        ButtonManager.getMenuSoundText1().setFont(menuSound1);
+        ButtonManager.getMenuSoundText1().setFill(Color.MEDIUMVIOLETRED);
+        ButtonManager.getMenuSoundText1().setX(menuX + 60);
+        ButtonManager.getMenuSoundText1().setY(menuY + 100);
         Font menuSound2 = Font.font(java.awt.Font.MONOSPACED, 15);
-        menuSoundText2.setFont(menuSound2);
-        menuSoundText2.setFill(Color.MEDIUMVIOLETRED);
-        menuSoundText2.setX(menuX + 60);
-        menuSoundText2.setY(menuY + 120);
-        keyboardGuideTitle.setFont(menuSound1);
-        keyboardGuideTitle.setFill(Color.MEDIUMVIOLETRED);
-        keyboardGuideTitle.setX(menuX + 10);
-        keyboardGuideTitle.setY(menuY + 180);
-        keyboardGuide.setFont(menuSound2);
-        keyboardGuide.setFill(Color.MEDIUMVIOLETRED);
-        keyboardGuide.setX(menuX + 10);
-        keyboardGuide.setY(menuY + 200);
-        keyboardGuide.setWrappingWidth(menu.getWidth() - 20);
+        ButtonManager.getMenuSoundText2().setFont(menuSound2);
+        ButtonManager.getMenuSoundText2().setFill(Color.MEDIUMVIOLETRED);
+        ButtonManager.getMenuSoundText2().setX(menuX + 60);
+        ButtonManager.getMenuSoundText2().setY(menuY + 120);
+        ButtonManager.getKeyboardGuideTitle().setFont(menuSound1);
+        ButtonManager.getKeyboardGuideTitle().setFill(Color.MEDIUMVIOLETRED);
+        ButtonManager.getKeyboardGuideTitle().setX(menuX + 10);
+        ButtonManager.getKeyboardGuideTitle().setY(menuY + 180);
+        ButtonManager.getKeyboardGuideTitle().setFont(menuSound2);
+        ButtonManager.getKeyboardGuideTitle().setFill(Color.MEDIUMVIOLETRED);
+        ButtonManager.getKeyboardGuideTitle().setX(menuX + 10);
+        ButtonManager.getKeyboardGuideTitle().setY(menuY + 200);
+        ButtonManager.getKeyboardGuideTitle().setWrappingWidth(menu.getWidth() - 20);
 
         //Button Sound
-        buttonSound.setGraphic(new ImageView(imageSound[0]));
-        buttonSound.setLayoutX(menuX + 10);
-        buttonSound.setLayoutY(menuY + 80);
+        ButtonManager.getButtonSound().setGraphic(new ImageView(ButtonManager.getImageSound()[0]));
+        ButtonManager.getButtonSound().setLayoutX(menuX + 10);
+        ButtonManager.getButtonSound().setLayoutY(menuY + 80);
 
         //Button Menu close
         Image imageDecline = new Image("img/not1.png", 30, 30, false, false);
-        buttonClose.setGraphic(new ImageView(imageDecline));
-        buttonClose.setLayoutX(menuX - buttonClose.getWidth() / 2);
-        buttonClose.setLayoutY(menuY - buttonClose.getHeight() / 2);
+        ButtonManager.getButtonClose().setGraphic(new ImageView(imageDecline));
+        ButtonManager.getButtonClose().setLayoutX(menuX - ButtonManager.getButtonClose().getWidth() / 2);
+        ButtonManager.getButtonClose().setLayoutY(menuY - ButtonManager.getButtonClose().getHeight() / 2);
 
-        buttonSound.setOnAction(new EventHandler<ActionEvent>() {
+        ButtonManager.getButtonSound().setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 if (GlobalVariables.getMute()[0]) {
-                    imageSound[0] = new Image("img/soundOn.png", 30, 30, false, false);
-                    buttonSound.setGraphic(new ImageView(imageSound[0]));
-                    menuSoundText1.setText("Sound ON");
+                    ButtonManager.getImageSound()[0] = new Image("img/soundOn.png", 30, 30, false, false);
+                    ButtonManager.getButtonSound().setGraphic(new ImageView(ButtonManager.getImageSound()[0]));
+                    ButtonManager.getMenuSoundText1().setText("Sound ON");
                     GlobalVariables.setMute(false);
                 } else {
-                    imageSound[0] = new Image("img/soundOff.png", 30, 30, false, false);
-                    buttonSound.setGraphic(new ImageView(imageSound[0]));
-                    menuSoundText1.setText("Sound OFF");
+                    ButtonManager.getImageSound()[0] = new Image("img/soundOff.png", 30, 30, false, false);
+                    ButtonManager.getButtonSound().setGraphic(new ImageView(ButtonManager.getImageSound()[0]));
+                    ButtonManager.getMenuSoundText1().setText("Sound OFF");
                     GlobalVariables.setMute(true);
                 }
             }
         });
 
-        buttonClose.setOnAction(new EventHandler<ActionEvent>() {
+        ButtonManager.getButtonClose().setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                if (isMainWindow[0]) {
-                    root.getChildren().add(buttonMenu);
+                if (ButtonManager.getIsMainWindow()[0]) {
+                    GlobalVariables.getRoot().getChildren().add(ButtonManager.getButtonMenu());
                 } else {
-                    root.getChildren().remove(buttonQuit);
+                    GlobalVariables.getRoot().getChildren().remove(ButtonManager.getButtonQuit());
                 }
-                root.getChildren().remove(menu);
-                root.getChildren().remove(buttonClose);
-                root.getChildren().remove(menuTitle);
-                root.getChildren().remove(menuSoundText1);
-                root.getChildren().remove(menuSoundText2);
-                root.getChildren().remove(buttonSound);
-                root.getChildren().remove(keyboardGuideTitle);
-                root.getChildren().remove(keyboardGuide);
-                root.getChildren().remove(buttonStartNewGame);
-                root.getChildren().remove(buttonResume);
+                GlobalVariables.getRoot().getChildren().remove(menu);
+                GlobalVariables.getRoot().getChildren().remove(ButtonManager.getButtonClose());
+                GlobalVariables.getRoot().getChildren().remove(ButtonManager.getMenuTitle());
+                GlobalVariables.getRoot().getChildren().remove(ButtonManager.getMenuSoundText1());
+                GlobalVariables.getRoot().getChildren().remove(ButtonManager.getMenuSoundText2());
+                GlobalVariables.getRoot().getChildren().remove(ButtonManager.getButtonSound());
+                GlobalVariables.getRoot().getChildren().remove(ButtonManager.getKeyboardGuideTitle());
+                GlobalVariables.getRoot().getChildren().remove(ButtonManager.getKeyboardGuide());
+                GlobalVariables.getRoot().getChildren().remove(ButtonManager.getButtonStartNewGame());
+                GlobalVariables.getRoot().getChildren().remove(ButtonManager.getButtonResume());
             }
         });
 
-        buttonMenu.setOnAction(new EventHandler<ActionEvent>() {
+        ButtonManager.getButtonMenu().setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                root.getChildren().remove(buttonMenu);
-                root.getChildren().add(menu);
-                root.getChildren().add(menuTitle);
-                root.getChildren().add(menuSoundText1);
-                root.getChildren().add(menuSoundText2);
-                root.getChildren().add(keyboardGuideTitle);
-                root.getChildren().add(keyboardGuide);
-                root.getChildren().add(buttonSound);
-                root.getChildren().add(buttonClose);
+                GlobalVariables.getRoot().getChildren().remove(ButtonManager.getButtonMenu());
+                GlobalVariables.getRoot().getChildren().add(menu);
+                GlobalVariables.getRoot().getChildren().add(ButtonManager.getMenuTitle());
+                GlobalVariables.getRoot().getChildren().add(ButtonManager.getMenuSoundText1());
+                GlobalVariables.getRoot().getChildren().add(ButtonManager.getMenuSoundText2());
+                GlobalVariables.getRoot().getChildren().add(ButtonManager.getKeyboardGuideTitle());
+                GlobalVariables.getRoot().getChildren().add(ButtonManager.getKeyboardGuide());
+                GlobalVariables.getRoot().getChildren().add(ButtonManager.getButtonSound());
+                GlobalVariables.getRoot().getChildren().add(ButtonManager.getButtonClose());
             }
         });
 
-        buttonQuit.setOnAction(new EventHandler<ActionEvent>() {
+        ButtonManager.getButtonQuit().setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 theStage.close();
             }
         });
 
-        buttonStart.setOnAction(new EventHandler<ActionEvent>() {
+        ButtonManager.getButtonStart().setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                isMainWindow[0] = false;
+                ButtonManager.getIsMainWindow()[0] = false;
 
                 //Prepare the score text
                 Font scoreFont = Font.font("Arial", FontWeight.NORMAL, 20);
@@ -302,17 +246,17 @@ public class Main extends Application {
                         double elapsedTime = (currentNanoTime - lastNanoTime[0]) / 1000000000.0;
                         lastNanoTime[0] = currentNanoTime;
 
-                        root.getChildren().remove(buttonStart);
-                        root.getChildren().remove(buttonMenu);
-                        root.getChildren().remove(buttonQuit);
-                        root.getChildren().remove(menu);
-                        root.getChildren().remove(buttonClose);
-                        root.getChildren().remove(menuTitle);
-                        root.getChildren().remove(menuSoundText1);
-                        root.getChildren().remove(menuSoundText2);
-                        root.getChildren().remove(buttonSound);
-                        root.getChildren().remove(keyboardGuideTitle);
-                        root.getChildren().remove(keyboardGuide);
+                        GlobalVariables.getRoot().getChildren().remove(ButtonManager.getButtonStart());
+                        GlobalVariables.getRoot().getChildren().remove(ButtonManager.getButtonMenu());
+                        GlobalVariables.getRoot().getChildren().remove(ButtonManager.getButtonQuit());
+                        GlobalVariables.getRoot().getChildren().remove(menu);
+                        GlobalVariables.getRoot().getChildren().remove(ButtonManager.getButtonClose());
+                        GlobalVariables.getRoot().getChildren().remove(ButtonManager.getMenuTitle());
+                        GlobalVariables.getRoot().getChildren().remove(ButtonManager.getMenuSoundText1());
+                        GlobalVariables.getRoot().getChildren().remove(ButtonManager.getMenuSoundText2());
+                        GlobalVariables.getRoot().getChildren().remove(ButtonManager.getButtonSound());
+                        GlobalVariables.getRoot().getChildren().remove(ButtonManager.getKeyboardGuideTitle());
+                        GlobalVariables.getRoot().getChildren().remove(ButtonManager.getKeyboardGuide());
 
                         GlobalVariables.getGraphicContext().setEffect(null);
 
@@ -337,47 +281,47 @@ public class Main extends Application {
 
 
                         //Button start new game
-                        buttonStartNewGame.setPrefHeight(50);
-                        buttonStartNewGame.setPrefWidth(150);
-                        buttonStartNewGame.setLayoutX((GlobalVariables.getCanvas().getWidth() - (3 * buttonMenu.getPrefWidth()) - (2 * 50)) / 2 + 15);
-                        buttonStartNewGame.setLayoutY(GlobalVariables.getCanvas().getHeight() - 180);
-                        buttonStartNewGame.setStyle("-fx-font: 22 arial");
+                        ButtonManager.getButtonStartNewGame().setPrefHeight(50);
+                        ButtonManager.getButtonStartNewGame().setPrefWidth(150);
+                        ButtonManager.getButtonStartNewGame().setLayoutX((GlobalVariables.getCanvas().getWidth() - (3 * ButtonManager.getButtonMenu().getPrefWidth()) - (2 * 50)) / 2 + 15);
+                        ButtonManager.getButtonStartNewGame().setLayoutY(GlobalVariables.getCanvas().getHeight() - 180);
+                        ButtonManager.getButtonStartNewGame().setStyle("-fx-font: 22 arial");
 
-                        buttonStartNewGame.setOnAction(__ ->
+                        ButtonManager.getButtonStartNewGame().setOnAction(__ ->
                         {
                             theStage.close();
                             Platform.runLater(() -> new Main().start(new Stage()));
                         });
 
                         //Button Resume game
-                        buttonResume.setPrefHeight(50);
-                        buttonResume.setPrefWidth(150);
-                        buttonResume.setLayoutX(buttonMenu.getLayoutX() + buttonMenu.getPrefWidth() + 50);
-                        buttonResume.setLayoutY(GlobalVariables.getCanvas().getHeight() - 180);
-                        buttonResume.setStyle("-fx-font: 22 arial");
+                        ButtonManager.getButtonResume().setPrefHeight(50);
+                        ButtonManager.getButtonResume().setPrefWidth(150);
+                        ButtonManager.getButtonResume().setLayoutX(ButtonManager.getButtonMenu().getLayoutX() + ButtonManager.getButtonMenu().getPrefWidth() + 50);
+                        ButtonManager.getButtonResume().setLayoutY(GlobalVariables.getCanvas().getHeight() - 180);
+                        ButtonManager.getButtonResume().setStyle("-fx-font: 22 arial");
 
                         //Button Pause game
                         Button pause = new Button("Pause");
                         pause.setPrefHeight(50);
                         pause.setPrefWidth(150);
-                        pause.setLayoutX(buttonMenu.getLayoutX() + buttonMenu.getPrefWidth() + 50);
-                        pause.setLayoutY(buttonResume.getLayoutY() - 20 - buttonResume.getPrefHeight());
+                        pause.setLayoutX(ButtonManager.getButtonMenu().getLayoutX() + ButtonManager.getButtonMenu().getPrefWidth() + 50);
+                        pause.setLayoutY(ButtonManager.getButtonResume().getLayoutY() - 20 - ButtonManager.getButtonResume().getPrefHeight());
                         pause.setStyle("-fx-font: 22 arial");
 
-                        buttonResume.setOnAction(new EventHandler<ActionEvent>() {
+                        ButtonManager.getButtonResume().setOnAction(new EventHandler<ActionEvent>() {
                             @Override
                             public void handle(ActionEvent event) {
-                                root.getChildren().remove(menu);
-                                root.getChildren().remove(buttonClose);
-                                root.getChildren().remove(menuTitle);
-                                root.getChildren().remove(menuSoundText1);
-                                root.getChildren().remove(menuSoundText2);
-                                root.getChildren().remove(buttonSound);
-                                root.getChildren().remove(keyboardGuideTitle);
-                                root.getChildren().remove(keyboardGuide);
-                                root.getChildren().remove(buttonResume);
-                                root.getChildren().remove(pause);
-                                root.getChildren().remove(buttonStartNewGame);
+                                GlobalVariables.getRoot().getChildren().remove(menu);
+                                GlobalVariables.getRoot().getChildren().remove(ButtonManager.getButtonClose());
+                                GlobalVariables.getRoot().getChildren().remove(ButtonManager.getMenuTitle());
+                                GlobalVariables.getRoot().getChildren().remove(ButtonManager.getMenuSoundText1());
+                                GlobalVariables.getRoot().getChildren().remove(ButtonManager.getMenuSoundText2());
+                                GlobalVariables.getRoot().getChildren().remove(ButtonManager.getButtonSound());
+                                GlobalVariables.getRoot().getChildren().remove(ButtonManager.getKeyboardGuideTitle());
+                                GlobalVariables.getRoot().getChildren().remove(ButtonManager.getKeyboardGuide());
+                                GlobalVariables.getRoot().getChildren().remove(ButtonManager.getButtonResume());
+                                GlobalVariables.getRoot().getChildren().remove(pause);
+                                GlobalVariables.getRoot().getChildren().remove(ButtonManager.getButtonStartNewGame());
 
                                 start();
                             }
@@ -385,24 +329,24 @@ public class Main extends Application {
 
                         //show menu
                         if (GlobalVariables.getInput().contains("ESCAPE")) {
-                            root.getChildren().add(menu);
-                            root.getChildren().add(menuTitle);
-                            root.getChildren().add(menuSoundText1);
-                            root.getChildren().add(menuSoundText2);
-                            root.getChildren().add(buttonSound);
-                            root.getChildren().add(keyboardGuideTitle);
-                            root.getChildren().add(keyboardGuide);
-                            root.getChildren().add(buttonQuit);
-                            root.getChildren().add(buttonResume);
-                            root.getChildren().add(buttonStartNewGame);
+                            GlobalVariables.getRoot().getChildren().add(menu);
+                            GlobalVariables.getRoot().getChildren().add(ButtonManager.getMenuTitle());
+                            GlobalVariables.getRoot().getChildren().add(ButtonManager.getMenuSoundText1());
+                            GlobalVariables.getRoot().getChildren().add(ButtonManager.getMenuSoundText2());
+                            GlobalVariables.getRoot().getChildren().add(ButtonManager.getButtonSound());
+                            GlobalVariables.getRoot().getChildren().add(ButtonManager.getKeyboardGuideTitle());
+                            GlobalVariables.getRoot().getChildren().add(ButtonManager.getKeyboardGuide());
+                            GlobalVariables.getRoot().getChildren().add(ButtonManager.getButtonQuit());
+                            GlobalVariables.getRoot().getChildren().add(ButtonManager.getButtonResume());
+                            GlobalVariables.getRoot().getChildren().add(ButtonManager.getButtonStartNewGame());
 
                             stop();
                         }
 
                         //Pause control
                         if (GlobalVariables.getInput().contains("P")) {
-                            root.getChildren().add(pause);
-                            root.getChildren().add(buttonResume);
+                            GlobalVariables.getRoot().getChildren().add(pause);
+                            GlobalVariables.getRoot().getChildren().add(ButtonManager.getButtonResume());
                             stop();
                         }
 
@@ -666,8 +610,8 @@ public class Main extends Application {
 
                         //Spraying the monsters
                         if (GlobalVariables.getInput().contains("SPACE")) {
-                            if(!spraying.isPlaying() && !GlobalVariables.getMute()[0])
-                                spraying.play();
+                            if(!SoundManager.getSpraying().isPlaying() && !GlobalVariables.getMute()[0])
+                                SoundManager.getSpraying().play();
 
                             if("left".equals(GlobalVariables.getDirection()))
                                 GlobalVariables.getPlayer().setSprayImage("img/SprayLeft.gif");
@@ -686,7 +630,7 @@ public class Main extends Application {
                                 if ( GlobalVariables.getPlayer().sprayBoundary().intersects(monster.sprayBoundary())) {
                                     GlobalVariables.getPlayer().score++;
                                     if (!GlobalVariables.getMute()[0]) {
-                                        pickup.play();
+                                        SoundManager.getPickup().play();
                                     }
                                     for (long i = 0; i < 10000000; i++) {
                                         if ( i == 9999999){
@@ -697,8 +641,8 @@ public class Main extends Application {
                             }
                         }
 
-                        AchievementManager AM = new AchievementManager(GlobalVariables.getPlayer(), GlobalVariables.getGraphicContext(), root);
-                        GameMessage GM = new GameMessage(GlobalVariables.getPlayer(), root);
+                        AchievementManager AM = new AchievementManager(GlobalVariables.getPlayer(), GlobalVariables.getGraphicContext(), GlobalVariables.getRoot());
+                        GameMessage GM = new GameMessage(GlobalVariables.getPlayer(), GlobalVariables.getRoot());
 
                         //Collision with monsters
                         for (Sprite monster : monstersToRender) {
@@ -712,10 +656,10 @@ public class Main extends Application {
                                 GlobalVariables.getPlayer().subtractPlayerHealth();
 
                                 if (GlobalVariables.getPlayer().getPlayerHealth() <= 0){
-                                    root.getChildren().remove(buttonQuit);
-                                    root.getChildren().add(buttonQuit);
-                                    root.getChildren().remove(buttonStartNewGame);
-                                    root.getChildren().add(buttonStartNewGame);
+                                    GlobalVariables.getRoot().getChildren().remove(ButtonManager.getButtonQuit());
+                                    GlobalVariables.getRoot().getChildren().add(ButtonManager.getButtonQuit());
+                                    GlobalVariables.getRoot().getChildren().remove(ButtonManager.getButtonStartNewGame());
+                                    GlobalVariables.getRoot().getChildren().add(ButtonManager.getButtonStartNewGame());
                                     stop();
                                 }
 
@@ -728,39 +672,7 @@ public class Main extends Application {
         });
         theStage.show();
 
-        blinkedButton.play();
-    }
-
-    private Timeline createBlinker(Node node) {
-        Timeline blink = new Timeline(
-                new KeyFrame(
-                        Duration.seconds(0),
-                        new KeyValue(
-                                node.opacityProperty(),
-                                1,
-                                Interpolator.DISCRETE
-                        )
-                ),
-                new KeyFrame(
-                        Duration.seconds(0.5),
-                        new KeyValue(
-                                node.opacityProperty(),
-                                0,
-                                Interpolator.DISCRETE
-                        )
-                ),
-                new KeyFrame(
-                        Duration.seconds(1),
-                        new KeyValue(
-                                node.opacityProperty(),
-                                1,
-                                Interpolator.DISCRETE
-                        )
-                )
-        );
-        blink.setCycleCount(1000);
-
-        return blink;
+        ButtonManager.getBlinkedButton().play();
     }
 
     private void playerMove(int x, int y, String direction, int x1, int y1) {
