@@ -2,76 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4d5a1fea-d21e-47ab-a95c-4a39581612f3" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/07.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/13475846_Alt01.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/MaleficentImage.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/SprayDown.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/SprayLeft.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/SprayRight.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/SprayUp.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/bathtub.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/bed.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/brickHorizontal.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/brickShort.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/brickShortVert.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/brickSingleHorizontal.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/brickSingleVert.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/brickVertical.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/carpet.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/carpet03.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/coffeeTable.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/desk.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/dresser.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/fridge.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/kitchenDresser.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/kitchenSink.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/livingChair.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/monster.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/monster.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/monster1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/monster2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/not.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/not1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/painting.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/painting.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/parquet.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/playerBack0.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/playerBack1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/playerBack2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/playerFront0.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/playerFront1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/playerFront2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/playerLeft0.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/playerLeft1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/playerLeft2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/playerRight0.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/playerRight1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/playerRight2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/robber plant_burned.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/sink.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/siphon.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/sofa.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/soundOff.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/soundOn.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/statsBoard.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/stove.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/table_burned_burned.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/tiles2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/toilet.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/tv.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/wall.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/wallColon.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/wallShort.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/img/wardrobe_burned.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/sample/sample.fxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/sounds/pickup.wav" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/sounds/running.mp4" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/sounds/walking.wav" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/out/production/Home entertainment/sounds/wall_hit.wav" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home entertainment/out/sample/Main$3.class" afterPath="$PROJECT_DIR$/Home entertainment/out/sample/Main$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home entertainment/out/sample/Main.class" afterPath="$PROJECT_DIR$/Home entertainment/out/sample/Main.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Home entertainment/src/sample/GlobalVariables.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/src/sample/IntValue.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Home entertainment/src/sample/LongValue.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home entertainment/.idea/workspace.xml" afterPath="$PROJECT_DIR$/Home entertainment/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home entertainment/src/sample/Main.java" afterPath="$PROJECT_DIR$/Home entertainment/src/sample/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home entertainment/src/sample/RoomsParameters.java" afterPath="$PROJECT_DIR$/Home entertainment/src/sample/RoomsParameters.java" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -93,88 +30,19 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Home entertainment/src/sample/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="966" column="13" lean-forward="false" selection-start-line="966" selection-start-column="13" selection-end-line="966" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Sprite.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Home entertainment/src/sample/Sprite.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="714">
-              <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RoomsParameters.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Home entertainment/src/sample/RoomsParameters.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="294">
+              <caret line="75" column="34" lean-forward="true" selection-start-line="75" selection-start-column="34" selection-end-line="75" selection-end-column="34" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AchievementManager.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Home entertainment/src/sample/AchievementManager.java">
+      <file leaf-file-name="GlobalVariables.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Home entertainment/src/sample/GlobalVariables.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="16" column="23" lean-forward="false" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IntValue.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Home entertainment/src/sample/IntValue.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="42">
-              <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+            <state relative-caret-position="84">
+              <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LongValue.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Home entertainment/src/sample/LongValue.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="21">
-              <caret line="1" column="13" lean-forward="false" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Achievement.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Home entertainment/src/sample/Achievement.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="42">
-              <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Player.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Home entertainment/src/sample/Player.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-              <folding>
-                <element signature="e#265#266#0" expanded="true" />
-                <element signature="e#300#301#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -233,19 +101,19 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/Home entertainment/src/sample/Achievement.java" />
-        <option value="$PROJECT_DIR$/Home entertainment/src/sample/MessageManager.java" />
-        <option value="$PROJECT_DIR$/Home entertainment/src/sample/AddImages.java" />
-        <option value="$PROJECT_DIR$/Home entertainment/src/sample/roomsParameters.java" />
-        <option value="$PROJECT_DIR$/Home entertainment/src/sample/AchievementManager.java" />
-        <option value="$PROJECT_DIR$/Home entertainment/src/sample/addImages.java" />
-        <option value="$PROJECT_DIR$/Home entertainment/src/sample/DeclareObjects.java" />
-        <option value="$PROJECT_DIR$/Home entertainment/src/sample/AnimationController.java" />
-        <option value="$PROJECT_DIR$/Home entertainment/src/sample/Controller.java" />
-        <option value="$PROJECT_DIR$/Home entertainment/src/sample/Weapon.java" />
-        <option value="$PROJECT_DIR$/Home entertainment/src/sample/Player.java" />
-        <option value="$PROJECT_DIR$/Home entertainment/src/sample/Main.java" />
+        <option value="$PROJECT_DIR$/../testTeamMaleficent/.gitignore" />
+        <option value="$PROJECT_DIR$/../testTeamMaleficent/Home entertainment/src/sample/Achievement.java" />
+        <option value="$PROJECT_DIR$/../testTeamMaleficent/Home entertainment/src/sample/MessageManager.java" />
+        <option value="$PROJECT_DIR$/../testTeamMaleficent/Home entertainment/src/sample/AddImages.java" />
+        <option value="$PROJECT_DIR$/../testTeamMaleficent/Home entertainment/src/sample/roomsParameters.java" />
+        <option value="$PROJECT_DIR$/../testTeamMaleficent/Home entertainment/src/sample/AchievementManager.java" />
+        <option value="$PROJECT_DIR$/../testTeamMaleficent/Home entertainment/src/sample/addImages.java" />
+        <option value="$PROJECT_DIR$/../testTeamMaleficent/Home entertainment/src/sample/DeclareObjects.java" />
+        <option value="$PROJECT_DIR$/../testTeamMaleficent/Home entertainment/src/sample/AnimationController.java" />
+        <option value="$PROJECT_DIR$/../testTeamMaleficent/Home entertainment/src/sample/Controller.java" />
+        <option value="$PROJECT_DIR$/../testTeamMaleficent/Home entertainment/src/sample/Weapon.java" />
+        <option value="$PROJECT_DIR$/../testTeamMaleficent/Home entertainment/src/sample/Player.java" />
+        <option value="$PROJECT_DIR$/../testTeamMaleficent/Home entertainment/src/sample/Main.java" />
       </list>
     </option>
   </component>
@@ -257,8 +125,7 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
+    <option name="width" value="1929" />
     <option name="height" value="1056" />
   </component>
   <component name="ProjectView">
@@ -278,6 +145,7 @@
     <panes>
       <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -304,9 +172,48 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TeamMaleficent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TeamMaleficent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Home entertainment" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TeamMaleficent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TeamMaleficent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Home entertainment" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sample" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -338,7 +245,7 @@
       <option name="MAIN_CLASS_NAME" value="sample.Main" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../testTeamMaleficent" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="ENABLE_SWING_INSPECTOR" value="false" />
@@ -423,7 +330,7 @@
       <option name="MAIN_CLASS_NAME" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../testTeamMaleficent" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="ENABLE_SWING_INSPECTOR" value="false" />
@@ -652,19 +559,27 @@
       <option name="project" value="LOCAL" />
       <updated>1487284876336</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="The final 1st Version of the game, presented on the defence.">
+      <created>1487337688294</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1487337688294</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
     <option name="totallyTimeSpent" value="29167000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="0" width="1929" height="1056" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32875264" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -676,7 +591,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16770834" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16727653" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -688,7 +603,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32875264" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" x="96" y="100" width="1092" height="800" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -715,7 +629,8 @@
     <MESSAGE value="Added working player running functionality." />
     <MESSAGE value="Game over ready." />
     <MESSAGE value="Separate rooms parameters in another class." />
-    <option name="LAST_COMMIT_MESSAGE" value="Separate rooms parameters in another class." />
+    <MESSAGE value="The final 1st Version of the game, presented on the defence." />
+    <option name="LAST_COMMIT_MESSAGE" value="The final 1st Version of the game, presented on the defence." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -728,183 +643,39 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Home entertainment/src/img/playerLeft1.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Home entertainment/src/sample/Player.java" />
-    <entry file="file://$PROJECT_DIR$/Home entertainment/src/sample/Sprite.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Home entertainment/src/sample/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/../testTeamMaleficent/Home entertainment/src/sample/Sprite.java" />
+    <entry file="file://$PROJECT_DIR$/../testTeamMaleficent/Home entertainment/src/sample/Main.java" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_112/src.zip!/java/util/concurrent/atomic/AtomicInteger.java" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_112/javafx-src.zip!/javafx/scene/input/KeyEvent.java" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_112/javafx-src.zip!/javafx/scene/input/KeyCode.java" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_112/javafx-src.zip!/javafx/scene/image/Image.java" />
-    <entry file="file://$PROJECT_DIR$/Home entertainment/src/img/playerLeft2.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Home entertainment/src/img/playerLeft0.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Home entertainment/src/img/playerLeft1.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Home entertainment/src/sample/Player.java" />
-    <entry file="file://$PROJECT_DIR$/Home entertainment/src/sample/Sprite.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Home entertainment/src/sample/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="9435">
-          <caret line="576" column="72" lean-forward="false" selection-start-line="576" selection-start-column="72" selection-end-line="576" selection-end-column="72" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Home entertainment/src/sample/LongValue.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="13" lean-forward="false" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Home entertainment/src/sample/IntValue.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Home entertainment/src/sample/Sprite.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Home entertainment/src/sample/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="9435">
-          <caret line="576" column="72" lean-forward="false" selection-start-line="576" selection-start-column="72" selection-end-line="576" selection-end-column="72" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Home entertainment/src/sample/LongValue.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="13" lean-forward="false" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Home entertainment/src/sample/IntValue.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Home entertainment/src/sample/Sprite.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Home entertainment/src/sample/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.ignore" />
-    <entry file="file://$PROJECT_DIR$/Home entertainment/src/Player.java" />
-    <entry file="file://$PROJECT_DIR$/Home entertainment/src/img/playerLeft1.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Home entertainment/src/img/playerLeft0.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Home entertainment/src/img/playerLeft2.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/../testTeamMaleficent/Home entertainment/src/img/playerLeft2.png" />
+    <entry file="file://$PROJECT_DIR$/../testTeamMaleficent/Home entertainment/src/img/playerLeft0.png" />
+    <entry file="file://$PROJECT_DIR$/../testTeamMaleficent/Home entertainment/src/img/playerLeft1.png" />
+    <entry file="file://$PROJECT_DIR$/../testTeamMaleficent/Home entertainment/src/sample/Player.java" />
+    <entry file="file://$PROJECT_DIR$/../testTeamMaleficent/Home entertainment/src/sample/Sprite.java" />
+    <entry file="file://$PROJECT_DIR$/../testTeamMaleficent/Home entertainment/src/sample/Main.java" />
+    <entry file="file://$PROJECT_DIR$/../testTeamMaleficent/.gitignore" />
+    <entry file="file://$PROJECT_DIR$/../testTeamMaleficent/Home entertainment/src/sample/LongValue.java" />
+    <entry file="file://$PROJECT_DIR$/../testTeamMaleficent/Home entertainment/src/sample/IntValue.java" />
+    <entry file="file://$PROJECT_DIR$/../testTeamMaleficent/Home entertainment/src/sample/Sprite.java" />
+    <entry file="file://$PROJECT_DIR$/../testTeamMaleficent/Home entertainment/src/sample/Main.java" />
+    <entry file="file://$PROJECT_DIR$/../testTeamMaleficent/Home entertainment/src/sample/LongValue.java" />
+    <entry file="file://$PROJECT_DIR$/../testTeamMaleficent/Home entertainment/src/sample/IntValue.java" />
+    <entry file="file://$PROJECT_DIR$/../testTeamMaleficent/Home entertainment/src/sample/Sprite.java" />
+    <entry file="file://$PROJECT_DIR$/../testTeamMaleficent/Home entertainment/src/sample/Main.java" />
+    <entry file="file://$PROJECT_DIR$/../testTeamMaleficent/.ignore" />
+    <entry file="file://$PROJECT_DIR$/../testTeamMaleficent/Home entertainment/src/Player.java" />
+    <entry file="file://$PROJECT_DIR$/../testTeamMaleficent/Home entertainment/src/img/playerLeft1.png" />
+    <entry file="file://$PROJECT_DIR$/../testTeamMaleficent/Home entertainment/src/img/playerLeft0.png" />
+    <entry file="file://$PROJECT_DIR$/../testTeamMaleficent/Home entertainment/src/img/playerLeft2.png" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_112/javafx-src.zip!/javafx/scene/image/Image.java" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_112/javafx-src.zip!/javafx/scene/input/KeyEvent.java" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_112/javafx-src.zip!/javafx/scene/input/KeyCode.java" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_112/src.zip!/java/util/concurrent/atomic/AtomicInteger.java" />
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="72" column="51" lean-forward="false" selection-start-line="72" selection-start-column="51" selection-end-line="72" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Home entertainment/src/sample/addImages.java" />
-    <entry file="file://$PROJECT_DIR$/Home entertainment/out/img/SprayLeft.gif">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/../testTeamMaleficent/.gitignore" />
+    <entry file="file://$PROJECT_DIR$/../testTeamMaleficent/Home entertainment/src/sample/addImages.java" />
+    <entry file="file://$PROJECT_DIR$/../testTeamMaleficent/Home entertainment/out/img/SprayLeft.gif" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/javafx-src.zip!/javafx/animation/AnimationTimer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="264">
@@ -912,87 +683,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Home entertainment/src/sample/Controller.java" />
-    <entry file="file://$PROJECT_DIR$/Home entertainment/src/sample/DeclareObjects.java" />
-    <entry file="file://$PROJECT_DIR$/Home entertainment/src/sample/Item.java" />
-    <entry file="file://$PROJECT_DIR$/Home entertainment/src/sample/MessageManager.java" />
-    <entry file="file://$PROJECT_DIR$/Home entertainment/src/sample/Weapon.java" />
-    <entry file="file://$PROJECT_DIR$/Home entertainment/src/img/SprayDown.gif">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Home entertainment/src/sample/AchievementManager.java">
+    <entry file="file://$PROJECT_DIR$/../testTeamMaleficent/Home entertainment/src/sample/Controller.java" />
+    <entry file="file://$PROJECT_DIR$/../testTeamMaleficent/Home entertainment/src/sample/DeclareObjects.java" />
+    <entry file="file://$PROJECT_DIR$/../testTeamMaleficent/Home entertainment/src/sample/Item.java" />
+    <entry file="file://$PROJECT_DIR$/../testTeamMaleficent/Home entertainment/src/sample/MessageManager.java" />
+    <entry file="file://$PROJECT_DIR$/../testTeamMaleficent/Home entertainment/src/sample/Weapon.java" />
+    <entry file="file://$PROJECT_DIR$/../testTeamMaleficent/Home entertainment/src/img/SprayDown.gif" />
+    <entry file="file://$PROJECT_DIR$/../testTeamMaleficent/Home entertainment/src/sample/AchievementManager.java" />
+    <entry file="file://$PROJECT_DIR$/../testTeamMaleficent/Home entertainment/src/sample/Achievement.java" />
+    <entry file="file://$PROJECT_DIR$/../testTeamMaleficent/Home entertainment/src/img/test.png" />
+    <entry file="file://$PROJECT_DIR$/../testTeamMaleficent/Home entertainment/src/sample/Player.java" />
+    <entry file="file://$PROJECT_DIR$/../testTeamMaleficent/Home entertainment/src/sample/RoomsParameters.java" />
+    <entry file="file://$PROJECT_DIR$/../testTeamMaleficent/Home entertainment/src/sample/Sprite.java" />
+    <entry file="file://$PROJECT_DIR$/../testTeamMaleficent/Home entertainment/src/sample/IntValue.java" />
+    <entry file="file://$PROJECT_DIR$/../testTeamMaleficent/Home entertainment/src/sample/LongValue.java" />
+    <entry file="file://$PROJECT_DIR$/../testTeamMaleficent/Home entertainment/src/sample/Main.java" />
+    <entry file="file://$PROJECT_DIR$/Home entertainment/src/sample/GlobalVariables.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="16" column="23" lean-forward="false" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Home entertainment/src/sample/Achievement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Home entertainment/src/img/test.png" />
-    <entry file="file://$PROJECT_DIR$/Home entertainment/src/sample/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding>
-            <element signature="e#265#266#0" expanded="true" />
-            <element signature="e#300#301#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Home entertainment/src/sample/RoomsParameters.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Home entertainment/src/sample/Sprite.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Home entertainment/src/sample/IntValue.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Home entertainment/src/sample/LongValue.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="1" column="13" lean-forward="false" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
+        <state relative-caret-position="84">
+          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Home entertainment/src/sample/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="966" column="13" lean-forward="false" selection-start-line="966" selection-start-column="13" selection-end-line="966" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="294">
+          <caret line="75" column="34" lean-forward="true" selection-start-line="75" selection-start-column="34" selection-end-line="75" selection-end-column="34" />
+          <folding />
         </state>
       </provider>
     </entry>
