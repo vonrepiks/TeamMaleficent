@@ -56,25 +56,11 @@ public class Main extends Application {
         Image siphon = new Image("img/siphon.png", 40, 40, false, false);
         Image statsBoard = new Image("img/statsBoard.png");
 
+        //Set player images for all directions
         GlobalVariables.setPlayerRightImages(new ArrayDeque<>());
-        GlobalVariables.getPlayerRightImages().addLast("img/playerRight0.png");
-        GlobalVariables.getPlayerRightImages().addLast("img/playerRight1.png");
-        GlobalVariables.getPlayerRightImages().addLast("img/playerRight2.png");
-
         GlobalVariables.setPlayerLeftImages(new ArrayDeque<>());
-        GlobalVariables.getPlayerLeftImages().addLast("img/playerLeft0.png");
-        GlobalVariables.getPlayerLeftImages().addLast("img/playerLeft1.png");
-        GlobalVariables.getPlayerLeftImages().addLast("img/playerLeft2.png");
-
         GlobalVariables.setPlayerDownImages(new ArrayDeque<>());
-        GlobalVariables.getPlayerDownImages().addLast("img/playerFront0.png");
-        GlobalVariables.getPlayerDownImages().addLast("img/playerFront1.png");
-        GlobalVariables.getPlayerDownImages().addLast("img/playerFront2.png");
-
         GlobalVariables.setPlayerUpImages(new ArrayDeque<>());
-        GlobalVariables.getPlayerUpImages().addLast("img/playerBack0.png");
-        GlobalVariables.getPlayerUpImages().addLast("img/playerBack1.png");
-        GlobalVariables.getPlayerUpImages().addLast("img/playerBack2.png");
 
         ArrayDeque<String> monstersImages = new ArrayDeque<>();
         monstersImages.addLast("img/monster.gif");
@@ -119,112 +105,10 @@ public class Main extends Application {
                     }
                 });
 
+        //Display all objects in the house.
+        GraphicDisplayer.displayObjects();
+
         // Display the graphics and movement
-        GraphicsContext gc = GlobalVariables.getCanvas().getGraphicsContext2D();
-
-        //The kitchenDresser object
-        Image kitchenDresserImage = new Image("img/kitchenDresser.png", 80, 135, false, false);
-        Sprite kitchenDresser = new Sprite();
-        kitchenDresser.setImage(kitchenDresserImage);
-        kitchenDresser.setPosition(brickSingleVert.getWidth() + 5, 25);
-
-        //The stove object
-        Image stoveImage = new Image("img/stove.png", 80, 110, false, false);
-        Sprite stove = new Sprite();
-        stove.setImage(stoveImage);
-        stove.setPosition(brickSingleVert.getWidth() + kitchenDresser.getWidth() + 5, 50);
-
-        //The kitchenSink object
-        Image kitchenSinkImage = new Image("img/kitchenSink.png", 80, 120, false, false);
-        Sprite kitchenSink = new Sprite();
-        kitchenSink.setImage(kitchenSinkImage);
-        kitchenSink.setPosition(stove.getX() + stove.getWidth() + 5, 36);
-
-        //The fridge object
-        Image fridgeImage = new Image("img/fridge.png", 70, 125, false, false);
-        Sprite fridge = new Sprite();
-        fridge.setImage(fridgeImage);
-        fridge.setPosition(kitchenSink.getX() + kitchenSink.getWidth() + (2 * brickSingleHorizontal.getWidth()) + 20, 30);
-
-        //The kitchenTable object
-        Image kitchenTableImage = new Image("img/table_burned_burned.png", 267, 151, false, false);
-        Sprite kitchenTable = new Sprite();
-        kitchenTable.setImage(kitchenTableImage);
-        kitchenTable.setPosition(30, 199);
-
-        //The sofa object
-        Image sofaImage = new Image("img/sofa.png", 240, 140, false, false);
-        Sprite sofa = new Sprite();
-        sofa.setImage(sofaImage);
-        sofa.setPosition(LIVINGROOM_X + LIVINGROOM_WIDTH - sofa.getWidth() + 5, LIVINGROOM_Y - 80);
-
-        //The coffeeTable object
-        Image coffeeTableImage = new Image("img/coffeeTable.png", 150, 100, false, false);
-        Sprite coffeeTable = new Sprite();
-        coffeeTable.setImage(coffeeTableImage);
-        coffeeTable.setPosition(LIVINGROOM_WIDTH - coffeeTable.getWidth() - 70, LIVINGROOM_Y);
-
-        //The livingRoomChair object
-        Image livingRoomChairImage = new Image("img/livingChair.png", 150, 100, false, false);
-        Sprite livingRoomChair = new Sprite();
-        livingRoomChair.setImage(livingRoomChairImage);
-        livingRoomChair.setPosition(LIVINGROOM_WIDTH - livingRoomChair.getWidth() - 20, LIVINGROOM_Y + livingRoomChair.getHeight());
-
-        //The livingDresser object
-        Image livingDresserImage = new Image("img/dresser.png", 150, 100, false, false);
-        Sprite livingDresser = new Sprite();
-        livingDresser.setImage(livingDresserImage);
-        livingDresser.setPosition(LIVINGROOM_X + 20, LIVINGROOM_Y - 60);
-
-        //The rubberPlant object
-        Image rubberPlantImage = new Image("img/robber plant_burned.png", 65, 90, false, false);
-        Sprite rubberPlant = new Sprite();
-        rubberPlant.setImage(rubberPlantImage);
-        rubberPlant.setPosition(LIVINGROOM_X + livingDresser.getWidth() + 25, LIVINGROOM_Y - 60);
-
-        //The tv object
-        Image tvImage = new Image("img/tv.png", 180, 150, false, false);
-        Sprite tv = new Sprite();
-        tv.setImage(tvImage);
-        tv.setPosition(LIVINGROOM_X, LIVINGROOM_Y + 130);
-
-        //The desk object
-        Image deskImage = new Image("img/desk.png", 180, 140, false, false);
-        Sprite desk = new Sprite();
-        desk.setImage(deskImage);
-        desk.setPosition(BEDROOM_X + 10, GlobalVariables.getCanvas().getHeight() / 2 - 60);
-
-        //The bed object
-        Image bedImage = new Image("img/bed.png", 200, 170, false, false);
-        Sprite bed = new Sprite();
-        bed.setImage(bedImage);
-        bed.setPosition(GlobalVariables.getCanvas().getWidth() - bedImage.getWidth() - brickSingleVert.getWidth() - 10, 50);
-
-        //The wardrobe object
-        Image wardrobeImage = new Image("img/wardrobe_burned.png", 150, 150, false, false);
-        Sprite wardrobe = new Sprite();
-        wardrobe.setImage(wardrobeImage);
-        wardrobe.setPosition(bed.getX() - wardrobe.getWidth() - 90, 23);
-
-        //The toilet object
-        Image toiletImage = new Image("img/toilet.png", 100, 110, false, false);
-        Sprite toilet = new Sprite();
-        toilet.setImage(toiletImage);
-        toilet.setPosition(GlobalVariables.getCanvas().getWidth() - toilet.getWidth() - brickSingleVert.getWidth(), BATHROOM_Y - 70);
-
-        //The bathtub object
-        Image bathtubImage = new Image("img/bathtub.png", BATHROOM_WIDTH - 50, 170, false, false);
-        Sprite bathtub = new Sprite();
-        bathtub.setImage(bathtubImage);
-        bathtub.setPosition(BATHROOM_X + 30, BATHROOM_Y + 120);
-
-        //The bathroomSink object
-        Image sinkImage = new Image("img/sink.png", 110, 130, false, false);
-        Sprite bathroomSink = new Sprite();
-        bathroomSink.setImage(sinkImage);
-        bathroomSink.setPosition(BATHROOM_X + 10, BATHROOM_Y - 70);
-
-
         GlobalVariables.setWallHit(new AudioClip(Paths.get(GlobalVariables.getProjectPath() + "/src/sounds/wall_hit.wav").toUri().toString()));
         AudioClip pickup = new AudioClip(Paths.get(GlobalVariables.getProjectPath() + "/src/sounds/pickup.wav").toUri().toString());
         GlobalVariables.setWalking(new AudioClip(Paths.get(GlobalVariables.getProjectPath() + "/src/sounds/walking.wav").toUri().toString()));
@@ -233,17 +117,17 @@ public class Main extends Application {
 
         //Display introduce on Main page
         Image mainImage = new Image("img/07.jpg", GlobalVariables.getCanvas().getWidth(), GlobalVariables.getCanvas().getHeight(), false, false);
-        gc.drawImage(mainImage, 0, 0);
+        GlobalVariables.getGraphicContext().drawImage(mainImage, 0, 0);
 
         //Introduce title
         Font introduce = Font.font(java.awt.Font.DIALOG, 43);
-        gc.setTextAlign(TextAlignment.CENTER);
-        gc.setFont(introduce);
+        GlobalVariables.getGraphicContext().setTextAlign(TextAlignment.CENTER);
+        GlobalVariables.getGraphicContext().setFont(introduce);
         final Effect glow = new Glow(1.0);
-        gc.setEffect(glow);
-        gc.setFill(Color.CADETBLUE);
+        GlobalVariables.getGraphicContext().setEffect(glow);
+        GlobalVariables.getGraphicContext().setFill(Color.CADETBLUE);
         String text = "Team Maleficent introduce Home Entertainment";
-        gc.fillText(text, GlobalVariables.getCanvas().getWidth() / 2, GlobalVariables.getCanvas().getHeight() - 50);
+        GlobalVariables.getGraphicContext().fillText(text, GlobalVariables.getCanvas().getWidth() / 2, GlobalVariables.getCanvas().getHeight() - 50);
 
         //Button menu
         Button buttonMenu = new Button("Menu");
@@ -402,10 +286,10 @@ public class Main extends Application {
 
                 //Prepare the score text
                 Font scoreFont = Font.font("Arial", FontWeight.NORMAL, 20);
-                gc.setFont(scoreFont);
-                gc.setStroke(Color.BLACK);
-                gc.setLineWidth(1);
-                gc.setTextAlign(TextAlignment.LEFT);
+                GlobalVariables.getGraphicContext().setFont(scoreFont);
+                GlobalVariables.getGraphicContext().setStroke(Color.BLACK);
+                GlobalVariables.getGraphicContext().setLineWidth(1);
+                GlobalVariables.getGraphicContext().setTextAlign(TextAlignment.LEFT);
 
                 final Long[] lastNanoTime = {System.nanoTime()};
                 GlobalVariables.setStepCounter(new AtomicInteger(0));
@@ -430,26 +314,26 @@ public class Main extends Application {
                         root.getChildren().remove(keyboardGuideTitle);
                         root.getChildren().remove(keyboardGuide);
 
-                        gc.setEffect(null);
+                        GlobalVariables.getGraphicContext().setEffect(null);
 
-                        Rectangle2D sofaBoundary = sofa.getBoundary();
-                        Rectangle2D wardrobeBoundary = wardrobe.getBoundary();
-                        Rectangle2D stoveBoundary = stove.getBoundary();
-                        Rectangle2D kitchenDresserBoundary = kitchenDresser.getBoundary();
-                        Rectangle2D kitchenSinkBoundary = kitchenSink.getBoundary();
-                        Rectangle2D kitchenTableBoundary = kitchenTable.getBoundary();
-                        Rectangle2D fridgeBoundary = fridge.getBoundary();
-                        Rectangle2D rubberPlantBoundary = rubberPlant.getBoundary();
-                        Rectangle2D livingDresserBoundary = livingDresser.getBoundary();
-                        Rectangle2D oldRadioBoundary = livingRoomChair.getBoundary();
-                        Rectangle2D tvBoundary = tv.getBoundary();
-                        Rectangle2D livingRoomChairBoundary = livingRoomChair.getBoundary();
-                        Rectangle2D coffeeTableBoundary = coffeeTable.getBoundary();
-                        Rectangle2D bedBoundary = bed.getBoundary();
-                        Rectangle2D deskBoundary = desk.getBoundary();
-                        Rectangle2D toiletBoundary = toilet.getBoundary();
-                        Rectangle2D bathtubBoundary = bathtub.getBoundary();
-                        Rectangle2D bathroomSinkBoundary = bathroomSink.getBoundary();
+                        Rectangle2D sofaBoundary = FurnitureObjects.getSofa().getBoundary();
+                        Rectangle2D wardrobeBoundary = FurnitureObjects.getWardrobe().getBoundary();
+                        Rectangle2D stoveBoundary = FurnitureObjects.getStove().getBoundary();
+                        Rectangle2D kitchenDresserBoundary = FurnitureObjects.getKitchenDresser().getBoundary();
+                        Rectangle2D kitchenSinkBoundary = FurnitureObjects.getKitchenSink().getBoundary();
+                        Rectangle2D kitchenTableBoundary = FurnitureObjects.getKitchenTable().getBoundary();
+                        Rectangle2D fridgeBoundary = FurnitureObjects.getFridge().getBoundary();
+                        Rectangle2D rubberPlantBoundary = FurnitureObjects.getRubberPlant().getBoundary();
+                        Rectangle2D livingDresserBoundary = FurnitureObjects.getLivingDresser().getBoundary();
+                        Rectangle2D oldRadioBoundary = FurnitureObjects.getLivingRoomChair().getBoundary();
+                        Rectangle2D tvBoundary = FurnitureObjects.getTv().getBoundary();
+                        Rectangle2D livingRoomChairBoundary = FurnitureObjects.getLivingRoomChair().getBoundary();
+                        Rectangle2D coffeeTableBoundary = FurnitureObjects.getCoffeeTable().getBoundary();
+                        Rectangle2D bedBoundary = FurnitureObjects.getBed().getBoundary();
+                        Rectangle2D deskBoundary = FurnitureObjects.getDesk().getBoundary();
+                        Rectangle2D toiletBoundary = FurnitureObjects.getToilet().getBoundary();
+                        Rectangle2D bathtubBoundary = FurnitureObjects.getBathtub().getBoundary();
+                        Rectangle2D bathroomSinkBoundary = FurnitureObjects.getBathroomSink().getBoundary();
 
 
                         //Button start new game
@@ -530,12 +414,12 @@ public class Main extends Application {
                                     GlobalVariables.getPlayer().leftBoundary().intersects(wardrobeBoundary) ||
                                     GlobalVariables.getPlayer().leftBoundary().intersects(livingRoomChairBoundary) ||
                                     GlobalVariables.getPlayer().leftBoundary().intersects(fridgeBoundary) ||
-                                    GlobalVariables.getPlayer().leftBoundary().intersects(desk.getX(), desk.getY() + 40, desk.getWidth(), desk.getHeight()) || //desk
-                                    GlobalVariables.getPlayer().leftBoundary().intersects(toilet.getX(), BATHROOM_Y - brickSingleHorizontal.getHeight(), toilet.getWidth(), 50) || //toilet
-                                    GlobalVariables.getPlayer().leftBoundary().intersects(bathtub.getX(), bathtub.getY() + 100, bathtub.getWidth(), bathtub.getHeight()) || //bathtub
-                                    GlobalVariables.getPlayer().leftBoundary().intersects(bathroomSink.getX(), BATHROOM_Y - brickSingleHorizontal.getHeight(), bathroomSink.getWidth(), 70) || //bathroom sink
-                                    GlobalVariables.getPlayer().leftBoundary().intersects(rubberPlant.getX(), LIVINGROOM_Y - brickSingleHorizontal.getHeight(), rubberPlant.getWidth(), carpet.getHeight() / 4 + brickSingleHorizontal.getHeight()) || //rubber plant
-                                    GlobalVariables.getPlayer().leftBoundary().intersects(tv.getX(), tv.getY() + 100, tv.getWidth(), tv.getHeight()) || //tv
+                                    GlobalVariables.getPlayer().leftBoundary().intersects(FurnitureObjects.getDesk().getX(), FurnitureObjects.getDesk().getY() + 40, FurnitureObjects.getDesk().getWidth(), FurnitureObjects.getDesk().getHeight()) || //desk
+                                    GlobalVariables.getPlayer().leftBoundary().intersects(FurnitureObjects.getToilet().getX(), BATHROOM_Y - brickSingleHorizontal.getHeight(), FurnitureObjects.getToilet().getWidth(), 50) || //toilet
+                                    GlobalVariables.getPlayer().leftBoundary().intersects(FurnitureObjects.getBathtub().getX(), FurnitureObjects.getBathtub().getY() + 100, FurnitureObjects.getBathtub().getWidth(), FurnitureObjects.getBathtub().getHeight()) || //bathtub
+                                    GlobalVariables.getPlayer().leftBoundary().intersects(FurnitureObjects.getBathroomSink().getX(), BATHROOM_Y - brickSingleHorizontal.getHeight(), FurnitureObjects.getBathroomSink().getWidth(), 70) || //bathroom sink
+                                    GlobalVariables.getPlayer().leftBoundary().intersects(FurnitureObjects.getRubberPlant().getX(), LIVINGROOM_Y - brickSingleHorizontal.getHeight(), FurnitureObjects.getRubberPlant().getWidth(), carpet.getHeight() / 4 + brickSingleHorizontal.getHeight()) || //rubber plant
+                                    GlobalVariables.getPlayer().leftBoundary().intersects(FurnitureObjects.getTv().getX(), FurnitureObjects.getTv().getY() + 100, FurnitureObjects.getTv().getWidth(), FurnitureObjects.getTv().getHeight()) || //tv
                                     GlobalVariables.getPlayer().leftBoundary().intersects(BEDROOM_X - brickSingleVert.getWidth(), 0, brickSingleVert.getWidth(), (3 * brickSingleVert.getHeight()) + (2 * wallColon.getHeight())) || // wall between kitchen and bedroom
                                     GlobalVariables.getPlayer().leftBoundary().intersects(0, 0, brickSingleVert.getWidth() + (4 * brickSingleHorizontal.getWidth()), brickSingleHorizontal.getHeight() + wallShort.getHeight()) || //upper wall left from entrance
                                     GlobalVariables.getPlayer().leftBoundary().intersects(0, 0, brickSingleVert.getWidth(), GlobalVariables.getCanvas().getHeight() + wallShort.getHeight()) || //left border
@@ -555,11 +439,11 @@ public class Main extends Application {
                             if (GlobalVariables.getPlayer().rightBoundary().intersects(fridgeBoundary) ||
                                     GlobalVariables.getPlayer().rightBoundary().intersects(bedBoundary) ||
                                     GlobalVariables.getPlayer().rightBoundary().intersects(livingRoomChairBoundary) ||
-                                    GlobalVariables.getPlayer().rightBoundary().intersects(desk.getX(), desk.getY() + 40, desk.getWidth(), desk.getHeight()) || //desk
-                                    GlobalVariables.getPlayer().rightBoundary().intersects(bathtub.getX(), bathtub.getY() + 100, bathtub.getWidth(), bathtub.getHeight()) || //bathtub
-                                    GlobalVariables.getPlayer().rightBoundary().intersects(toilet.getX(), BATHROOM_Y - brickSingleHorizontal.getHeight(), toilet.getWidth(), 50) || //toilet
-                                    GlobalVariables.getPlayer().rightBoundary().intersects(coffeeTable.getX(), coffeeTable.getY(), coffeeTable.getWidth(), 3 * (carpet.getHeight() / 4) - 30) || // coffee table
-                                    GlobalVariables.getPlayer().rightBoundary().intersects(sofa.getX(), LIVINGROOM_Y - brickSingleHorizontal.getHeight(), sofa.getWidth(), carpet.getHeight() / 2 + (2 * brickSingleHorizontal.getHeight())) || // sofa
+                                    GlobalVariables.getPlayer().rightBoundary().intersects(FurnitureObjects.getDesk().getX(), FurnitureObjects.getDesk().getY() + 40, FurnitureObjects.getDesk().getWidth(), FurnitureObjects.getDesk().getHeight()) || //desk
+                                    GlobalVariables.getPlayer().rightBoundary().intersects(FurnitureObjects.getBathtub().getX(), FurnitureObjects.getBathtub().getY() + 100, FurnitureObjects.getBathtub().getWidth(), FurnitureObjects.getBathtub().getHeight()) || //bathtub
+                                    GlobalVariables.getPlayer().rightBoundary().intersects(FurnitureObjects.getToilet().getX(), BATHROOM_Y - brickSingleHorizontal.getHeight(), FurnitureObjects.getToilet().getWidth(), 50) || //toilet
+                                    GlobalVariables.getPlayer().rightBoundary().intersects(FurnitureObjects.getCoffeeTable().getX(), FurnitureObjects.getCoffeeTable().getY(), FurnitureObjects.getCoffeeTable().getWidth(), 3 * (carpet.getHeight() / 4) - 30) || // coffee table
+                                    GlobalVariables.getPlayer().rightBoundary().intersects(FurnitureObjects.getSofa().getX(), LIVINGROOM_Y - brickSingleHorizontal.getHeight(), FurnitureObjects.getSofa().getWidth(), carpet.getHeight() / 2 + (2 * brickSingleHorizontal.getHeight())) || // sofa
                                     GlobalVariables.getPlayer().rightBoundary().intersects(BEDROOM_X - brickSingleVert.getWidth(), 0, brickSingleVert.getWidth(), (3 * brickSingleVert.getHeight()) + (2 * wallColon.getHeight())) || // wall between kitchen and bedroom
                                     GlobalVariables.getPlayer().rightBoundary().intersects(brickSingleVert.getWidth() + (6 * brickSingleHorizontal.getWidth()), 0, 10 * brickSingleHorizontal.getWidth(), brickSingleHorizontal.getHeight() + wallShort.getHeight()) || //upper wall right from entrance
                                     GlobalVariables.getPlayer().rightBoundary().intersects(GlobalVariables.getCanvas().getWidth() - brickSingleVert.getWidth(), 0, brickSingleVert.getWidth(), GlobalVariables.getCanvas().getHeight() + 40) || //right border
@@ -584,11 +468,11 @@ public class Main extends Application {
                                     GlobalVariables.getPlayer().upperBoundary().intersects(coffeeTableBoundary) ||
                                     GlobalVariables.getPlayer().upperBoundary().intersects(bedBoundary) ||
                                     GlobalVariables.getPlayer().upperBoundary().intersects(livingRoomChairBoundary) ||
-                                    GlobalVariables.getPlayer().rightBoundary().intersects(toilet.getX(), BATHROOM_Y - brickSingleHorizontal.getHeight(), toilet.getWidth(), 50) || //toilet
-                                    GlobalVariables.getPlayer().upperBoundary().intersects(bathroomSink.getX(), BATHROOM_Y - brickSingleHorizontal.getHeight(), bathroomSink.getWidth(), 70) || //bathroom sink
-                                    GlobalVariables.getPlayer().upperBoundary().intersects(sofa.getX(), LIVINGROOM_Y - brickSingleHorizontal.getHeight(), sofa.getWidth(), carpet.getHeight() / 2 + (2 * brickSingleHorizontal.getHeight())) || // sofa
-                                    GlobalVariables.getPlayer().upperBoundary().intersects(livingDresser.getX(), LIVINGROOM_Y - brickSingleHorizontal.getHeight(), livingDresser.getWidth(), carpet.getHeight() / 4 + brickSingleHorizontal.getHeight()) || //living room dresser
-                                    GlobalVariables.getPlayer().upperBoundary().intersects(rubberPlant.getX(), LIVINGROOM_Y - brickSingleHorizontal.getHeight(), rubberPlant.getWidth(), carpet.getHeight() / 4 + brickSingleHorizontal.getHeight()) || //rubber plant
+                                    GlobalVariables.getPlayer().rightBoundary().intersects(FurnitureObjects.getToilet().getX(), BATHROOM_Y - brickSingleHorizontal.getHeight(), FurnitureObjects.getToilet().getWidth(), 50) || //toilet
+                                    GlobalVariables.getPlayer().upperBoundary().intersects(FurnitureObjects.getBathroomSink().getX(), BATHROOM_Y - brickSingleHorizontal.getHeight(), FurnitureObjects.getBathroomSink().getWidth(), 70) || //bathroom sink
+                                    GlobalVariables.getPlayer().upperBoundary().intersects(FurnitureObjects.getSofa().getX(), LIVINGROOM_Y - brickSingleHorizontal.getHeight(), FurnitureObjects.getSofa().getWidth(), carpet.getHeight() / 2 + (2 * brickSingleHorizontal.getHeight())) || // sofa
+                                    GlobalVariables.getPlayer().upperBoundary().intersects(FurnitureObjects.getLivingDresser().getX(), LIVINGROOM_Y - brickSingleHorizontal.getHeight(), FurnitureObjects.getLivingDresser().getWidth(), carpet.getHeight() / 4 + brickSingleHorizontal.getHeight()) || //living room dresser
+                                    GlobalVariables.getPlayer().upperBoundary().intersects(FurnitureObjects.getRubberPlant().getX(), LIVINGROOM_Y - brickSingleHorizontal.getHeight(), FurnitureObjects.getRubberPlant().getWidth(), carpet.getHeight() / 4 + brickSingleHorizontal.getHeight()) || //rubber plant
                                     GlobalVariables.getPlayer().upperBoundary().intersects(0, 0, brickSingleVert.getWidth() + (4 * brickSingleHorizontal.getWidth()), brickSingleHorizontal.getHeight()) || //upper wall right from entrance
                                     GlobalVariables.getPlayer().upperBoundary().intersects(brickSingleVert.getWidth() + (6 * brickSingleHorizontal.getWidth()), wallShort.getHeight(), 10 * brickSingleHorizontal.getWidth(), brickSingleHorizontal.getHeight()) || //upper wall right from entrance
                                     GlobalVariables.getPlayer().upperBoundary().intersects(brickSingleVert.getWidth(), LIVINGROOM_Y - brickSingleHorizontal.getHeight(), 4 * brickSingleHorizontal.getWidth(), brickSingleHorizontal.getHeight()) || //wall between kitchen and living room
@@ -605,9 +489,9 @@ public class Main extends Application {
                         if (GlobalVariables.getInput().contains("DOWN") && !GlobalVariables.getInput().contains("SPACE")) {
                             if (GlobalVariables.getPlayer().bottomBoundary().intersects(kitchenTableBoundary) ||
                                     GlobalVariables.getPlayer().bottomBoundary().intersects(livingRoomChairBoundary) ||
-                                    GlobalVariables.getPlayer().bottomBoundary().intersects(desk.getX(), desk.getY() + 40, desk.getWidth(), desk.getHeight()) || //desk
-                                    GlobalVariables.getPlayer().bottomBoundary().intersects(tv.getX(), tv.getY() + 100, tv.getWidth(), tv.getHeight()) || //tv
-                                    GlobalVariables.getPlayer().bottomBoundary().intersects(bathtub.getX(), bathtub.getY() + 100, bathtub.getWidth(), bathtub.getHeight()) || //bathtub
+                                    GlobalVariables.getPlayer().bottomBoundary().intersects(FurnitureObjects.getDesk().getX(), FurnitureObjects.getDesk().getY() + 40, FurnitureObjects.getDesk().getWidth(), FurnitureObjects.getDesk().getHeight()) || //desk
+                                    GlobalVariables.getPlayer().bottomBoundary().intersects(FurnitureObjects.getTv().getX(), FurnitureObjects.getTv().getY() + 100, FurnitureObjects.getTv().getWidth(), FurnitureObjects.getTv().getHeight()) || //tv
+                                    GlobalVariables.getPlayer().bottomBoundary().intersects(FurnitureObjects.getBathtub().getX(), FurnitureObjects.getBathtub().getY() + 100, FurnitureObjects.getBathtub().getWidth(), FurnitureObjects.getBathtub().getHeight()) || //bathtub
                                     GlobalVariables.getPlayer().bottomBoundary().intersects(0, 0, brickSingleVert.getWidth() + (4 * brickSingleHorizontal.getWidth()), brickSingleHorizontal.getHeight() + wallShort.getHeight()) || //upper wall right from entrance
                                     GlobalVariables.getPlayer().bottomBoundary().intersects(brickSingleVert.getWidth() + (6 * brickSingleHorizontal.getWidth()), 0, 10 * brickSingleHorizontal.getWidth(), brickSingleHorizontal.getHeight() + wallShort.getHeight()) || //upper wall right from entrance
                                     GlobalVariables.getPlayer().bottomBoundary().intersects(brickSingleVert.getWidth(), LIVINGROOM_Y - brickSingleHorizontal.getHeight() - 5, 4 * brickSingleHorizontal.getWidth(), brickSingleHorizontal.getHeight()) || //wall between kitchen and living room
@@ -639,131 +523,131 @@ public class Main extends Application {
                         double wallKitchenBedroomHeight = 0;
 
                         //Draw pavements of different rooms
-                        gc.clearRect(0, 0, 1024, 768);
-                        gc.drawImage(parquet, KITCHEN_X, KITCHEN_Y);
-                        gc.drawImage(parquet, KITCHEN_X, KITCHEN_Y + KITCHEN_HEIGHT / 2);
-                        gc.drawImage(carpet2, BEDROOM_X, BEDROOM_Y);
-                        gc.drawImage(carpet2, BEDROOM_X, BEDROOM_Y + BEDROOM_HEIGHT / 2);
-                        gc.drawImage(tiles, BATHROOM_X, BATHROOM_Y);
-                        gc.drawImage(tiles, BATHROOM_X, BATHROOM_Y + BATHROOM_HEIGHT / 2);
-                        gc.drawImage(carpet, LIVINGROOM_X, LIVINGROOM_Y);
-                        gc.drawImage(carpet, LIVINGROOM_X + LIVINGROOM_WIDTH / 2, LIVINGROOM_Y);
-                        gc.drawImage(carpet, LIVINGROOM_X, LIVINGROOM_Y + LIVINGROOM_HEIGHT / 2);
-                        gc.drawImage(carpet, LIVINGROOM_X + LIVINGROOM_WIDTH / 2, LIVINGROOM_Y + LIVINGROOM_HEIGHT / 2);
+                        GlobalVariables.getGraphicContext().clearRect(0, 0, 1024, 768);
+                        GlobalVariables.getGraphicContext().drawImage(parquet, KITCHEN_X, KITCHEN_Y);
+                        GlobalVariables.getGraphicContext().drawImage(parquet, KITCHEN_X, KITCHEN_Y + KITCHEN_HEIGHT / 2);
+                        GlobalVariables.getGraphicContext().drawImage(carpet2, BEDROOM_X, BEDROOM_Y);
+                        GlobalVariables.getGraphicContext().drawImage(carpet2, BEDROOM_X, BEDROOM_Y + BEDROOM_HEIGHT / 2);
+                        GlobalVariables.getGraphicContext().drawImage(tiles, BATHROOM_X, BATHROOM_Y);
+                        GlobalVariables.getGraphicContext().drawImage(tiles, BATHROOM_X, BATHROOM_Y + BATHROOM_HEIGHT / 2);
+                        GlobalVariables.getGraphicContext().drawImage(carpet, LIVINGROOM_X, LIVINGROOM_Y);
+                        GlobalVariables.getGraphicContext().drawImage(carpet, LIVINGROOM_X + LIVINGROOM_WIDTH / 2, LIVINGROOM_Y);
+                        GlobalVariables.getGraphicContext().drawImage(carpet, LIVINGROOM_X, LIVINGROOM_Y + LIVINGROOM_HEIGHT / 2);
+                        GlobalVariables.getGraphicContext().drawImage(carpet, LIVINGROOM_X + LIVINGROOM_WIDTH / 2, LIVINGROOM_Y + LIVINGROOM_HEIGHT / 2);
 
                         //Draw upper walls and bricks
                         //Upper border
                         for (int i = 0; i < 4; i++) {
-                            gc.drawImage(wallShort, brickSingleVert.getWidth() + (i * brickSingleHorizontal.getWidth()), brickSingleHorizontal.getHeight());
-                            gc.drawImage(brickSingleHorizontal, brickSingleVert.getWidth() + (i * brickSingleHorizontal.getWidth()), 0);
+                            GlobalVariables.getGraphicContext().drawImage(wallShort, brickSingleVert.getWidth() + (i * brickSingleHorizontal.getWidth()), brickSingleHorizontal.getHeight());
+                            GlobalVariables.getGraphicContext().drawImage(brickSingleHorizontal, brickSingleVert.getWidth() + (i * brickSingleHorizontal.getWidth()), 0);
                             wallUpBorder1 += brickSingleHorizontal.getWidth();
                         }
 
                         for (int i = 0; i < GlobalVariables.getCanvas().getWidth() / brickSingleHorizontal.getWidth(); i++) {
-                            gc.drawImage(wallShort, brickSingleVert.getWidth() + wallUpBorder1 + doorWidth + (i * brickSingleHorizontal.getWidth()), brickSingleHorizontal.getHeight());
+                            GlobalVariables.getGraphicContext().drawImage(wallShort, brickSingleVert.getWidth() + wallUpBorder1 + doorWidth + (i * brickSingleHorizontal.getWidth()), brickSingleHorizontal.getHeight());
                             //Stats board
-                            gc.drawImage(statsBoard, GlobalVariables.getCanvas().getWidth() - 240, 3);
-                            gc.drawImage(brickSingleHorizontal, brickSingleVert.getWidth() + wallUpBorder1 + doorWidth + (i * brickSingleHorizontal.getWidth()), 0);
+                            GlobalVariables.getGraphicContext().drawImage(statsBoard, GlobalVariables.getCanvas().getWidth() - 240, 3);
+                            GlobalVariables.getGraphicContext().drawImage(brickSingleHorizontal, brickSingleVert.getWidth() + wallUpBorder1 + doorWidth + (i * brickSingleHorizontal.getWidth()), 0);
                         }
                         //wall between kitchen and bedroom
                         for (int i = 0; i < 3; i++) {
-                            gc.drawImage(brickSingleVert, brickSingleVert.getWidth() + wallUpBorder1 + doorWidth + (2 * brickSingleHorizontal.getWidth()), i * brickSingleVert.getHeight());
+                            GlobalVariables.getGraphicContext().drawImage(brickSingleVert, brickSingleVert.getWidth() + wallUpBorder1 + doorWidth + (2 * brickSingleHorizontal.getWidth()), i * brickSingleVert.getHeight());
                             wallKitchenBedroomHeight += brickSingleVert.getHeight();
                         }
 
                         for (int i = 0; i < 2; i++) {
-                            gc.drawImage(wallColon, brickSingleVert.getWidth() + wallUpBorder1 + doorWidth + (2 * brickSingleHorizontal.getWidth()), wallKitchenBedroomHeight + (i * wallColon.getHeight()));
+                            GlobalVariables.getGraphicContext().drawImage(wallColon, brickSingleVert.getWidth() + wallUpBorder1 + doorWidth + (2 * brickSingleHorizontal.getWidth()), wallKitchenBedroomHeight + (i * wallColon.getHeight()));
                         }
 
-                        kitchenDresser.render(gc);
-                        stove.render(gc);
-                        kitchenSink.render(gc);
-                        fridge.render(gc);
-                        kitchenTable.render(gc);
-                        wardrobe.render(gc);
-                        bed.render(gc);
+                        FurnitureObjects.getKitchenDresser().render(GlobalVariables.getGraphicContext());
+                        FurnitureObjects.getStove().render(GlobalVariables.getGraphicContext());
+                        FurnitureObjects.getKitchenSink().render(GlobalVariables.getGraphicContext());
+                        FurnitureObjects.getFridge().render(GlobalVariables.getGraphicContext());
+                        FurnitureObjects.getKitchenTable().render(GlobalVariables.getGraphicContext());
+                        FurnitureObjects.getWardrobe().render(GlobalVariables.getGraphicContext());
+                        FurnitureObjects.getBed().render(GlobalVariables.getGraphicContext());
 
                         //Draw the player if it`s in the first half of the screen(above the top walls
                         // and behind the middle walls)
                         if (GlobalVariables.getPlayer().bottomBoundary().intersects(0, 0, GlobalVariables.getCanvas().getWidth(), brickSingleHorizontal.getHeight() + wallShort.getHeight() + KITCHEN_HEIGHT)) {
-                            GlobalVariables.getPlayer().render(gc);
+                            GlobalVariables.getPlayer().render(GlobalVariables.getGraphicContext());
                         }
 
-                        desk.render(gc);
+                        FurnitureObjects.getDesk().render(GlobalVariables.getGraphicContext());
 
                         //wall between kitchen and bedroom(single brick)
                         //POSITION MUST BE HERE!!!
                         for (int i = 0; i < 2; i++) {
-                            gc.drawImage(brickSingleVert, brickSingleVert.getWidth() + wallUpBorder1 + doorWidth + (2 * brickSingleHorizontal.getWidth()), wallKitchenBedroomHeight + (2 * wallColon.getHeight()) + brickSingleVert.getHeight());
+                            GlobalVariables.getGraphicContext().drawImage(brickSingleVert, brickSingleVert.getWidth() + wallUpBorder1 + doorWidth + (2 * brickSingleHorizontal.getWidth()), wallKitchenBedroomHeight + (2 * wallColon.getHeight()) + brickSingleVert.getHeight());
                         }
 
                         //render the  middle walls
                         //wall between kitchen and livingRoom(draw 4 bricks)
                         for (int i = 0; i < 4; i++) {
-                            gc.drawImage(brickSingleHorizontal, brickSingleVert.getWidth() + (i * brickSingleHorizontal.getWidth()), GlobalVariables.getCanvas().getHeight() / 2);
-                            gc.drawImage(wallShort, brickSingleVert.getWidth() + (i * brickSingleHorizontal.getWidth()), (GlobalVariables.getCanvas().getHeight() / 2) + brickSingleHorizontal.getHeight());
+                            GlobalVariables.getGraphicContext().drawImage(brickSingleHorizontal, brickSingleVert.getWidth() + (i * brickSingleHorizontal.getWidth()), GlobalVariables.getCanvas().getHeight() / 2);
+                            GlobalVariables.getGraphicContext().drawImage(wallShort, brickSingleVert.getWidth() + (i * brickSingleHorizontal.getWidth()), (GlobalVariables.getCanvas().getHeight() / 2) + brickSingleHorizontal.getHeight());
                             wallKitchenLivingRoomWidth += brickSingleHorizontal.getWidth();
                         }
 
                         //wall between kitchen, livingRoom, bedroom and bathroom(draw 6 bricks)
                         for (int i = 0; i < 6; i++) {
-                            gc.drawImage(brickSingleHorizontal, brickSingleVert.getWidth() + wallKitchenLivingRoomWidth + doorWidth + (i * brickSingleHorizontal.getWidth()), GlobalVariables.getCanvas().getHeight() / 2);
-                            gc.drawImage(wallShort, brickSingleVert.getWidth() + wallKitchenLivingRoomWidth + doorWidth + (i * brickSingleHorizontal.getWidth()), (GlobalVariables.getCanvas().getHeight() / 2) + brickSingleHorizontal.getHeight());
+                            GlobalVariables.getGraphicContext().drawImage(brickSingleHorizontal, brickSingleVert.getWidth() + wallKitchenLivingRoomWidth + doorWidth + (i * brickSingleHorizontal.getWidth()), GlobalVariables.getCanvas().getHeight() / 2);
+                            GlobalVariables.getGraphicContext().drawImage(wallShort, brickSingleVert.getWidth() + wallKitchenLivingRoomWidth + doorWidth + (i * brickSingleHorizontal.getWidth()), (GlobalVariables.getCanvas().getHeight() / 2) + brickSingleHorizontal.getHeight());
                             wallKitchenLivingRoomBedroomBathroomWidth += brickSingleHorizontal.getWidth();
                         }
 
                         //wall between bedroom and bathroom(draw 2 bricks)
                         for (int i = 0; i < 2; i++) {
-                            gc.drawImage(brickSingleHorizontal, brickSingleVert.getWidth() + wallKitchenLivingRoomWidth + doorWidth + wallKitchenLivingRoomBedroomBathroomWidth + doorWidth + (i * brickSingleHorizontal.getWidth()), GlobalVariables.getCanvas().getHeight() / 2);
-                            gc.drawImage(wallShort, brickSingleVert.getWidth() + wallKitchenLivingRoomWidth + doorWidth + wallKitchenLivingRoomBedroomBathroomWidth + doorWidth + (i * brickSingleHorizontal.getWidth()), (GlobalVariables.getCanvas().getHeight() / 2) + brickSingleHorizontal.getHeight());
+                            GlobalVariables.getGraphicContext().drawImage(brickSingleHorizontal, brickSingleVert.getWidth() + wallKitchenLivingRoomWidth + doorWidth + wallKitchenLivingRoomBedroomBathroomWidth + doorWidth + (i * brickSingleHorizontal.getWidth()), GlobalVariables.getCanvas().getHeight() / 2);
+                            GlobalVariables.getGraphicContext().drawImage(wallShort, brickSingleVert.getWidth() + wallKitchenLivingRoomWidth + doorWidth + wallKitchenLivingRoomBedroomBathroomWidth + doorWidth + (i * brickSingleHorizontal.getWidth()), (GlobalVariables.getCanvas().getHeight() / 2) + brickSingleHorizontal.getHeight());
                         }
 
                         //wall between living room and bathroom
                         for (int i = 0; i < GlobalVariables.getCanvas().getHeight(); i++) {
-                            gc.drawImage(brickSingleVert, 2 * (GlobalVariables.getCanvas().getWidth() / 3) - brickSingleHorizontal.getWidth(), GlobalVariables.getCanvas().getHeight() / 2 + (i * brickSingleVert.getHeight()));
+                            GlobalVariables.getGraphicContext().drawImage(brickSingleVert, 2 * (GlobalVariables.getCanvas().getWidth() / 3) - brickSingleHorizontal.getWidth(), GlobalVariables.getCanvas().getHeight() / 2 + (i * brickSingleVert.getHeight()));
                         }
 
                         //Render the bricks
                         //Left border
                         for (int i = 0; i < GlobalVariables.getCanvas().getHeight() / brickSingleVert.getHeight(); i++) {
-                            gc.drawImage(brickSingleVert, 0, i * brickSingleVert.getHeight());
+                            GlobalVariables.getGraphicContext().drawImage(brickSingleVert, 0, i * brickSingleVert.getHeight());
                         }
 
-                        sofa.render(gc);
-                        coffeeTable.render(gc);
-                        rubberPlant.render(gc);
-                        livingDresser.render(gc);
-                        livingRoomChair.render(gc);
-                        toilet.render(gc);
-                        bathroomSink.render(gc);
-                        gc.drawImage(siphon, BATHROOM_X + (BATHROOM_WIDTH / 2) - (siphon.getWidth() / 2), BATHROOM_Y + 100);
+                        FurnitureObjects.getSofa().render(GlobalVariables.getGraphicContext());
+                        FurnitureObjects.getCoffeeTable().render(GlobalVariables.getGraphicContext());
+                        FurnitureObjects.getRubberPlant().render(GlobalVariables.getGraphicContext());
+                        FurnitureObjects.getLivingDresser().render(GlobalVariables.getGraphicContext());
+                        FurnitureObjects.getLivingRoomChair().render(GlobalVariables.getGraphicContext());
+                        FurnitureObjects.getToilet().render(GlobalVariables.getGraphicContext());
+                        FurnitureObjects.getBathroomSink().render(GlobalVariables.getGraphicContext());
+                        GlobalVariables.getGraphicContext().drawImage(siphon, BATHROOM_X + (BATHROOM_WIDTH / 2) - (siphon.getWidth() / 2), BATHROOM_Y + 100);
 
                         //Player above the middle wall and the obstacles in the low middle part of the screen
                         if (GlobalVariables.getPlayer().bottomBoundary().intersects(0, brickSingleHorizontal.getHeight() + wallShort.getHeight() + KITCHEN_HEIGHT, GlobalVariables.getCanvas().getWidth(), brickSingleHorizontal.getHeight() + LIVINGROOM_HEIGHT + 40)) {
-                            GlobalVariables.getPlayer().render(gc);
+                            GlobalVariables.getPlayer().render(GlobalVariables.getGraphicContext());
                         }
 
-                        bathtub.render(gc);
-                        tv.render(gc);
+                        FurnitureObjects.getBathtub().render(GlobalVariables.getGraphicContext());
+                        FurnitureObjects.getTv().render(GlobalVariables.getGraphicContext());
 
                         //Down border
                         for (int i = 0; i < GlobalVariables.getCanvas().getWidth() / brickSingleHorizontal.getWidth(); i++) {
-                            gc.drawImage(brickSingleHorizontal, brickSingleVert.getWidth() + (i * brickSingleHorizontal.getWidth()), GlobalVariables.getCanvas().getHeight() - 2 * brickSingleHorizontal.getHeight());
+                            GlobalVariables.getGraphicContext().drawImage(brickSingleHorizontal, brickSingleVert.getWidth() + (i * brickSingleHorizontal.getWidth()), GlobalVariables.getCanvas().getHeight() - 2 * brickSingleHorizontal.getHeight());
                         }
 
                         //Right border
                         for (int i = 0; i < GlobalVariables.getCanvas().getHeight() / brickSingleVert.getHeight(); i++) {
-                            gc.drawImage(brickSingleVert, GlobalVariables.getCanvas().getWidth() - brickSingleVert.getWidth(), i * brickSingleVert.getHeight());
+                            GlobalVariables.getGraphicContext().drawImage(brickSingleVert, GlobalVariables.getCanvas().getWidth() - brickSingleVert.getWidth(), i * brickSingleVert.getHeight());
                         }
 
                         //Display scores on the stats board
                         String pointsText = "Points: " + GlobalVariables.getPlayer().score;
-                        gc.fillText(pointsText, GlobalVariables.getCanvas().getWidth() - statsBoard.getWidth() + 5, GlobalVariables.getCanvas().getLayoutY() + 40);
+                        GlobalVariables.getGraphicContext().fillText(pointsText, GlobalVariables.getCanvas().getWidth() - statsBoard.getWidth() + 5, GlobalVariables.getCanvas().getLayoutY() + 40);
 
                         //Display health on stats board
                         String healthText = "Health " + (int) (GlobalVariables.getPlayer().getPlayerHealth()) + "%";
 
-                        gc.fillText(healthText, GlobalVariables.getCanvas().getWidth() - statsBoard.getWidth() + 5, GlobalVariables.getCanvas().getLayoutY() + 20);
+                        GlobalVariables.getGraphicContext().fillText(healthText, GlobalVariables.getCanvas().getWidth() - statsBoard.getWidth() + 5, GlobalVariables.getCanvas().getLayoutY() + 20);
 
                         monsterCounter.addAndGet(1);
                         if (monsterCounter.get() == 300) {
@@ -777,7 +661,7 @@ public class Main extends Application {
                         }
 
                         for (Sprite monster : monstersToRender) {
-                            monster.render(gc);
+                            monster.render(GlobalVariables.getGraphicContext());
                         }
 
                         //Spraying the monsters
@@ -813,7 +697,7 @@ public class Main extends Application {
                             }
                         }
 
-                        AchievementManager AM = new AchievementManager(GlobalVariables.getPlayer(), gc, root);
+                        AchievementManager AM = new AchievementManager(GlobalVariables.getPlayer(), GlobalVariables.getGraphicContext(), root);
                         GameMessage GM = new GameMessage(GlobalVariables.getPlayer(), root);
 
                         //Collision with monsters

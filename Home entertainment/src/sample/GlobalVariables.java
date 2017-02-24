@@ -1,6 +1,7 @@
 package sample;
 
 import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.media.AudioClip;
 
 import java.util.ArrayDeque;
@@ -9,8 +10,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class GlobalVariables {
     private static final String PROJECT_PATH = System.getProperty("user.dir");
-    private static final boolean[] _mute = {false};
 
+    private static final boolean[] _mute = {false};
     private static Player _player;
     private static ArrayList<String> _input;
     private static AudioClip _walking, _running, _wallHit;
@@ -18,6 +19,7 @@ public class GlobalVariables {
     private static ArrayDeque<String> _playerDownImages, _playerRightImages, _playerLeftImages, _playerUpImages;
     private static Canvas _canvas = new Canvas(1024, 768);
     private static String _direction;
+    private static GraphicsContext gc = _canvas.getGraphicsContext2D();
 
     public static Player getPlayer() {
         return _player;
@@ -81,6 +83,9 @@ public class GlobalVariables {
 
     public static void setPlayerDownImages(ArrayDeque<String> playerDownImages) {
         _playerDownImages = playerDownImages;
+        GlobalVariables.getPlayerDownImages().addLast("img/playerFront0.png");
+        GlobalVariables.getPlayerDownImages().addLast("img/playerFront1.png");
+        GlobalVariables.getPlayerDownImages().addLast("img/playerFront2.png");
     }
 
     public static ArrayDeque<String> getPlayerRightImages() {
@@ -89,6 +94,9 @@ public class GlobalVariables {
 
     public static void setPlayerRightImages(ArrayDeque<String> playerRightImages) {
         _playerRightImages = playerRightImages;
+        GlobalVariables.getPlayerRightImages().addLast("img/playerRight0.png");
+        GlobalVariables.getPlayerRightImages().addLast("img/playerRight1.png");
+        GlobalVariables.getPlayerRightImages().addLast("img/playerRight2.png");
     }
 
     public static ArrayDeque<String> getPlayerLeftImages() {
@@ -97,6 +105,9 @@ public class GlobalVariables {
 
     public static void setPlayerLeftImages(ArrayDeque<String> playerLeftImages) {
         _playerLeftImages = playerLeftImages;
+        GlobalVariables.getPlayerLeftImages().addLast("img/playerLeft0.png");
+        GlobalVariables.getPlayerLeftImages().addLast("img/playerLeft1.png");
+        GlobalVariables.getPlayerLeftImages().addLast("img/playerLeft2.png");
     }
 
     public static ArrayDeque<String> getPlayerUpImages() {
@@ -105,6 +116,9 @@ public class GlobalVariables {
 
     public static void setPlayerUpImages(ArrayDeque<String> playerUpImages) {
         _playerUpImages = playerUpImages;
+        GlobalVariables.getPlayerUpImages().addLast("img/playerBack0.png");
+        GlobalVariables.getPlayerUpImages().addLast("img/playerBack1.png");
+        GlobalVariables.getPlayerUpImages().addLast("img/playerBack2.png");
     }
 
     public static Canvas getCanvas() {
@@ -125,5 +139,9 @@ public class GlobalVariables {
 
     public static String getProjectPath() {
         return PROJECT_PATH;
+    }
+
+    public static GraphicsContext getGraphicContext () {
+        return gc;
     }
 }
