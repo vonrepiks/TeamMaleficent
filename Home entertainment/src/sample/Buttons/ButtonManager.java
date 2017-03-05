@@ -122,11 +122,11 @@ public class ButtonManager {
 
     }
 
-    public static Button getButtonMenu() {
+    static Button getButtonMenu() {
         return buttonMenu;
     }
 
-    public static Button getButtonStart() {
+    static Button getButtonStart() {
         return buttonStart;
     }
 
@@ -134,11 +134,11 @@ public class ButtonManager {
         return buttonQuit;
     }
 
-    public static Button getButtonClose() {
+    static Button getButtonClose() {
         return buttonClose;
     }
 
-    public static Button getButtonSound() {
+    static Button getButtonSound() {
         return buttonSound;
     }
 
@@ -146,7 +146,7 @@ public class ButtonManager {
         return buttonStartNewGame;
     }
 
-    public static Button getButtonResume() {
+    static Button getButtonResume() {
         return buttonResume;
     }
 
@@ -154,35 +154,35 @@ public class ButtonManager {
         return blinkedButton;
     }
 
-    public static Text getMenuTitle() {
+    static Text getMenuTitle() {
         return menuTitle;
     }
 
-    public static Text getMenuSoundText1() {
+    static Text getMenuSoundText1() {
         return menuSoundText1;
     }
 
-    public static Text getMenuSoundText2() {
+    static Text getMenuSoundText2() {
         return menuSoundText2;
     }
 
-    public static Text getKeyboardGuideTitle() {
+    static Text getKeyboardGuideTitle() {
         return keyboardGuideTitle;
     }
 
-    public static Text getKeyboardGuide() {
+    static Text getKeyboardGuide() {
         return keyboardGuide;
     }
 
-    public static Image[] getImageSound() {
+    static Image[] getImageSound() {
         return imageSound;
     }
 
-    public static boolean[] getIsMainWindow() {
+    static boolean[] getIsMainWindow() {
         return isMainWindow;
     }
 
-    public static Rectangle getMenu() {
+    static Rectangle getMenu() {
         return menu;
     }
 }

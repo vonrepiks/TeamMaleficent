@@ -75,6 +75,7 @@ public class Main extends Application {
         GraphicDisplayer.displayIntroduce();
 
         //Display all objects in the house.
+        System.out.println(GlobalVariables.getProjectPath());
         GraphicDisplayer.displayObjects();
 
         // Load sounds

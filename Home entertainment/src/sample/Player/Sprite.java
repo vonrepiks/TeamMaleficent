@@ -12,7 +12,7 @@ public class Sprite {
     private double velocityY;
     private double width;
     private double height;
-    public boolean hasAlreadyHit = false;
+    boolean hasAlreadyHit = false;
 
     public Sprite() {
         positionX = 0;
@@ -27,17 +27,17 @@ public class Sprite {
         height = i.getHeight();
     }
 
-    public void setImage(String filename) {
+    void setImage(String filename) {
         Image i = new Image(filename, 45, 120, false, false);
         setImage(i);
     }
 
-    public void setSprayImage(String filename) {
+    void setSprayImage(String filename) {
         Image i = new Image(filename, 70, 120, false, false);
         setImage(i);
     }
 
-    public Rectangle2D sprayBoundary() {
+    Rectangle2D sprayBoundary() {
         return new Rectangle2D(positionX, positionY, width+50, height+50);
     }
 
@@ -67,7 +67,7 @@ public class Sprite {
         velocityY = y;
     }
 
-    public void addVelocity(double x, double y) {
+    void addVelocity(double x, double y) {
         velocityX += x;
         velocityY += y;
     }

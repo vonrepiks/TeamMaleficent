@@ -7,8 +7,8 @@ import javafx.animation.Timeline;
 import javafx.scene.Node;
 import javafx.util.Duration;
 
-public class Blinker {
-    public static Timeline createBlinker(Node node) {
+class Blinker {
+    static Timeline createBlinker(Node node) {
         Timeline blink = new Timeline(
                 new KeyFrame(
                         Duration.seconds(0),

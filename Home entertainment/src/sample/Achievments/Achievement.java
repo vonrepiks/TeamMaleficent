@@ -4,12 +4,27 @@ import sample.Player.Sprite;
 
 public class Achievement extends Sprite {
 
-    public String type = null;
-    public String unlockingText = null;
+    private String type;
+    private String unlockingText;
 
-    public Achievement(String type, String unlockingText)
-    {
+    Achievement(String type, String unlockingText) {
+        this.setType(type);
+        this.setUnlockingText(unlockingText);
+    }
+
+    public final String getType() {
+        return this.type;
+    }
+
+    private void setType(String type) {
         this.type = type;
+    }
+
+    final String getUnlockingText() {
+        return this.unlockingText;
+    }
+
+    private void setUnlockingText(String unlockingText) {
         this.unlockingText = unlockingText;
     }
 }

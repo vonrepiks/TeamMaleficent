@@ -3,6 +3,7 @@ package sample;
 import javafx.scene.Group;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.image.Image;
 import javafx.scene.media.AudioClip;
 import sample.Player.Player;
 import sample.Player.Sprite;
@@ -11,16 +12,49 @@ import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class GlobalVariables {
-    private static final String PROJECT_PATH = System.getProperty("user.dir");
 
-    private static Group root = new Group();
+    private static final String PROJECT_PATH = System.getProperty("user.dir") + "/Home entertainment";
+    private static final int CANVAS_HEIGHT = 768;
+    private static final int CANVAS_WIDTH = 1024;
+
+    //borders Kitchen
+    public static final double KITCHEN_X = 20;
+    public static final double KITCHEN_Y = 100;
+    public static final double KITCHEN_WIDTH = 496;
+    public static final double KITCHEN_HEIGHT = 364;
+
+    //borders Living room
+    public static final double LIVING_ROOM_X = 20;
+    public static final double LIVING_ROOM_Y = 484;
+    public static final double LIVING_ROOM_WIDTH = 600;
+    public static final double LIVING_ROOM_HEIGHT = 244;
+
+    //borders Bedroom
+    public static final double BEDROOM_X = 536;
+    public static final double BEDROOM_Y = 100;
+    public static final double BEDROOM_WIDTH = 468;
+    public static final double BEDROOM_HEIGHT = 364;
+
+    //borders Bathroom
+    public static final double BATHROOM_X = 640;
+    public static final double BATHROOM_Y = 484;
+    public static final double BATHROOM_WIDTH = 364;
+    public static final double BATHROOM_HEIGHT = 244;
+
+    // Create Image and ImageView objects
+    public static Image brickSingleHorizontal = new Image("img/brickSingleHorizontal.png");
+    public static Image brickSingleVert = new Image("img/brickSingleVert.png");
+    public static Image wallShort = new Image("img/wallShort.png");
+    public static Image wallColon = new Image("img/wallColon.png");
+
     private static final boolean[] _mute = {false};
+    private static Group root = new Group();
     private static Player _player;
     private static ArrayList<String> _input;
     private static AudioClip _walking, _running, _wallHit;
     private static AtomicInteger _stepCounter;
     private static ArrayDeque<String> _playerDownImages, _playerRightImages, _playerLeftImages, _playerUpImages;
-    private static Canvas _canvas = new Canvas(1024, 768);
+    private static Canvas _canvas = new Canvas(CANVAS_WIDTH, CANVAS_HEIGHT);
     private static String _direction;
     private static GraphicsContext gc = _canvas.getGraphicsContext2D();
     private static ArrayList<Sprite> monstersToRender;
@@ -38,7 +72,7 @@ public class GlobalVariables {
         return _input;
     }
 
-    public static void setInput(ArrayList<String> input) {
+    static void setInput(ArrayList<String> input) {
         _input = input;
     }
 
@@ -86,7 +120,7 @@ public class GlobalVariables {
         return _playerDownImages;
     }
 
-    public static void setPlayerDownImages(ArrayDeque<String> playerDownImages) {
+    static void setPlayerDownImages(ArrayDeque<String> playerDownImages) {
         _playerDownImages = playerDownImages;
         GlobalVariables.getPlayerDownImages().addLast("img/playerFront0.png");
         GlobalVariables.getPlayerDownImages().addLast("img/playerFront1.png");
@@ -97,7 +131,7 @@ public class GlobalVariables {
         return _playerRightImages;
     }
 
-    public static void setPlayerRightImages(ArrayDeque<String> playerRightImages) {
+    static void setPlayerRightImages(ArrayDeque<String> playerRightImages) {
         _playerRightImages = playerRightImages;
         GlobalVariables.getPlayerRightImages().addLast("img/playerRight0.png");
         GlobalVariables.getPlayerRightImages().addLast("img/playerRight1.png");
@@ -108,7 +142,7 @@ public class GlobalVariables {
         return _playerLeftImages;
     }
 
-    public static void setPlayerLeftImages(ArrayDeque<String> playerLeftImages) {
+    static void setPlayerLeftImages(ArrayDeque<String> playerLeftImages) {
         _playerLeftImages = playerLeftImages;
         GlobalVariables.getPlayerLeftImages().addLast("img/playerLeft0.png");
         GlobalVariables.getPlayerLeftImages().addLast("img/playerLeft1.png");
@@ -119,7 +153,7 @@ public class GlobalVariables {
         return _playerUpImages;
     }
 
-    public static void setPlayerUpImages(ArrayDeque<String> playerUpImages) {
+    static void setPlayerUpImages(ArrayDeque<String> playerUpImages) {
         _playerUpImages = playerUpImages;
         GlobalVariables.getPlayerUpImages().addLast("img/playerBack0.png");
         GlobalVariables.getPlayerUpImages().addLast("img/playerBack1.png");
@@ -154,7 +188,7 @@ public class GlobalVariables {
         return root;
     }
 
-    public static void setRoot(Group root) {
+    static void setRoot(Group root) {
         GlobalVariables.root = root;
     }
 
@@ -162,7 +196,7 @@ public class GlobalVariables {
         return monstersToRender;
     }
 
-    public static void setMonstersToRender(ArrayList<Sprite> monstersToRender) {
+    static void setMonstersToRender(ArrayList<Sprite> monstersToRender) {
         GlobalVariables.monstersToRender = monstersToRender;
     }
 

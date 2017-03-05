@@ -8,7 +8,7 @@ import sample.Sounds.SoundManager;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import static sample.Graphics.RoomsParameters.brickSingleHorizontal;
+import static sample.GlobalVariables.brickSingleHorizontal;
 
 public class Player extends Sprite {
     private double health;
